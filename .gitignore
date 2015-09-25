@@ -15,3 +15,16 @@
 /log/*
 !/log/.keep
 /tmp
+.DS_Store
+/public/assets*
+newrelic.yml
+.foreman
+.env
+doc/
+*.swp
+*~
+.project
+.idea
+.secret
+/*.iml
+/vendor/bundle
