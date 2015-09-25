@@ -28,4 +28,4 @@ AIITの学生向けの
 
 ## Installation
 
-[[installation wiki page|installation]]
+[installation wiki page](https://github.com/iine/iiname/wiki/installation)
