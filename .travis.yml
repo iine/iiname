@@ -1,3 +1,14 @@
 language: ruby
-ruby:
-  - 2.2.3
+rvm:
+- 2.2.3
+bundler_args: --without development --path vendor/bundle --deployment
+cache:
+  directories:
+  - vendor/bundle
+deploy:
+  provider: heroku
+  api_key:
+    secure: hCYRhAb/FpcPGXZP02vuh+LDfOENH5m/piuON3YcTJm4XsNVTPSnU6zwS0LL+mTeTdv6t5KRvR7jfpxGPCczwdjmaxNw34/A0fKBWlxfJz/RdZOKIpp9v5K1S9UWfFCl+vPqomywlNUI/mAgmQ32xcEO9e7pZvzh5jWCoRE0MFuCgOCdcW4LerGUosTTT99u4AsHobf/90fJf1jWE5MQxqJBOGrCXj1xMK9oK5lJ6BCU5Vtb4KG1AYvXjMVxcVzMgX5aGI1B+lL4UytbAr2lv/STrPNKXus3YPrYUJYrVMzSqWXP/STpjWtNOXHacXOOfsV+gRcn9FLvPAQmvoBifiqe+4QBNY0iXjHEEU+cePJft9yq2+5trSvuvn8O7ldZgmI15cQlIujoL9KRx5yoK8AfC/gvg1AmdsqAAsMlpQfP3yxlAovS7cMO8x3q3vjY/PzXwf/XWyhL3/kVsxAobDXxz6I44jXD/tfwWA5sN6OTarDGkAytyalC2duFX6ljakbmyhSBFvYrZElucVar8sVueL0eB1PcbDRLLMQRB2vLjyt0SdFqkLGHn70U8QM+zddQ0dnHQmzFDd7qsbs/9Qs+vDQShWrHD82LmEl33IczOCCr52tuJ2Zx7A30xBq59wSIsgyEPSBkB/EjYeizYN9d7IHpuprJsWATMks6/f0=
+  app: iiname
+  on:
+    repo: iine/iiname
