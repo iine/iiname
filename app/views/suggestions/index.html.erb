@@ -10,8 +10,8 @@
 
   <script type="text/javascript">
       $(document).ready(function(){
-        $.ajax("/suggestions/any.json", function(res) {
-          $("h1").text(res.data.keyword);
+        $.ajax("/suggestions/any.json").then(function(res) {
+          $("h1").text(res.keyword);
         });
       });
   </script>
