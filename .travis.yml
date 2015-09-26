@@ -1,7 +1,10 @@
 language: ruby
 rvm:
 - 2.2.3
-bundler_args: --without development --path vendor/bundle
+bundler_args: --without development --path vendor/bundle --deployment
+cache:
+  directories:
+  - vendor/bundle
 deploy:
   provider: heroku
   api_key:
