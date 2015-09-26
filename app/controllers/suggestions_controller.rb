@@ -10,16 +10,17 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1
   # GET /suggestions/1.json
   def show
+    @suggestion = Suggestion.all.first
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_suggestion
-      @suggestion = Suggestion.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def suggestion_params
-      params.require(:suggestion).permit(:keyword)
-    end
+    # # Use callbacks to share common setup or constraints between actions.
+    # def set_suggestion
+    #   @suggestion = Suggestion.find(params[:id])
+    # end
+    #
+    # # Never trust parameters from the scary internet, only allow the white list through.
+    # def suggestion_params
+    #   params.require(:suggestion).permit(:keyword)
+    # end
 end
