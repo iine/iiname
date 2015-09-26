@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+  #before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
 
   # GET /suggestions
   # GET /suggestions.json
@@ -10,7 +10,8 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1
   # GET /suggestions/1.json
   def show
-    @suggestion = Suggestion.all.first
+	index = Random.rand(0..Suggestion.all.length - 1)
+	@suggestion = Suggestion.all[index]
   end
 
   private
