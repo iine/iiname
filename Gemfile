@@ -97,7 +97,7 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'mysql2'
+  gem 'pg'
   gem 'unicorn'
   gem 'rails_12factor'
 end
