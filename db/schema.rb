@@ -19,4 +19,10 @@ ActiveRecord::Schema.define(version: 20150926041628) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "team_names", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
