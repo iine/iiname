@@ -5,10 +5,14 @@
 <ul id="list" style="font-size: 200%; list-style-type: none;"></ul>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    function get_suggestion(){
       $.ajax("/suggestions/any.json").then(function(res) {
         $("#highest_suggestion").text(res.keyword);
       });
+    }
+
+    $(document).ready(function(){
+      get_suggestion();
     });
 
     $("#retry").click(function(){
@@ -16,8 +20,6 @@
       "<li>" + $("#highest_suggestion").text() + "</li>" +
       $("#list").html();
       $("#list").html(list);
-      $.ajax("/suggestions/any.json").then(function(res) {
-        $("#highest_suggestion").text(res.keyword);
-      });
+      get_suggestion();
     });
 </script>
