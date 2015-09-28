@@ -1,22 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<div id="highest_suggestion" style="font-size: 1000%;"></div>
-<div id ="retry" style="font-size: 300%; border:">リトライ</div>
-<div id="list"></div>
-
+<div id="highest_suggestion" style="font-size: 500%;"></div>
+<div id ="retry" style="font-size: 300%;">リトライ</div>
+<ul id="list" style="font-size: 200%; list-style-type: none;"></ul>
 <script type="text/javascript">
     $(document).ready(function(){
       $.ajax("/suggestions/any.json").then(function(res) {
         $("#highest_suggestion").text(res.keyword);
       });
-      var list = [res.keyword];
     });
 
     $("#retry").click(function(){
+      var list =
+       "<li>" + $("#highest_suggestion").text() + "</li>" +
+       $("#list").html();
       $.ajax("/suggestions/any.json").then(function(res) {
         $("#highest_suggestion").text(res.keyword);
       });
-      //list.push(res.keyword);
+      $.ajax("/suggestions/any.json").then(function(res) {
+        $("#list").html(list);
+      });
     });
 </script>
 
