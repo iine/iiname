@@ -7,4 +7,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Suggestion.create([{ keyword: 'いいね' }, { keyword: '二郎' }])
+Suggestion.create([{ keyword: 'いいね' },
+                   { keyword: '二郎' },
+									 { keyword: 'VCT' },
+									 { keyword: 'Capricorn' },
+									 { keyword: 'わたしもなれるかも！？' },
+									 { keyword: '河北飯店' },
+                   { keyword: 'tebiti' }])

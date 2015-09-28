@@ -1,28 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1></h1>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="highest_suggestion" style="font-size: 500%;"></div>
+<div id ="retry" style="font-size: 300%;">リトライ</div>
+<ul id="list" style="font-size: 200%; list-style-type: none;"></ul>
 
-  <script type="text/javascript">
-      $(document).ready(function(){
-        $.ajax("/suggestions/any.json").then(function(res) {
-          $("h1").text(res.keyword);
-        });
+<script type="text/javascript">
+    function get_suggestion(){
+      $.ajax("/suggestions/any.json").then(function(res) {
+        $("#highest_suggestion").text(res.keyword);
       });
-  </script>
+    }
 
-  <tbody>
-  <!--
-    <% @suggestions.each do |suggestion| %>
-      <tr>
-        <td><%= suggestion.keyword %></td>
-      </tr>
-    <% end %>
-  -->
-  </tbody>
-</table>
+    $(document).ready(function(){
+      get_suggestion();
+    });
+
+    $("#retry").click(function(){
+      var list =
+      "<li>" + $("#highest_suggestion").text() + "</li>" +
+      $("#list").html();
+      $("#list").html(list);
+      get_suggestion();
+    });
+</script>
