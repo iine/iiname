@@ -13,13 +13,11 @@
 
     $("#retry").click(function(){
       var list =
-       "<li>" + $("#highest_suggestion").text() + "</li>" +
-       $("#list").html();
+      "<li>" + $("#highest_suggestion").text() + "</li>" +
+      $("#list").html();
+      $("#list").html(list);
       $.ajax("/suggestions/any.json").then(function(res) {
         $("#highest_suggestion").text(res.keyword);
-      });
-      $.ajax("/suggestions/any.json").then(function(res) {
-        $("#list").html(list);
       });
     });
 </script>
