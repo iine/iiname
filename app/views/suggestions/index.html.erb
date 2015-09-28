@@ -9,12 +9,14 @@
       $.ajax("/suggestions/any.json").then(function(res) {
         $("#highest_suggestion").text(res.keyword);
       });
+      var list = [res.keyword];
     });
 
     $("#retry").click(function(){
       $.ajax("/suggestions/any.json").then(function(res) {
-        $("h1").text(res.keyword);
+        $("#highest_suggestion").text(res.keyword);
       });
+      //list.push(res.keyword);
     });
 </script>
 
