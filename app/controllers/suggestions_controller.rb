@@ -5,6 +5,7 @@ class SuggestionsController < ApplicationController
   # GET /suggestions.json
   def index
     @suggestions = Suggestion.all
+    @list = find_list
   end
 
   # GET /suggestions/1
@@ -12,6 +13,12 @@ class SuggestionsController < ApplicationController
   def show
 	index = Random.rand(0..Suggestion.all.length - 1)
 	@suggestion = Suggestion.all[index]
+  @list = find_list
+#  @list.add_suggestion(@suggestion)
+  end
+
+  def find_list
+    session[:list] ||= List.new
   end
 
   private
