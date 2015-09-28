@@ -3,6 +3,7 @@
 <div id="highest_suggestion" style="font-size: 500%;"></div>
 <div id ="retry" style="font-size: 300%;">リトライ</div>
 <ul id="list" style="font-size: 200%; list-style-type: none;"></ul>
+
 <script type="text/javascript">
     $(document).ready(function(){
       $.ajax("/suggestions/any.json").then(function(res) {
@@ -22,7 +23,3 @@
       });
     });
 </script>
-
-<%# for item in @list.items %>
-<%#h (item.keyword) %>
-<%# end %>
