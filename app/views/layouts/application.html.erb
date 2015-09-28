@@ -6,10 +6,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body style="text-align: center;">
-<h1>いいねーむ</h1>
-<div style="margin: 0 auto;">
-<%= yield %>
-</div>
+<body>
+  <div class="container">
+    <div class="header clearfix">
+      <h3 class="text-muted">いいねーむ</h3>
+    </div>
+    <%= yield %>
+    <footer class="footer">
+    <p>&copy; team iine 2015</p>
+    </footer>
+  </div>
 </body>
 </html>
