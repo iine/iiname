@@ -1,7 +1,7 @@
 language: ruby
 rvm:
 - 2.2.3
-bundler_args: --without development --path vendor/bundle --deployment
+bundler_args: "--without development --path vendor/bundle --deployment"
 cache:
   directories:
   - vendor/bundle
@@ -12,3 +12,6 @@ deploy:
   app: iiname
   on:
     repo: iine/iiname
+notifications:
+  slack:
+    secure: YIbgA4Ek12KEs7rEW9EAtI+hKU4COrAvFfivUvgT4i6frMEsIFQVuRA+J8+9icePj8XWjdZQJrPepoPaHXkh6iEYpi3fNkKSk9sVjN+mr1jHCyLVvSGpSbyEiTGmQpzY2jsqexq0zs2LHM7tpyOHwRF/001kHMy4+2xVZzy7mAgNhk8GRCVdWVWrNVAhcg+izXikM0it3gx6qSIv6jydBukUoZ3xJuklb29EopJcC5yrNmRDE018CEljsRk+Yz2U5BVs/ESA6K3gtiHDBt2yW15NH/p7Cl2lDJHuN8D06jKRD5emt8bp2nfIdK1hXxjP1E8Fel8rpVfWaePAmzBGdfbdctxQ/Y1rhGxCr5JSs7oxW51mSlfVlduN+4bbraJ5mINQ8wdkfYuirCcsdjnnbVcVfjjhv2sS5X0zvIR5tqHtz+/s9mcszL9lPyqD1Y+INDbrm6uaY/4IOGuBF1v0CazyxGUq6GlBU7HnEqJLhniinMt/rNQsgmHFLiI0zqRmi31XmFsVXguBtXzAH3Q9q94BnUwtijDlc52nuon7O5EU+DNBepoFTo9RhNma3WLy7WD+JMGn+/XsorvavFCguZ+tQ0HB2IjXl67L60a514JaegeDbDMZCprFMD+VdRNiFmGk9akrneBucJerClSOODlj1IWbCuQbbPVsJB6OcMQ=
