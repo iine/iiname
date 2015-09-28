@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1></h1>
+<div id="highest_suggestion" style="font-size: 1000%;"></div>
+<div id ="retry" style="font-size: 300%; border:">リトライ</div>
+<div id="list"></div>
 
 <script type="text/javascript">
     $(document).ready(function(){
+      $.ajax("/suggestions/any.json").then(function(res) {
+        $("#highest_suggestion").text(res.keyword);
+      });
+    });
+
+    $("#retry").click(function(){
       $.ajax("/suggestions/any.json").then(function(res) {
         $("h1").text(res.keyword);
       });
