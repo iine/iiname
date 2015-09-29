@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="iiname">
 <head>
   <title>Iiname</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -8,8 +8,9 @@
 </head>
 <body style="text-align: center;">
 いいねーむ
-<div style="margin: 0 auto;">
+<div style="margin: 0 auto;" class="container">
 <%= yield %>
+<div ng-view></div>
 </div>
 </body>
 </html>

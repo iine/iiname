@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-route
+//= require module
+//= require main_controller
+//= require routes
 //= require_tree .
