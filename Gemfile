@@ -103,4 +103,3 @@ group :production, :staging do
   gem 'unicorn'
   gem 'rails_12factor'
 end
-
