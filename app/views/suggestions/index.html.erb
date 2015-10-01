@@ -1,13 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<div class="jumbotron">
-  <p class="lead">あなたのチーム名は</p>
-  <div id="highest_suggestion" style="font-size: 500%;"></div>
-</div>
-<div class="row">
-  <div class="col-sm-4"><ul id="list" class="list-unstyled" style="font-size: 200%;"></ul></div>
-  <div class="col-sm-8">
-    <p><a id ="retry" class="btn btn-lg btn-success" href="#" role="button">ランダム</a></p>
+<div class="container">
+    <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="suggestion col-md-12">
+      <p class="lead">あなたのチーム名は</p>
+      <div id="highest_suggestion"></div>
+      <p class="lead">です</p>
+    </div>
+    <div class="question col-md-8 col-md-push-4">
+      <p><a id ="retry" class="btn btn-lg btn-primary" href="#" role="button">ランダム</a></p>
+    </div>
+    <div class="list col-md-4 col-md-pull-8">
+      <ul id="list" class="list-unstyled"></ul>
+    </div>
   </div>
 </div>
 
