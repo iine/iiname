@@ -5,6 +5,5 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
   .when("/interests", {templateUrl: "partials/interests.html", controller: "InterestsController"})
   .when("/names", {templateUrl: "partials/names.html", controller: "NamesController"})
   .otherwise({ redirectTo: "/"});
-
   $locationProvider.html5Mode(false);
 }]);
