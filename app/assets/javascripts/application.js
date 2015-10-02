@@ -18,3 +18,5 @@
 //= require main_controller
 //= require routes
 //= require_tree .
+
+//= require bootstrap-sprockets

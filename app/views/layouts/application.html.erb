@@ -6,11 +6,39 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body style="text-align: center;">
-いいねーむ
-<div style="margin: 0 auto;" class="container">
-<%= yield %>
-<div ng-view></div>
-</div>
+<body>
+  <div class="container">
+    <header>
+      <div class="row">
+        <div class="col-md-12">
+          <h1>いいね～む</h1>
+        </div>
+      </div>
+    </header>
+    <div ng-controller="MainController as vm" ng-cloak>
+      <div class="row">
+        <div class="suggestion col-md-12">
+          <p class="lead">あなたのチーム名は</p>
+          <div id="highest_suggestion">{{vm.keyword}}</div>
+          <p class="lead">です</p>
+        </div>
+      </div>
+      <%= yield %>
+      <div class="row">
+        <div class="list col-md-4 col-md-pull-8">
+          <ul id="list" class="list-unstyled" ng-repeat="element in vm.list track by $index">
+            <li>{{element}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="row">
+        <div class="col-md-12">
+          <p>&copy; team iine 2015</p>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

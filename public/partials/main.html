@@ -1,6 +1,6 @@
-<div ng-controller="MainController as vm">
-main
-<p>keyword is {{vm.keyword}}</p>
-
-<p><a ng-href="#/place">出身地を入力する</a></p>
+<div class="row" ng-controller="IndexController as index">
+  <div class="question col-md-8 col-md-push-4">
+    <p><a id ="retry" class="btn btn-lg btn-primary" role="button" ng-click="index.retry()">ランダム</a></p>
+    <p><a ng-href="#/place">出身地を入力する</a></p>
+  </div>
 </div>

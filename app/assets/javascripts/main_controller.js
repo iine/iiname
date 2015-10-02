@@ -1,6 +1,4 @@
-app.controller("MainController", ["$http", function($http) {
+app.controller("MainController", ["$scope", function($scope) {
   var vm = this;
-  $http.get("/suggestions/any.json").then(function(res){
-    vm.keyword = res.data.keyword;
-  });
+  vm.list = [];
 }]);

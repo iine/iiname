@@ -1,0 +1,35 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+header{
+  background-color: #999;
+}
+
+h1{
+  font-size: 200%;
+  color: #fff;
+}
+
+footer{
+  text-align: center;
+}
+
+#highest_suggestion{
+	font-size: 500%;
+  color: #000;
+}
+
+.suggestion{
+	padding: 20px;
+  text-align: center;
+}
+
+.list{
+	padding: 200px, 0, 0, 0;
+  font-size: 150%;
+}
+
+.question{
+	padding: 20px;
+	height: 200px;
+}

@@ -1,25 +1,2 @@
 <p id="notice"><%= notice %></p>
-
-<div id="highest_suggestion" style="font-size: 500%;"></div>
-<div id ="retry" style="font-size: 300%;">リトライ</div>
-<ul id="list" style="font-size: 200%; list-style-type: none;"></ul>
-
-<script type="text/javascript">
-    function get_suggestion(){
-      $.ajax("/suggestions/any.json").then(function(res) {
-        $("#highest_suggestion").text(res.keyword);
-      });
-    }
-
-    $(document).ready(function(){
-      get_suggestion();
-    });
-
-    $("#retry").click(function(){
-      var list =
-      "<li>" + $("#highest_suggestion").text() + "</li>" +
-      $("#list").html();
-      $("#list").html(list);
-      get_suggestion();
-    });
-</script>
+<div ng-view></div>
