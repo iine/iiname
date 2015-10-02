@@ -22,9 +22,7 @@
           <div id="highest_suggestion">{{vm.keyword}}</div>
           <p class="lead">です</p>
         </div>
-      </div>
-      <%= yield %>
-      <div class="row">
+        <%= yield %>
         <div class="list col-md-4 col-md-pull-8">
           <ul id="list" class="list-unstyled" ng-repeat="element in vm.list track by $index">
             <li>{{element}}</li>
