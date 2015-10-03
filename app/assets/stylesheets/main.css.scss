@@ -33,3 +33,9 @@ footer{
 	padding: 20px;
 	height: 200px;
 }
+
+html.feature-toggle-disabled {
+  .feature-toggle {
+    display: none;
+  }
+}
