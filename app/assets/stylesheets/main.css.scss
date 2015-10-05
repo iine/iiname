@@ -33,3 +33,19 @@ footer{
 	padding: 20px;
 	height: 200px;
 }
+
+/* 画像 */
+#image{
+  margin: 0 auto 0 auto;
+  cursor:pointer;
+}
+#image:hover{
+  opacity: 0.8;
+}
+#image.pushed{
+  box-shadow: 0 2px 0 #0088cc;
+}
+#interest{
+  font-size: 500%;
+}
+/* 画像 */
