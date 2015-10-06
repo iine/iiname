@@ -35,14 +35,14 @@ footer{
 }
 
 /* 画像 */
-#image{
+.image{
   margin: 0 auto 0 auto;
   cursor:pointer;
 }
-#image:hover{
+.image:hover{
   opacity: 0.8;
 }
-#image.pushed{
+.image.pushed{
   box-shadow: 0 2px 0 #0088cc;
 }
 #interest{
