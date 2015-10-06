@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Prefectures</h1>
+<body>
+
+  <form action=""method="post">
+    <p>出身地はどこですか？</p>  
+  <p>
+    <select>
+    <% @prefectures.each do | prefecture | %>
+    <option value="<%= prefecture.id %>"><%= prefecture.prefecture %></option>
+    <% end %>
+    </select>
+  </p>
+  </form>
+</body>
