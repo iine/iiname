@@ -24,4 +24,5 @@
 
 <br>
 
-<%= link_to 'New Status', new_status_path %>
+<%= link_to 'New Status', new_status_path %><br />
+<%= button_to 'status', controller: "statuses", action: "create", keyword: "あああ", data: { confirm: 'Are you sure?' }%>
