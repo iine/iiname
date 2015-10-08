@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Keyword</th>
-      <th colspan="3"></th>
+      <th>最近使用されたキーワード</th>
     </tr>
   </thead>
 
@@ -14,15 +13,9 @@
     <% @statuses.each do |status| %>
       <tr>
         <td><%= status.keyword %></td>
-        <td><%= link_to 'Show', status %></td>
-        <td><%= link_to 'Edit', edit_status_path(status) %></td>
-        <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Status', new_status_path %><br />
-<%= button_to 'status', controller: "statuses", action: "create", keyword: "あああ", data: { confirm: 'Are you sure?' }%>
+<%= button_to 'このチーム名を使用する', controller: "statuses", action: "create", method: :post, keyword: "ボタン" %>
+<%= link_to('このチーム名を使用する', controller: "statuses", action: "create", keyword: "hoge", :method => :post) %>
