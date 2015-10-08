@@ -31,21 +31,33 @@ footer{
 
 .question{
 	padding: 20px;
+/*
 	height: 200px;
+ */
 }
 
 /* 画像 */
 .image{
-  margin: 0 auto 0 auto;
+  display: block;
+  width: auto;
+/*
+  margin-right: 0 auto;
+  margin-left : 0 auto;
+*/
   cursor:pointer;
 }
 .image:hover{
   opacity: 0.8;
 }
-.image.pushed{
+.image::after{
   box-shadow: 0 2px 0 #0088cc;
 }
-#interest{
-  font-size: 500%;
+#imageleft{
+  max-width: 300px;
+  height: auto;
+}
+#imageright{
+  max-width: 300px;
+  height: auto;
 }
 /* 画像 */
