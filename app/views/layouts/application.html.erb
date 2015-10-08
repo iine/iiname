@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="iiname">
+<html ng-app="iiname" class="<%= 'feature-toggle-disabled' if Rails.env.production? %>">
 <head>
   <title>Iiname</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
