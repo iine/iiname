@@ -88,3 +88,9 @@ footer{
   opacity: 0.8;
 }
 /* 画像 */
+
+html.feature-toggle-disabled {
+  .feature-toggle {
+    display: none;
+  }
+}
