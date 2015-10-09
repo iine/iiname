@@ -18,10 +18,18 @@
     <div ng-controller="MainController as vm" ng-cloak>
       <div class="row">
         <div class="suggestion col-md-12">
+          <p id="notice"><%= notice %></p>
           <p class="lead">あなたのチーム名は</p>
-          <div id="highest_suggestion">{{vm.keyword}}</div>
+          <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post"><div id="highest_suggestion">{{vm.keyword}}</div></a>
           <p class="lead">です</p>
         </div>
+<script>
+$('.confirm').click(function() {
+	if (!confirm('このチーム名を使用しますか？')) {
+		return false;
+	}
+});
+</script>
         <%= yield %>
         <div class="list col-md-4 col-md-pull-8">
           <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">

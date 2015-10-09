@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :statuses, only: [:index, :create]
   root "suggestions#index"
   resources :suggestions
 

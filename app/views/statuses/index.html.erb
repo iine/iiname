@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>最近使用されたキーワード</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td><%= status.keyword %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
