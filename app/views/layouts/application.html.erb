@@ -20,7 +20,8 @@
         <div class="suggestion col-md-12">
           <p id="notice"><%= notice %></p>
           <p class="lead">あなたのチーム名は</p>
-          <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post"><div id="highest_suggestion">{{vm.keyword}}</div></a>
+          <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
+            <div id="highest_suggestion" ng-bind="vm.keyword"></div></a>
           <p class="lead">です</p>
         </div>
 <script>
