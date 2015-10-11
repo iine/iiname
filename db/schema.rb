@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003020131) do
+ActiveRecord::Schema.define(version: 20151008052200) do
 
   create_table "prefectures", force: :cascade do |t|
     t.string   "prefecture"
     t.integer  "prefecture_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.text     "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "suggestions", force: :cascade do |t|

@@ -31,5 +31,66 @@ footer{
 
 .question{
 	padding: 20px;
+/*
 	height: 200px;
+ */
+}
+
+/* 画像 */
+.image{
+  display: block;
+  width: auto;
+/*
+  margin-right: 0 auto;
+  margin-left : 0 auto;
+*/
+  cursor:pointer;
+}
+.click {
+    background: blue;
+    /*
+    width: 100px;
+    height: 100px;
+    */
+    line-height: 100px;
+    color: #fff;
+    margin: auto;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.click:active {
+    -webkit-box-shadow:
+    0 0 0 15px #fff,
+    0 0 0 18px blue;
+    -moz-box-shadow:
+        0 0 0 15px #fff,
+    0 0 0 18px blue;
+    box-shadow:
+        0 0 0 15px #fff,
+    0 0 0 18px blue;
+}
+#imageleft{
+  max-width: 300px;
+  height: auto;
+}
+#imageleft:hover{
+  opacity: 0.8;
+}
+#imageright{
+  max-width: 300px;
+  height: auto;
+}
+#imageright:hover{
+  opacity: 0.8;
+}
+/* 画像 */
+
+html.feature-toggle-disabled {
+  .feature-toggle {
+    display: none;
+  }
 }
