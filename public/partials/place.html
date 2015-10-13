@@ -1,5 +1,11 @@
-<div ng-controller="PlaceController as place">
+<div ng-controller="PlaceController as vm">
   <div class="question col-md-8 col-md-push-4">
+    <p ng-cloak>
+      <select ng-model="vm.prefecture_id" ng-change="vm.select()">
+      <option value="{{pref.id}}" ng-repeat="pref in vm.prefectures" ng-bind="pref.prefecture"></option>
+      </select>
+    </p>
+
     <p><a ng-href="#/interests">興味のある画像を選択する</a></p>
     <p><a ng-href="#/">戻る</a></p>
   </div>

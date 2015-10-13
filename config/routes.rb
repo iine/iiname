@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :statuses, only: [:index, :create]
   root "suggestions#index"
+
+  resources :prefectures, only: [:index]
+  resources :statuses, only: [:index, :create]
   resources :suggestions
 
   resources :names, only: [] do
