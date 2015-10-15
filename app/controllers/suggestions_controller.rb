@@ -10,8 +10,16 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1
   # GET /suggestions/1.json
   def show
-	index = Random.rand(0..Suggestion.all.length - 1)
-	@suggestion = Suggestion.all[index]
+    if params["interests"].present?
+      # ここに、興味の画像が選択された時の処理を書く
+      # params["interests"]に配列で選択した画像の値(現状では"left", "right"のどちらか)が入っているので適当に使う
+      keyword = "test#{Random.rand}"
+      render json: {keyword: keyword} and return
+    end
+    unless @suggestion.present?
+      index = Random.rand(0..Suggestion.all.length - 1)
+      @suggestion = Suggestion.all[index]
+    end
   end
 
   private
