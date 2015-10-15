@@ -11,12 +11,11 @@ app.controller("InterestsController", ["$http", "$scope", function($http, $scope
   vm.iright = function() {
     vm.inames.push("right");
     vm.get_suggestion();
-  }
+  };
 
   vm.get_suggestion = function() {
     $http.get("/suggestions/any.json", {params: {"interests[]": vm.inames }}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
     });
   };
-
 }]);
