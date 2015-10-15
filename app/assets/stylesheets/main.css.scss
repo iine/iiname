@@ -3,6 +3,12 @@
 
 header{
   background-color: #999;
+  padding-left: 20px;
+  h1{
+    a{
+      color: #fff;
+    }
+  }
 }
 
 h1{
@@ -15,24 +21,24 @@ footer{
 }
 
 #highest_suggestion{
-	font-size: 500%;
+  font-size: 500%;
   color: #000;
 }
 
 .suggestion{
-	padding: 20px;
+  padding: 20px;
   text-align: center;
 }
 
 .list{
-	padding: 200px, 0, 0, 0;
+  padding: 200px, 0, 0, 0;
   font-size: 150%;
 }
 
 .question{
-	padding: 20px;
+  padding: 20px;
 /*
-	height: 200px;
+  height: 200px;
  */
 }
 
