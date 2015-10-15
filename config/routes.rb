@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :prefectures, only: [:index]
 
   resources :statuses, only: [:index, :create]
-  get "is/:id" => "statuses#result"
+  get "is/:name" => "statuses#result"
 
   resources :suggestions
 
