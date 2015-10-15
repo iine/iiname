@@ -16,6 +16,10 @@ class StatusesController < ApplicationController
       end
   end
 
+  def result
+    render :text => "id = #{params[:id]}"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status

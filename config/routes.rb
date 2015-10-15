@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root "suggestions#index"
 
   resources :prefectures, only: [:index]
+
   resources :statuses, only: [:index, :create]
+  get "is/:id" => "statuses#result"
+
   resources :suggestions
 
   resources :names, only: [] do
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
       get "suggestion"
     end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
