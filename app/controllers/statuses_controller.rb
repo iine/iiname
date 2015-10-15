@@ -10,7 +10,7 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(keyword: params[:keyword])
       if @status.save
-        redirect_to '/is/'+params[:keyword], notice: "チーム名『#{params[:keyword]}』が登録されました。またのご利用をお待ちしています。"
+        redirect_to '/is/'+CGI.escape(params[:keyword]), notice: "チーム名『#{params[:keyword]}』が登録されました。またのご利用をお待ちしています。"
       else
         redirect_to root_path
       end
