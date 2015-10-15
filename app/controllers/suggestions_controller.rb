@@ -13,7 +13,20 @@ class SuggestionsController < ApplicationController
     if params["interests"].present?
       # ここに、興味の画像が選択された時の処理を書く
       # params["interests"]に配列で選択した画像の値(現状では"left", "right"のどちらか)が入っているので適当に使う
-      keyword = "test#{Random.rand}"
+      left = ["Udon", "Sanuki", "Kitsune"]
+      right = ["Soba", "Wanko", "Tanuki"]
+      noodles = ["Noodles", "Japanese food", "Kakiage"]
+
+      params["interests"]
+      case params["interests"].last
+      when "left"
+        keyword = left.sample
+      when "right"
+        keyword = right.sample
+      else
+        keyword = noodles.sample
+      end
+      # あとで使う keyword = "test#{Random.rand}"
       render json: {keyword: keyword} and return
     end
     unless @suggestion.present?
