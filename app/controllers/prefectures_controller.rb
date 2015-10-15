@@ -10,7 +10,8 @@ class PrefecturesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prefecture
-      @prefecture = Prefecture.find(params[:id])
+      params.require(:id, :name)
+      render json: prefecture.prefecture_id.select(:id, :name)
     end
-
+    
 end
