@@ -12,7 +12,7 @@ class PrefecturesController < ApplicationController
       @prefecture = Prefecture.find(prefecture_params)
       render json: {keyword: "#{Random.rand}"}
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prefecture

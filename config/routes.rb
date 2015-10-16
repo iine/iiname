@@ -7,7 +7,7 @@ Rails.application.routes.draw do
         get "suggestion"
     end
   end
-  
+
   resources :statuses, only: [:index, :create]
   resources :suggestions
 
