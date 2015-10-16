@@ -1,39 +1,12 @@
-<div ng-controller="InterestsController as interests">
+<div ng-controller="InterestsController as vm">
   <div class="question col-md-8 col-md-push-4">
     <div class="image">
-      <img id="imageleft" src="/images/sea.jpg" alt="sea">
-      <img id="imageright" src="/images/mountain.jpg" alt="mountain">
+      <img id="imageleft" src="/images/udon.png" alt="sea" ng-click="vm.ileft()">
+      <img id="imageright" src="/images/soba.png" alt="mountain" ng-click="vm.iright()">
     </div>
     <p><a ng-href="#/names">名前を入力する</a></p>
     <p><a ng-href="#/">戻る</a></p>
   </div>
   <script>
-    (function(){
-      "use strict";
-      document.getElementById('imageleft').addEventListener('click', function() {
-        var results = ['Sea', 'Beach', 'Wave',]
-        var result = Math.floor(Math.random() * results.length);
-        document.getElementById('highest_suggestion').innerHTML = results[result];
-      });
-      document.getElementById('imageright').addEventListener('click', function() {
-        var results = ['Mountain', 'Green', 'Forest',]
-        var result = Math.floor(Math.random() * results.length);
-        document.getElementById('highest_suggestion').innerHTML = results[result];
-      })
-      document.getElementById('imageleft').addEventListener('mousedown', function(){
-        this.className = 'click';
-      });
-      document.getElementById('imageleft').addEventListener('mouseup', function(){
-        this.className = '';
-      });
-      document.getElementById('imageright').addEventListener('mousedown', function(){
-        this.className = 'click';
-      });
-      document.getElementById('imageright').addEventListener('mouseup', function(){
-        this.className = '';
-      });
-
-    })();
-
   </script>
 </div>
