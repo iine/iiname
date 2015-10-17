@@ -55,10 +55,15 @@
 	{prefecture: '宮城県'},
 	{prefecture: '鹿児島県'},
 	{prefecture: '沖縄県'}
-	].each do | pref | 
+	].each do | pref |
 		Prefecture.where(pref).first_or_create
 	end
 
 Iiname::Engine.new(mode: :hot_trend).fetch.each do | keyword |
 	Suggestion.where(keyword: keyword).first_or_create
 end
+
+Image.create([
+  {url: 'https://www.pakutaso.com/assets_c/2015/06/PAK85_syokutakubkaraage20150203185651-thumb-1000xauto-18083.jpg', keyword: '唐揚げ'},
+  {url: 'https://www.pakutaso.com/assets_c/2015/09/SAWA_hanbagu-thumb-1000xauto-19147.jpg', keyword: 'ハンバーグ'}
+])
