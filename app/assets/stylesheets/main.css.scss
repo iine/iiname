@@ -21,8 +21,37 @@ footer{
 }
 
 #highest_suggestion{
-  font-size: 500%;
+  font-size: 300%;
   color: #000;
+}
+
+.highest_suggestion_sticky {
+    width:500px;
+    height:140px;
+    background-color:#e0fefe;
+    position: relative;
+    margin:0 auto;
+    display: table-cell;
+  	vertical-align: middle;
+  	text-align: center;
+}
+
+.highest_suggestion_sticky:after {
+    width:400px;
+    height:130px;
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 3px;
+    -webkit-box-shadow: 0 5px 5px #555 ;
+    -moz-box-shadow: 0 5px 5px #555 ;
+    box-shadow: 0 5px 5px #555 ;
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    transform: rotate(2deg);
+    z-index: -1;
 }
 
 .suggestion{
