@@ -29,6 +29,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# User web service api
+gem 'rakuten_web_service'
+gem 'google-search'
+
 gem 'quiet_assets'
 gem 'less-rails'
 gem 'execjs'

@@ -112,6 +112,8 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
     ffi (1.9.10)
     formatador (0.2.5)
     gherkin (2.12.2)
@@ -120,6 +122,8 @@ GEM
     github-markdown (0.6.9)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    google-search (1.0.3)
+      json
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -293,6 +297,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.15.0)
     rake (10.4.2)
+    rakuten_web_service (0.6.3)
+      faraday (~> 0.9.0)
+      faraday_middleware
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -402,6 +409,7 @@ DEPENDENCIES
   execjs
   factory_girl (~> 4.5)
   factory_girl_rails
+  google-search
   guard
   guard-livereload
   guard-minitest
@@ -436,6 +444,7 @@ DEPENDENCIES
   rails-flog
   rails-footnotes!
   rails_12factor
+  rakuten_web_service
   rvt
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
