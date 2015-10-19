@@ -3,7 +3,8 @@
     <div class="suggestion col-md-12">
       <p class="lead">あなたのチーム名は</p>
       <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
-        <div id="highest_suggestion" ng-bind="vm.keyword"></div></a>
+        <span id="highest_suggestion" ng-bind="vm.keyword"></span>
+        <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span></a>
       <p class="lead">です。</p>
     </div>
     <script>
@@ -21,5 +22,3 @@
     </div>
   </div>
 </div>
-
-
