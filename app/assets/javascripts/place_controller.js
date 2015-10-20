@@ -14,4 +14,4 @@ app.controller("PlaceController", ["$http", "$scope", function($http, $scope) {
     $http.get("/prefectures.json").then(function(res) {
         vm.prefectures = res.data;
     });
-}];
+}]);
