@@ -10,9 +10,14 @@ class NamesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should concat params and return as keyword" do
+  # test "should concat params and return as keyword" do
+  #   get :suggestion, @params
+  #   assert_equal @params[:names].join(""), JSON.parse(response.body)["keyword"]
+  # end
+
+  test "should search book title and return as keyword" do
     get :suggestion, @params
-    assert_equal @params[:names].join(""), JSON.parse(response.body)["keyword"]
+    assert_equal "British Logic in the Nineteenth Century", JSON.parse(response.body)["keyword"]
   end
 
 end
