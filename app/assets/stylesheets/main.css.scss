@@ -16,8 +16,21 @@ h1{
   color: #fff;
 }
 
+ul {
+  li {
+    list-style: none;
+  }
+}
+
 footer{
   text-align: center;
+}
+
+ul.menu {
+  margin: 10px;
+  li {
+    padding: 5px;
+  }
 }
 
 #highest_suggestion{
