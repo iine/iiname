@@ -10,7 +10,7 @@ class NamesController < ApplicationController
   def suggestion
     #render json: {keyword: suggestion_params.join("")}
     #str = "HaHaHa"
-    str = suggenstion_by_rakuten(suggestion_params.join(" "))
+    str = suggestion_by_rakuten(suggestion_params.join(" "))
     render json: {keyword: str}
   end
 
@@ -19,10 +19,11 @@ class NamesController < ApplicationController
     def suggestion_params
       params.require(:names)
     end
-    
+  
+  public
     # get names through web api
-    def suggenstion_by_rakuten(keyword) 
-      puts("start suggenstion_by_rakuten(" << keyword << ")");
+    def suggestion_by_rakuten(keyword) 
+      puts("start suggestion_by_rakuten(" << keyword << ")");
 
       RakutenWebService.configuration do |c|
         c.application_id = ENV["APPID"]

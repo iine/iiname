@@ -17,7 +17,7 @@ class NamesControllerTest < ActionController::TestCase
 
   test "should search book title and return as keyword" do
     get :suggestion, @params
-    assert_equal "British Logic in the Nineteenth Century", JSON.parse(response.body)["keyword"]
+    assert_equal NamesController.new.suggestion_by_rakuten("abc def"), JSON.parse(response.body)["keyword"]
   end
 
 end
