@@ -2,6 +2,7 @@ require 'test_helper'
 
 class NamesControllerTest < ActionController::TestCase
   setup do
+    WebMock.allow_net_connect!
     @params = { names: ["abc", "def"]}
   end
 
