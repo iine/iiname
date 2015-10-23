@@ -54,7 +54,6 @@ gem 'newrelic_rpm'
 gem "rack-contrib", require: "rack/contrib"
 
 gem "addressable"
-gem "google-search"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
