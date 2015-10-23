@@ -49,6 +49,9 @@ gem 'airbrake'
 gem 'newrelic_rpm'
 gem "rack-contrib", require: "rack/contrib"
 
+gem "addressable"
+gem "google-search"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'style-guide'
@@ -91,11 +94,13 @@ group :test do
   gem 'spring'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'minitest-rails'
   gem 'minitest-spec-rails'
   gem 'terminal-notifier-guard'
   gem 'childprocess'
   gem 'database_cleaner'
   gem 'turnip'
+  gem "webmock"
 end
 
 group :production, :staging do
