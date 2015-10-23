@@ -1,10 +1,12 @@
 <div ng-controller="MainController as vm" ng-cloak>
   <div class="row">
     <div class="suggestion col-md-12">
-      <p class="lead">あなたのチーム名は</p>
+      <p class="lead">チーム名</p>
       <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
-        <div id="highest_suggestion" ng-bind="vm.keyword"></div></a>
-      <p class="lead">です。</p>
+        <div class="highest_suggestion_sticky">
+          <span id="highest_suggestion" ng-bind="vm.keyword"></span>
+          <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
+        </div></a>
     </div>
     <script>
     $('.confirm').click(function() {
@@ -21,5 +23,3 @@
     </div>
   </div>
 </div>
-
-

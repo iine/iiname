@@ -2,6 +2,8 @@ require 'test_helper'
 
 class SuggestionsControllerTest < ActionController::TestCase
   setup do
+    @title = "空条承太郎"
+    create_search_stub(@title)
     @suggestion = suggestions(:one)
   end
 
@@ -24,8 +26,14 @@ class SuggestionsControllerTest < ActionController::TestCase
   end
 
   test "should have one of suggestions" do
+    skip "deprecated"
     get :show, id: "any"
     # Suggestion全件の中の任意の1件が取得できていることを確認します
     assert_includes Suggestion.all, assigns(:suggestion)
+  end
+
+  test "should expected keyword" do
+    get :show, id: "any", format: :json
+    assert_equal(@title, JSON.parse(response.body)["keyword"])
   end
 end
