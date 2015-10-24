@@ -5,6 +5,7 @@ class SuggestionsController < ApplicationController
   # GET /suggestions.json
   def index
     @suggestions = Suggestion.all
+    @prefectures = Prefecture.all
   end
 
   # GET /suggestions/1
@@ -29,11 +30,30 @@ class SuggestionsController < ApplicationController
       # あとで使う keyword = "test#{Random.rand}"
       render json: {keyword: keyword} and return
     end
+
+    if params["prefecture_id"].present?
+      hokkaido = ["夕張メロン","白い恋人"]
+      tokyo = ["東京タワー","東京バナナ"]
+      other = ["その他","北海道と東京以外です"]
+
+      case params["prefecture_id"]
+      when "1"
+        keyword = hokkaido.sample
+      when "13"
+        keyword = tokyo.sample
+      else
+        keyword = other.sample
+      end
+
+      render json: {keyword: keyword}
+    end
+
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
       @suggestion = Suggestion.all[index]
     end
   end
+
 
   private
     # # Use callbacks to share common setup or constraints between actions.

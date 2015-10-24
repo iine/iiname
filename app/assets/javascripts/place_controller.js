@@ -6,7 +6,7 @@ app.controller("PlaceController", ["$http", "$scope", function($http, $scope) {
   vm.select = function(e) {
      console.info(vm.prefecture_id);
 
-      　$http.get("/prefectures/suggestion.json", {params: { id: vm.prefecture_id}}).then(function(res) {
+      　$http.get("/suggestions/any.json", {params: { prefecture_id: vm.prefecture_id}}).then(function(res) {
            vm.parent.vm.keyword = res.data.keyword;
       });
   }

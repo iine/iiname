@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   root "suggestions#index"
 
   resources :prefectures, only: [:index] do
-    collection do
-        get "suggestion"
-    end
+  
   end
 
 
