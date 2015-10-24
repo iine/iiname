@@ -45,7 +45,7 @@ class SuggestionsController < ApplicationController
         keyword = other.sample
       end
 
-      render json: {keyword: keyword}
+      render json: {keyword: keyword} and return
     end
 
     unless @suggestion.present?
