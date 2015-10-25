@@ -10,7 +10,7 @@ class NamesController < ApplicationController
   def suggestion
     #render json: {keyword: suggestion_params.join("")}
     #str = "HaHaHa"
-    str = suggestion_by_rakuten(suggestion_params.join(" "))
+    str = suggestion_by_webapi(suggestion_params.join(" "))
     render json: {keyword: str}
   end
 
@@ -22,52 +22,56 @@ class NamesController < ApplicationController
   
   public
     # get names through web api
-    def suggestion_by_rakuten(keyword) 
-      puts("start suggestion_by_rakuten(" << keyword << ")");
+    def suggestion_by_webapi(keyword) 
+      puts("start suggestion_by_webapi(", keyword, ")");
 
+      team_name = "No name"
+
+      # get team name through rakuten api
+      items = suggestion_by_rakuten(keyword)
+      if (items.count != 0) then
+        item = items.first
+      else
+        # get team name through google api
+        item = suggestion_by_google(keyword).first
+      end
+
+      puts("class = ",item.class)
+      puts("#{item.title} by #{item.author}")
+      team_name = item.title
+      return team_name
+    end
+
+    # rakten search
+    def suggestion_by_rakuten(keyword)
+      puts("start suggestion_by_rakuten(", keyword, ")");
+
+      # configure environmental variables
       RakutenWebService.configuration do |c|
         c.application_id = ENV["APPID"]
         c.affiliate_id = ENV["AFID"]
       end
 
-      #items = RakutenWebService::Ichiba::Item.ranking(:age => 30, :sex => 0)
-      #items = RakutenWebService::Books::CD.search(:title => keyword)
-      #items = RakutenWebService::Books::CD.search(:artistName => keyword)
-      items = RakutenWebService::Books::Book.search(:author => keyword)
-      #items = RakutenWebService::Books::Book.search(:title => keyword)
+      #r_items = RakutenWebService::Ichiba::Item.ranking(:age => 30, :sex => 0)
+      #r_items = RakutenWebService::Books::CD.search(:title => keyword)
+      #r_items = RakutenWebService::Books::CD.search(:artistName => keyword)
+      #r_items = RakutenWebService::Books::Book.search(:title => keyword)
+      r_items = RakutenWebService::Books::Book.search(:author => keyword)
 
-      #items.each_with_index do |item, i| puts "#{i}. #{item}" end
+      items = r_items.to_a
+      puts("rakuten_web_service hit #{items.count} items.")
+      #items.each_with_index do |item, i| puts "#{i}: #{item.class} title=#{item.title}" end
+      puts("return is #{items.class}")
+      return items
+    end
 
-      team_name = "No item";
-
-      puts("rakuten_web_service hit #{items.count} items.");
-      if (items.count != 0) then
-        candidate = items.first(1)[0]
-        #puts "#{candidate.author} : #{candidate.title}"
-        puts candidate
-        team_name = candidate.title        
-
-        # items.first(1).each do |item|
-        #   puts "#{item.author} : #{item.title}"
-        #   team_name << item.title
-        # end
-      else
-        # google search
-          
-        Google::Search::Book.new(:query => keyword).first(1).each do |item|
-          puts "#{item.title} by #{item.author} - #{item.index}"
-          team_name = item.title
-        end
-          
-        # g_items = Google::Search::Book.new(:query => keyword)
-        # puts("google search hit #{g_items.count} items.");
-
-        # g_candidate = g_items.first(1)[0]
-        #puts "#{g_candidate.author} : #{g_candidate.title}"
-        #puts g_candidate
-        #team_name = g_candidate.title
-      end
-
-      return team_name
+    # google search
+    def suggestion_by_google(keyword)
+      puts("start suggestion_by_google(" << keyword << ")");
+      items = Google::Search::Book.new(:query => keyword).to_a
+      puts("google_web_service hit #{items.count} items.");
+      # items.each_with_index do |item, i| puts "#{i}: #{item.class} title=#{item.title}" end
+      puts("return is #{items.class}")
+      return items
     end
 end
