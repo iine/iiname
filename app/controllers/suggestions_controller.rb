@@ -50,8 +50,13 @@ class SuggestionsController < ApplicationController
 
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
-      search_results = Iiname::Engine.new(keyword: Suggestion.all[index].keyword).fetch
-      render json: {keyword: search_results.sample.title}
+      origin_keyword = Suggestion.all[index].keyword
+
+      search_results = Iiname::Engine.new(keyword: origin_keyword).fetch
+      searched_keyword = search_results.sample.title
+
+      nouns = MorphologicalAnalyser.new.extract_noun(searched_keyword)
+      render json: {keyword: nouns.sample, searched: searched_keyword, origin: origin_keyword}
     end
   end
 

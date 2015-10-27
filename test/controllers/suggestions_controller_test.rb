@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SuggestionsControllerTest < ActionController::TestCase
   setup do
-    @title = "空条承太郎"
+    @title = "花京院典明"
     create_search_stub(@title)
     @suggestion = suggestions(:one)
   end
@@ -34,6 +34,6 @@ class SuggestionsControllerTest < ActionController::TestCase
 
   test "should expected keyword" do
     get :show, id: "any", format: :json
-    assert_equal(@title, JSON.parse(response.body)["keyword"])
+    assert_includes ["花京院", "典明"], JSON.parse(response.body)["keyword"]
   end
 end
