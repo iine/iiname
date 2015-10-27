@@ -215,6 +215,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
+    okura (0.0.1)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
@@ -438,6 +439,7 @@ DEPENDENCIES
   minitest-rails
   minitest-spec-rails
   newrelic_rpm
+  okura
   omniauth-facebook
   omniauth-github
   omniauth-google-oauth2
