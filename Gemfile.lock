@@ -421,6 +421,7 @@ DEPENDENCIES
   execjs
   factory_girl (~> 4.5)
   factory_girl_rails
+  faraday
   google-search
   guard
   guard-livereload
