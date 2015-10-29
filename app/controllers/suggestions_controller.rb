@@ -51,7 +51,7 @@ class SuggestionsController < ApplicationController
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
       search_results = Iiname::Engine.new(keyword: Suggestion.all[index].keyword).fetch
-      render json: {keyword: search_results.sample.title}
+      render json: {keyword: search_results.sample.title.split(" ").first}
     end
   end
 
