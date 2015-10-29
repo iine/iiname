@@ -2,11 +2,14 @@
   <div class="row">
     <div class="suggestion col-md-12">
       <p class="lead">チーム名</p>
-      <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
-        <div class="highest_suggestion_sticky">
-          <span id="highest_suggestion" ng-bind="vm.keyword"></span>
-          <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
-        </div></a>
+      <div style="margin:0 auto; width:500px;">
+        <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
+          <div class="highest_suggestion_sticky">
+                <span id="highest_suggestion" ng-bind="vm.keyword"></span>
+                <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
+          </div>
+        </a>
+      </div>
     </div>
     <script>
     $('.confirm').click(function() {
