@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 require 'rakuten_web_service'
-#require 'google_search'
 
 class NamesController < ApplicationController
   #before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
@@ -9,7 +8,6 @@ class NamesController < ApplicationController
   # GET /suggestion.json
   def suggestion
     #render json: {keyword: suggestion_params.join("")}
-    #str = "HaHaHa"
     str = suggestion_by_webapi(suggestion_params.join(" "))
     render json: {keyword: str}
   end
