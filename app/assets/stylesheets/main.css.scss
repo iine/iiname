@@ -38,12 +38,16 @@ ul.menu {
   color: #000;
 }
 
+.highest_suggestion_sticky_wrapper {
+  margin:0 auto;
+  width:500px;
+}
+
 .highest_suggestion_sticky {
     width:500px;
     height:140px;
     background-color:#e0fefe;
     position: relative;
-    margin:0 auto;
     display: table-cell;
   	vertical-align: middle;
   	text-align: center;
