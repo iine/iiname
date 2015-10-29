@@ -18,7 +18,6 @@ class StatusesController < ApplicationController
 
   def result
     @name = params[:name]
-    render :layout => 'result'
   end
 
   private

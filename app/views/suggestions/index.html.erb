@@ -2,11 +2,14 @@
   <div class="row">
     <div class="suggestion col-md-12">
       <p class="lead">チーム名</p>
-      <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
-        <div class="highest_suggestion_sticky">
-          <span id="highest_suggestion" ng-bind="vm.keyword"></span>
-          <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
-        </div></a>
+      <div class="highest_suggestion_sticky_wrapper">
+        <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
+          <div class="highest_suggestion_sticky">
+                <span id="highest_suggestion" ng-bind="vm.keyword"></span>
+                <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
+          </div>
+        </a>
+      </div>
     </div>
     <script>
     $('.confirm').click(function() {
@@ -16,7 +19,7 @@
     });
     </script>
     <div ng-view></div>
-    <div class="list col-md-4 col-md-pull-8">
+    <div class="list col-md-12">
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>{{element}}</li>
       </ul>
