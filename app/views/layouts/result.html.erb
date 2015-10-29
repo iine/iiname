@@ -21,7 +21,7 @@
           <p id="notice"><%= notice %></p>
           <%= yield %>
         </div>
-        <div class="list col-md-4 col-md-pull-8">
+        <div class="list col-md-12">
           <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
             <li>{{element}}</li>
           </ul>
