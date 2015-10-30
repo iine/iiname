@@ -4,8 +4,11 @@ app.controller("NamesController", ["$http", "$scope", function($http, $scope) {
   vm.names = [""];
 
   vm.push = function(e) {
+    $("input[type=button]").attr("disabled", true);
     $http.get("/names/suggestion/", {params: {"names[]": vm.names}}).then(function(res) {
       vm.parent.vm.keyword = res.data.keyword;
+    }).finally(function(){
+      $("input[type=button]").attr("disabled", false);
     });
   }
   vm.add = function(e) {
