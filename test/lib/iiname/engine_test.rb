@@ -13,4 +13,10 @@ class Iiname::EngineTest < ActiveSupport::TestCase
   test "should return one result" do
     assert_equal(1, Iiname::Engine.new(keyword: "長嶋茂雄").to_a.size)
   end
+
+  test "should return expected result names" do
+    names = ["空条承太郎", "ジャン=ピエール・ポルナレフ"]
+    create_trend_search_stub(names)
+    assert_equal(names, Iiname::Engine.new(mode: :trend_story).fetch)
+  end
 end

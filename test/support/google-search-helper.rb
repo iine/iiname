@@ -60,4 +60,21 @@ EOJSON
     stub_request(:get, uri_template).
       to_return({body: stub_response}, {body: end_response})
   end
+
+  def create_trend_search_stub(names=["空条承太郎", "花京院典明"])
+    stub_response = <<"EOJSON"
+)]}'
+{
+  "storySummaries": {
+    "trendingStories": [
+      {
+        "entityNames": #{names}
+      }
+    ]
+  }
+}
+EOJSON
+    uri_template = Addressable::Template.new "https://www.google.com/trends/api/stories/latest?cat=all&fi=0&fs=0&geo=JP&ri=300&rs=15&tz=-540"
+    stub_request(:get, uri_template).to_return({body: stub_response})
+  end
 end
