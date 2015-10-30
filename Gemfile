@@ -105,6 +105,7 @@ group :test do
   gem 'database_cleaner'
   gem 'turnip'
   gem "webmock"
+  gem "mocha"
 end
 
 group :production, :staging do
