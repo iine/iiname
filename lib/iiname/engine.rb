@@ -14,23 +14,32 @@ module Iiname
     end
     alias :each :each_item
 
-    def fetch
-      Google::Search::Web.new(query: @keyword, language: @language).to_a
+    # def fetch
+    #   Google::Search::Web.new(query: @keyword, language: @language).to_a
+    # end
+
+    def fetch(mode: "Web")
+      case mode
+      when "Web" then
+        Google::Search::Web.new(query: @keyword, language: @language).to_a
+      when "Book" then
+        search_by_webapi(@keyword)
+      end
     end
 
     # get names through web api
-    def suggestion_by_webapi(keyword) 
-      puts("start suggestion_by_webapi(", keyword, ")");
+    def search_by_webapi(keyword) 
+      puts("start search_by_webapi(", keyword, ")");
 
       team_name = "No name"
 
       # get team name through rakuten api
-      items = suggestion_by_rakuten(keyword)
+      items = search_by_rakuten(keyword)
       if (items.count != 0) then
         item = items.first
       else
         # get team name through google api
-        item = suggestion_by_google(keyword).first
+        item = search_by_google(keyword).first
       end
 
       puts("class = ",item.class)
@@ -40,8 +49,8 @@ module Iiname
     end
 
     # rakten search
-    def suggestion_by_rakuten(keyword)
-      puts("start suggestion_by_rakuten(", keyword, ")");
+    def search_by_rakuten(keyword)
+      puts("start search_by_rakuten(", keyword, ")");
 
       # configure environmental variables
       RakutenWebService.configuration do |c|
@@ -63,8 +72,8 @@ module Iiname
     end
 
     # google search
-    def suggestion_by_google(keyword)
-      puts("start suggestion_by_google(" << keyword << ")");
+    def search_by_google(keyword)
+      puts("start search_by_google(" << keyword << ")");
       items = Google::Search::Book.new(:query => keyword).to_a
       puts("google_web_service hit #{items.count} items.");
       # items.each_with_index do |item, i| puts "#{i}: #{item.class} title=#{item.title}" end
