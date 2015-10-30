@@ -50,8 +50,10 @@ class SuggestionsController < ApplicationController
 
     unless @suggestion.present?
       # index = Random.rand(0..Suggestion.all.length - 1)
-      search_results = Iiname::Engine.new(keyword: Iiname::Engine.new(mode: :trend_story).fetch.sample).fetch
-      render json: {keyword: search_results.sample.title}
+      origin = Iiname::Engine.new(mode: :trend_story).fetch.sample
+      search_results = Iiname::Engine.new(keyword: origin).fetch
+      searched = search_results.sample.title
+      render json: {keyword: searched.split(" ").first, origin: origin, searched: searched}
     end
   end
 
