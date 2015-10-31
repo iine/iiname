@@ -21,6 +21,8 @@ module Iiname
         Google::Search::Web.new(query: @keyword, language: @language).to_a
       when :trend_story
         search_by_trend_story
+      when :hot_trend
+        search_by_hot_trend
       else
         Google::Search::Web.new(query: @keyword, language: @language).to_a
       end
@@ -46,5 +48,19 @@ module Iiname
       end.flatten
     end
 
+    def search_by_hot_trend
+      conn = Faraday.new(:url => 'https://www.google.com') do |builder|
+        builder.request  :url_encoded
+        builder.response :logger
+        builder.adapter  :net_http
+      end
+      response = conn.get "/trends/hottrends/hotItems?ajax=1&pn=p4&htv=l"
+      json = JSON.parse response.body
+      json["trendsByDateList"].map do | date |
+        date["trendsList"].map do | story |
+          story["title"]
+        end
+      end.flatten
+    end
   end
 end
