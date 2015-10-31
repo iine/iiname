@@ -7,6 +7,8 @@ Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
 
 class ActiveSupport::TestCase
   include GoogleSearchHelper
+  include GoogleBookSearchHelper
+  include RakutenSearchHelper
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
