@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 # User web service api
 gem 'rakuten_web_service'
 gem 'google-search'
+gem "faraday"
 
 gem 'quiet_assets'
 gem 'less-rails'
@@ -104,6 +105,7 @@ group :test do
   gem 'database_cleaner'
   gem 'turnip'
   gem "webmock"
+  gem "mocha"
 end
 
 group :production, :staging do
