@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   end
 
+  resources :images
+
+  resources :prefectures, only: [:index]
 
   resources :statuses, only: [:index, :create]
   get "is/:name" => "statuses#result"

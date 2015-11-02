@@ -1,11 +1,20 @@
 <div ng-controller="InterestsController as vm">
   <div class="question col-md-8 col-md-push-4">
-    <div class="image">
-      <img id="imageleft" src="/images/udon.png" alt="sea" ng-click="vm.ileft()">
-      <img id="imageright" src="/images/soba.png" alt="mountain" ng-click="vm.iright()">
-    </div>
-    <!-- <div ng-include="'partials/shared/menu.html'"></div> -->
-    <!-- <p><a ng-href="#/">戻る</a></p> -->
+    <table class="imagetable">
+      <tr>
+        <td>
+          <img class="click" id="image" src="{{vm.images[0].url}}" alt="{{vm.images[0].keyword}}" ng-click="vm.ileft()">
+        </td>
+        <td>
+          <img class="click" id="image" src="{{vm.images[1].url}}" alt="{{vm.images[1].keyword}}" ng-click="vm.icenter()">
+        </td>
+        <td>
+          <img class="click" id="image" src="{{vm.images[2].url}}" alt="{{vm.images[2].keyword}}" ng-click="vm.iright()">
+        </td>
+      </tr>
+    </table>
+    <div ng-include="'partials/shared/menu.html'"></div>
+    <p><a ng-href="#/">戻る</a></p>
   </div>
   <script>
   </script>
