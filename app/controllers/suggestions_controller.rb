@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class SuggestionsController < ApplicationController
   #before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
 
@@ -51,7 +52,8 @@ class SuggestionsController < ApplicationController
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
       search_results = Iiname::Engine.new(keyword: Suggestion.all[index].keyword).fetch
-      render json: {keyword: search_results.sample.title.split(" ").first}
+      #render json: {keyword: search_results.sample.title.split(" ").first}
+      render json: {keyword: search_results.sample.title.split(/[ ,\|「」【】]+/).first}
     end
   end
 
