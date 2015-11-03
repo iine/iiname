@@ -62,9 +62,10 @@ module Iiname
       #r_items = RakutenWebService::Books::CD.search(:title => keyword)
       #r_items = RakutenWebService::Books::CD.search(:artistName => keyword)
       #r_items = RakutenWebService::Books::Book.search(:title => keyword)
-      r_items = RakutenWebService::Books::Book.search(:author => keyword)
+      r_items = RakutenWebService::Books::Book.search(:author => keyword, :page => 1)
 
       items = r_items.to_a
+      
       puts("rakuten_web_service hit #{items.count} items.")
       #items.each_with_index do |item, i| puts "#{i}: #{item.class} title=#{item.title}" end
       puts("return is #{items.class}")

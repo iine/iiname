@@ -9,8 +9,11 @@ class NamesController < ApplicationController
   def suggestion
     #render json: {keyword: suggestion_params.join("")}
 
-    #str = Iiname::Engine.new(params).fetch(mode: "Books", suggestion_params.join(" "))
-    str = Iiname::Engine.new.search_by_webapi(suggestion_params.join(" "))
+    #str = Iiname::Engine.new(params).fetch(mode: "Book", suggestion_params.join(" "))
+    #str = Iiname::Engine.new.search_by_webapi(suggestion_params.join(" "))
+    #str = Iiname::Engine.new(:keyword => suggestion_params.join(" ")).fetch(mode: "Book")
+    str = Iiname::Engine.new(:keyword => suggestion_params.join(" ")).fetch(mode: "Web")
+    puts("str is #{str.class}")
     render json: {keyword: str}
   end
 
