@@ -33,24 +33,19 @@ ul.menu {
   }
 }
 
-#highest_suggestion{
+.suggestion{
+  padding: 20px;
+  text-align: center;
 }
 
-.name{
-  font-size: 300%;
-  color: #000;
-  text-decoration: none;
-   a:hover {
-     text-decoration: none;
-   }
-}
+/* sticky */
 
-.highest_suggestion_sticky_wrapper {
+.sticky_wrapper {
   margin:0 auto;
   width:500px;
 }
 
-.highest_suggestion_sticky {
+.sticky {
     width:500px;
     height:140px;
     background-color:#e0fefe;
@@ -60,7 +55,7 @@ ul.menu {
   	text-align: center;
 }
 
-.highest_suggestion_sticky:after {
+.sticky:after {
     width:400px;
     height:130px;
     content: "";
@@ -78,10 +73,16 @@ ul.menu {
     z-index: -1;
 }
 
-.suggestion{
-  padding: 20px;
-  text-align: center;
+.name{
+  font-size: 300%;
+  color: #000;
+  text-decoration: none;
+   a:hover {
+     text-decoration: none;
+   }
 }
+
+/* sticky end */
 
 .list{
   padding: 200px, 0, 0, 0;
