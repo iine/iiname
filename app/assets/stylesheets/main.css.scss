@@ -76,9 +76,11 @@ ul.menu {
 .name{
   font-size: 300%;
   color: #000;
-  text-decoration: none;
-   a:hover {
+   a {
      text-decoration: none;
+     &:hover {
+       text-decoration: none;
+     }
    }
 }
 

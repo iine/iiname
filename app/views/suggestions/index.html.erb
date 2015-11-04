@@ -1,7 +1,6 @@
 <div ng-controller="MainController as vm" ng-cloak>
   <div class="row">
     <div class="suggestion col-md-12">
-      <p class="lead">チーム名</p>
       <div class="sticky_wrapper">
         <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
           <div class="sticky">
@@ -18,7 +17,8 @@
     }
     });
     </script>
-    <div ng-view></div>
+    <div style="height:500px;"></div>
+    <!-- <div ng-view></div> -->
     <div class="list col-md-12">
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>
