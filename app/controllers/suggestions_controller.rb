@@ -52,8 +52,10 @@ class SuggestionsController < ApplicationController
       index = Random.rand(0..Suggestion.all.length - 1)
       search_results = Iiname::Engine.new(keyword: Suggestion.all[index].keyword).fetch
       t = search_results.sample.title
-      # puts("t = #{t}}")
-      render json: {keyword: t.split(/[ ,:\-\|\.\(\)「」『』【】”　｜／]+/).sample}
+      puts("t = #{t}}")
+      s = t.split( /[ ,:\-\|\.\(\)｜「」『』【】（）]+/).sample[0, 20]
+      puts("s = #{s}")
+      render json: {keyword: s}
     end
   end
 
