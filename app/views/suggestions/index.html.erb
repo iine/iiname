@@ -5,7 +5,7 @@
       <div class="highest_suggestion_sticky_wrapper">
         <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
           <div class="highest_suggestion_sticky">
-                <span id="highest_suggestion" ng-bind="vm.keyword" class="suggestion"></span>
+                <span id="highest_suggestion" ng-bind="vm.keyword" class="name"></span>
                 <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
           </div>
         </a>
@@ -22,15 +22,15 @@
     <div class="list col-md-12">
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>
-        <div class="highest_suggestion_sticky_wrapper">
-          <a href="/statuses?keyword={{element}}"  class="confirm" data-method="post">
-            <div class="highest_suggestion_sticky">
-              <span class="suggestion">
-                {{element}}
-              </span>
-            </div>
-          </a>
-        </div>
+          <div class="highest_suggestion_sticky_wrapper">
+            <a href="/statuses?keyword={{element}}"  class="confirm" data-method="post">
+              <div class="highest_suggestion_sticky">
+                <span class="name">
+                  {{element}}
+                </span>
+              </div>
+            </a>
+          </div>
         </li>
       </ul>
     </div>

@@ -36,9 +36,13 @@ ul.menu {
 #highest_suggestion{
 }
 
-.suggestion{
+.name{
   font-size: 300%;
   color: #000;
+  text-decoration: none;
+   a:hover {
+     text-decoration: none;
+   }
 }
 
 .highest_suggestion_sticky_wrapper {
@@ -81,7 +85,6 @@ ul.menu {
 
 .list{
   padding: 200px, 0, 0, 0;
-  font-size: 150%;
 }
 
 .question{
