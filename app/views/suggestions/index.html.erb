@@ -5,7 +5,7 @@
       <div class="highest_suggestion_sticky_wrapper">
         <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
           <div class="highest_suggestion_sticky">
-                <span id="highest_suggestion" ng-bind="vm.keyword"></span>
+                <span id="highest_suggestion" ng-bind="vm.keyword" class="suggestion"></span>
                 <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
           </div>
         </a>
@@ -25,7 +25,9 @@
         <div class="highest_suggestion_sticky_wrapper">
           <a href="/statuses?keyword={{element}}"  class="confirm" data-method="post">
             <div class="highest_suggestion_sticky">
-              {{element}}
+              <span class="suggestion">
+                {{element}}
+              </span>
             </div>
           </a>
         </div>
