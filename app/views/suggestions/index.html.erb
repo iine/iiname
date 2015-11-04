@@ -21,7 +21,15 @@
     <div ng-view></div>
     <div class="list col-md-12">
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
-        <li>{{element}}</li>
+        <li>
+        <div class="highest_suggestion_sticky_wrapper">
+          <a href="/statuses?keyword={{element}}"  class="confirm" data-method="post">
+            <div class="highest_suggestion_sticky">
+              {{element}}
+            </div>
+          </a>
+        </div>
+        </li>
       </ul>
     </div>
   </div>
