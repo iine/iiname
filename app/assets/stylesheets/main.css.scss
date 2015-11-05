@@ -5,6 +5,7 @@ header{
   height: 150px;
   background-image: image-url("header.jpg");
   background-repeat: no-repeat;
+  background-position: center;
   h1{
     a{
       color: #fff;
@@ -18,7 +19,7 @@ h1{
 }
 
 h2{
-  margin-left: 50px
+  text-align: center;
 }
 
 ul {
@@ -32,6 +33,7 @@ footer{
   height: 150px;
   background-image: image-url("footer.jpg");
   background-repeat: no-repeat;
+  background-position: center;
   text-align: center;
 }
 
@@ -46,12 +48,14 @@ ul.menu {
   height: 50px;
   background-image: image-url("blue.jpg");
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .red_line {
   height: 50px;
   background-image: image-url("red.jpg");
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .suggestion{
