@@ -2,8 +2,9 @@
 @import "bootstrap";
 
 header{
-  background-color: #999;
-  padding-left: 20px;
+  height: 150px;
+  background-image: image-url("header.jpg");
+  background-repeat: no-repeat;
   h1{
     a{
       color: #fff;
@@ -23,6 +24,7 @@ ul {
 }
 
 footer{
+  height: 150px;
   text-align: center;
 }
 
@@ -34,30 +36,27 @@ ul.menu {
 }
 
 .suggestion{
-  padding: 20px;
   text-align: center;
 }
 
 /* sticky */
 
 .sticky_wrapper {
-  margin:0 auto;
-  width:500px;
+  margin: 0 auto;
+  width: 450px;
 }
 
 .sticky {
-    width:500px;
+  width:450px;
+  height:150px;
+  background-color:#e0fefe;
+  position: relative;
+  display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+    &:after {
+    width:440px;
     height:140px;
-    background-color:#e0fefe;
-    position: relative;
-    display: table-cell;
-  	vertical-align: middle;
-  	text-align: center;
-}
-
-.sticky:after {
-    width:400px;
-    height:130px;
     content: "";
     position: absolute;
     top: 0px;
@@ -71,6 +70,7 @@ ul.menu {
     -ms-transform: rotate(2deg);
     transform: rotate(2deg);
     z-index: -1;
+  }
 }
 
 .name{
