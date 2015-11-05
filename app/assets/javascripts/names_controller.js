@@ -1,4 +1,4 @@
-app.controller("NamesController", ["$http", "$scope", function($http, $scope) {
+app.controller("NamesController", ["$http", "$location", "$scope", function($http, $location, $scope) {
   var vm = this;
   vm.parent = $scope.$parent;
   vm.names = [""];
@@ -7,6 +7,7 @@ app.controller("NamesController", ["$http", "$scope", function($http, $scope) {
     $("input[type=button]").attr("disabled", true);
     $http.get("/names/suggestion/", {params: {"names[]": vm.names}}).then(function(res) {
       vm.parent.vm.keyword = res.data.keyword;
+      $location.url("/place");
     }).finally(function(){
       $("input[type=button]").attr("disabled", false);
     });
