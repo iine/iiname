@@ -168,3 +168,15 @@ html.feature-toggle-disabled {
     display: none;
   }
 }
+
+.social_buttons {
+  overflow: hidden;
+}
+.social_buttons li {
+  // display:inline-block;
+  float: left;
+  margin-right: 8px;
+}
+.social_buttons iframe {
+  margin: 0 !important;
+}
