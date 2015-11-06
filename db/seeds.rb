@@ -7,14 +7,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Suggestion.create([{ keyword: 'いいね' },
-                   { keyword: '二郎' },
-									 { keyword: 'VCT' },
-									 { keyword: 'Capricorn' },
-									 { keyword: 'わたしもなれるかも！？' },
-									 { keyword: '河北飯店' },
-                   { keyword: 'tebiti' }])
-
 Prefecture.create([{prefecture: '北海道'},
                    {prefecture: '青森県'},
 				   {prefecture: '岩手県'},
@@ -64,6 +56,6 @@ Prefecture.create([{prefecture: '北海道'},
 				   {prefecture: '沖縄県'}])
 
 Suggestion.destroy_all
-Iiname::Engine.new(mode: :hot_trend).fetch.each do | keyword |
-Suggestion.create({ keyword: keyword })
+	Iiname::Engine.new(mode: :hot_trend).fetch.each do | keyword |
+	Suggestion.where(keyword: keyword).first_or_create
 end
