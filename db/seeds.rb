@@ -62,3 +62,8 @@ Prefecture.create([{prefecture: '北海道'},
 				   {prefecture: '宮城県'},
 				   {prefecture: '鹿児島県'},
 				   {prefecture: '沖縄県'}])
+
+Suggestion.destroy_all
+Iiname::Engine.new(mode: :hot_trend).fetch.each do | keyword |
+Suggestion.create({ keyword: keyword })
+end

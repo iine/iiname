@@ -1,11 +1,10 @@
 <div ng-controller="MainController as vm" ng-cloak>
   <div class="row">
     <div class="suggestion col-md-12">
-      <p class="lead">チーム名</p>
-      <div class="highest_suggestion_sticky_wrapper">
+      <div class="sticky_wrapper">
         <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
-          <div class="highest_suggestion_sticky">
-                <span id="highest_suggestion" ng-bind="vm.keyword"></span>
+          <div class="sticky">
+                <span id="highest_suggestion" ng-bind="vm.keyword" class="name"></span>
                 <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
           </div>
         </a>
@@ -18,10 +17,25 @@
     }
     });
     </script>
-    <div ng-view></div>
+    <!--<div class="list col-md-12">
+      <div class="red_line"></div>
+       <div ng-view></div>
+    </div>-->
     <div class="list col-md-12">
+      <div class="blue_line"></div>
+      <h2>これまでに出たチーム名のアイデア</h2>
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
-        <li>{{element}}</li>
+        <li>
+          <div class="sticky_wrapper">
+            <a href="/statuses?keyword={{element}}"  class="confirm" data-method="post">
+              <div class="sticky">
+                <span class="name">
+                  {{element}}
+                </span>
+              </div>
+            </a>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
