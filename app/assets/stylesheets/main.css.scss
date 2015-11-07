@@ -116,12 +116,8 @@ ul.menu {
 }
 
 /* 画像 */
-.image{
-  cursor:pointer;
-}
-
-.click {
-    background: blue;
+.click{
+    background: #bdbfbf;
     /*
     width: 100px;
     height: 100px;
@@ -136,30 +132,29 @@ ul.menu {
     transition: all 0.2s;
 }
 
-.click:active {
+.click:active{
     -webkit-box-shadow:
     0 0 0 15px #fff,
-    0 0 0 18px blue;
+    0 0 0 18px #44c784;
     -moz-box-shadow:
-        0 0 0 15px #fff,
-    0 0 0 18px blue;
+    0 0 0 15px #fff,
+    0 0 0 18px #44c784;
     box-shadow:
-        0 0 0 15px #fff,
-    0 0 0 18px blue;
+    0 0 0 15px #fff,
+    0 0 0 18px #44c784;
 }
-#imageleft{
-  max-width: 300px;
+#image{
+  max-width: 200px;
   height: auto;
+  // -webkit-filter: brightness(0.2);
+  // -moz-filter: brightness(0.2);
+  // -o-filter: brightness(0.2);
+  // -ms-filter: brightness(0.2);
+  // filter: brightness(0.2);
 }
-#imageleft:hover{
+#image:hover{
   opacity: 0.8;
-}
-#imageright{
-  max-width: 300px;
-  height: auto;
-}
-#imageright:hover{
-  opacity: 0.8;
+  cursor:pointer;
 }
 /* 画像 */
 
