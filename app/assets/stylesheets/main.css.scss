@@ -146,15 +146,18 @@ ul.menu {
 #image{
   max-width: 200px;
   height: auto;
-  // -webkit-filter: brightness(0.2);
-  // -moz-filter: brightness(0.2);
-  // -o-filter: brightness(0.2);
-  // -ms-filter: brightness(0.2);
-  // filter: brightness(0.2);
+  // -webkit-filter: blur(2px);
+  // -moz-filter: blur(2px);
+  // -o-filter: blur(2px);
+  // -ms-filter: blur(2px);
+  // filter: blur(2px);
 }
 #image:hover{
   opacity: 0.8;
   cursor:pointer;
+  transform: translate(0, -5px);
+  transition: transform .5s ease 0;
+  transform: scale(1.2);
 }
 /* 画像 */
 
