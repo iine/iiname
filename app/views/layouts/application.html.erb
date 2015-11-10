@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="iiname" class="<%= 'feature-toggle-disabled' if Rails.env.production? %>">
 <head>
-  <title>Iiname</title>
+  <title>いいね～む</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,6 @@
     <header>
       <div class="row">
         <div class="col-md-12">
-          <h1>いいね～む</h1>
         </div>
       </div>
     </header>
@@ -20,11 +19,14 @@
         <p id="notice"><%= notice %></p>
       </div>
     </div>
+    <h2>「いいね～む」は、チーム名ブレインストーミングツールです</br>
+    どんどんアイデアを出しちゃうよ！</h2>
     <%= yield %>
     <footer class="footer">
       <div class="row">
         <div class="col-md-12">
-          <p>&copy; team iine 2015</p>
+          <p>&nbsp;</p>
+          <p>&copy; Team iine, Advanced Institute of Industrial Technology, enPiT BizApp, 2015</p>
         </div>
       </div>
     </footer>

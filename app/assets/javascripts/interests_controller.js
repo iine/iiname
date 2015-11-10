@@ -1,21 +1,30 @@
-app.controller("InterestsController", ["$http", "$scope", function($http, $scope) {
+app.controller("InterestsController", ["$http", "$location", "$scope", function($http, $location, $scope) {
   var vm = this;
   vm.parent = $scope.$parent;
-  vm.inames = [];
+  // vm.inames = [];
+  vm.images = [];
 
   vm.ileft = function() {
-    vm.inames.push("left");
-    vm.get_suggestion();
-  };
-
-  vm.iright = function() {
-    vm.inames.push("right");
-    vm.get_suggestion();
-  };
-
-  vm.get_suggestion = function() {
-    $http.get("/suggestions/any.json", {params: {"interests[]": vm.inames }}).then(function(res){
+    $http.get("/suggestions/any.json", {params: {"interests": vm.images[0].keyword }}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
     });
   };
+
+  vm.icenter = function() {
+    $http.get("/suggestions/any.json", {params: {"interests": vm.images[1].keyword }}).then(function(res){
+      vm.parent.vm.keyword = res.data.keyword;
+    });
+  }
+
+  vm.iright = function() {
+    $http.get("/suggestions/any.json", {params: {"interests": vm.images[2].keyword }}).then(function(res){
+      vm.parent.vm.keyword = res.data.keyword;
+      $location.url("/names");
+    });
+  };
+
+  $http.get("/images.json", {params: {count: 4}}).then(function(res) {
+        vm.images = res.data;
+    });
+
 }]);

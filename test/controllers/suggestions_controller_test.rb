@@ -34,6 +34,6 @@ class SuggestionsControllerTest < ActionController::TestCase
 
   test "should expected keyword" do
     get :show, id: "any", format: :json
-    assert_includes ["花京院", "典明"], JSON.parse(response.body)["keyword"]
+    assert ["花京院", "典明", @title].any? {| word | word == JSON.parse(response.body)["keyword"] }
   end
 end

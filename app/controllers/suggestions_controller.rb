@@ -12,22 +12,7 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1.json
   def show
     if params["interests"].present?
-      # ここに、興味の画像が選択された時の処理を書く
-      # params["interests"]に配列で選択した画像の値(現状では"left", "right"のどちらか)が入っているので適当に使う
-      left = ["Udon", "Sanuki", "Kitsune"]
-      right = ["Soba", "Wanko", "Tanuki"]
-      noodles = ["Noodles", "Japanese food", "Kakiage"]
-
-      params["interests"]
-      case params["interests"].last
-      when "left"
-        keyword = left.sample
-      when "right"
-        keyword = right.sample
-      else
-        keyword = noodles.sample
-      end
-      # あとで使う keyword = "test#{Random.rand}"
+      keyword = params["interests"]
       render json: {keyword: keyword} and return
     end
 
@@ -51,12 +36,11 @@ class SuggestionsController < ApplicationController
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
       origin_keyword = Suggestion.all[index].keyword
-
       search_results = Iiname::Engine.new(keyword: origin_keyword).fetch
       searched_keyword = search_results.sample.title
-
       nouns = MorphologicalAnalyser.new.extract_noun(searched_keyword)
-      render json: {keyword: nouns.sample, searched: searched_keyword, origin: origin_keyword}
+      nouns = nouns.sample(Random.rand(1..3))
+      render json: {keyword: nouns.shuffle.join, searched: searched_keyword, origin: origin_keyword}
     end
   end
 

@@ -188,6 +188,7 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
@@ -198,6 +199,8 @@ GEM
     minitest-spec-rails (5.3.0)
       minitest (~> 5.0)
       rails (>= 4.1)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -422,6 +425,7 @@ DEPENDENCIES
   execjs
   factory_girl (~> 4.5)
   factory_girl_rails
+  faraday
   google-search
   guard
   guard-livereload
@@ -438,6 +442,7 @@ DEPENDENCIES
   letter_opener_web
   minitest-rails
   minitest-spec-rails
+  mocha
   newrelic_rpm
   okura
   omniauth-facebook
