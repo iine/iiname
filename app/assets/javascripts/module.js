@@ -1,1 +1,1 @@
-var app = angular.module('iiname', ["ngRoute"]);
+var app = angular.module('iiname', ["ngRoute", "ngStorage"]);
