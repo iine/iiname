@@ -7,19 +7,21 @@ app.controller("InterestsController", ["$http", "$location", "$scope", function(
   vm.ileft = function() {
     $http.get("/suggestions/any.json", {params: {"interests": vm.images[0].keyword }}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
+      // $location.url("/names");
     });
   };
 
   vm.icenter = function() {
     $http.get("/suggestions/any.json", {params: {"interests": vm.images[1].keyword }}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
+      // $location.url("/names");
     });
   }
 
   vm.iright = function() {
     $http.get("/suggestions/any.json", {params: {"interests": vm.images[2].keyword }}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
-      $location.url("/names");
+      // $location.url("/names");
     });
   };
 
