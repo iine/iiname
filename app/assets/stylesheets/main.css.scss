@@ -104,6 +104,16 @@ ul.menu {
 
 /* sticky end */
 
+.result {
+  height:633px;
+  background-image: image-url("result.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+	vertical-align: middle;
+  font-size: 400%;
+}
+
 .list{
   padding: 200px, 0, 0, 0;
 }
