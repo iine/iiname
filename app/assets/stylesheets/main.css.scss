@@ -109,10 +109,19 @@ ul.menu {
   background-image: image-url("result.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  display: table-cell;
   text-align: center;
 	vertical-align: middle;
   font-size: 400%;
+}
+
+.result_ui {
+  text-align: center;
+  a {
+    font-size: 200%;
+    color: #000;
+    &:hover {
+    }
+  }
 }
 
 .list{
@@ -177,6 +186,8 @@ html.feature-toggle-disabled {
 
 .social_buttons {
   overflow: hidden;
+  display: flex;
+  justify-content: center
 }
 .social_buttons li {
   // display:inline-block;
