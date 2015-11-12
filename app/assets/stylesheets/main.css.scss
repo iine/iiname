@@ -135,57 +135,38 @@ ul.menu {
  */
 }
 
-/* 画像 */
-.click{
-    background: #bdbfbf;
-    /*
-    width: 100px;
-    height: 100px;
-    */
-    line-height: 100px;
-    color: #fff;
-    margin: auto;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s;
-}
-
-.click:active{
-    -webkit-box-shadow:
-    0 0 0 15px #fff,
-    0 0 0 18px #44c784;
-    -moz-box-shadow:
-    0 0 0 15px #fff,
-    0 0 0 18px #44c784;
-    box-shadow:
-    0 0 0 15px #fff,
-    0 0 0 18px #44c784;
-}
-#image{
-  max-width: 200px;
-  height: auto;
-  // -webkit-filter: blur(2px);
-  // -moz-filter: blur(2px);
-  // -o-filter: blur(2px);
-  // -ms-filter: blur(2px);
-  // filter: blur(2px);
-}
-#image:hover{
-  opacity: 0.8;
-  cursor:pointer;
-  transform: translate(0, -5px);
-  transition: transform .5s ease 0;
-  transform: scale(1.2);
-}
-/* 画像 */
-
 html.feature-toggle-disabled {
   .feature-toggle {
     display: none;
   }
 }
+/* 画像 */
+.interests_image{
+  width: 300px;
+  height: 300px;
+  line-height: 60px;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 50%;
+  float: left;
+}
+
+.click{
+//  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+}
+
+.click:active{
+}
+
+#image{
+}
+
+#image:hover{
+}
+/* 画像 */
 
 .social_buttons {
   overflow: hidden;

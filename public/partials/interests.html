@@ -1,18 +1,9 @@
 <div ng-controller="InterestsController as vm">
   <div class="question col-md-8 col-md-push-4">
-    <table class="imagetable">
-      <tr>
-        <td>
-          <img class="click" id="image" src="{{vm.images[0].url}}" alt="{{vm.images[0].keyword}}" ng-click="vm.ileft()">
-        </td>
-        <td>
-          <img class="click" id="image" src="{{vm.images[1].url}}" alt="{{vm.images[1].keyword}}" ng-click="vm.iright()">
-        </td>
-      </tr>
-    </table>
-    <div ng-include="'partials/shared/menu.html'"></div>
+    <div class="interests_image" style="background: url('https://www.pakutaso.com/assets_c/2015/09/SAWA_hanbagu-thumb-1000xauto-19147.jpg') no-repeat 50% 50%;" src="{{vm.images[0].url}}" alt="{{vm.images[0].keyword}}" ng-click="vm.ileft()"></div>
+    <div class="interests_image" style="background: url('https://www.pakutaso.com/assets_c/2015/09/0I9A148215080803moyai-thumb-1000xauto-19293.jpg') no-repeat 50% 50%;"src="{{vm.images[1].url}}" alt="{{vm.images[1].keyword}}" ng-click="vm.iright()"></div>
+    <br />
+    <div ng-include="'partials/shared/menu.html'" width="300"></div>
     <p><a ng-href="#/">戻る</a></p>
   </div>
-  <script>
-  </script>
 </div>
