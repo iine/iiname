@@ -13,28 +13,25 @@ app.controller("InterestsController",
       vm.parent.vm.keyword = res.data.keyword;
       // $location.url("/names");
     });
+    $http.get("/images.json", {params: {count: 2}}).then(function(res) {
+          vm.images = res.data;
+    });
   };
 
-  vm.icenter = function() {
+  vm.iright = function() {
     var interests_keyword = vm.images[1].keyword;
     $localStorage.interests_keywords.push(interests_keyword);
     $http.get("/suggestions/any.json", {params: {"interests": interests_keyword }}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
       // $location.url("/names");
     });
-  }
-
-  vm.iright = function() {
-    var interests_keyword = vm.images[2].keyword;
-    $localStorage.interests_keywords.push(interests_keyword);
-    $http.get("/suggestions/any.json", {params: {"interests": interests_keyword }}).then(function(res){
-      vm.parent.vm.keyword = res.data.keyword;
-      // $location.url("/names");
+    $http.get("/images.json", {params: {count: 2}}).then(function(res) {
+          vm.images = res.data;
     });
   };
 
-  $http.get("/images.json", {params: {count: 4}}).then(function(res) {
+  $http.get("/images.json", {params: {count: 2}}).then(function(res) {
         vm.images = res.data;
-    });
+  });
 
 }]);
