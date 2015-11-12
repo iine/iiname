@@ -1,6 +1,8 @@
 <div class="row">
   <div class="result col-md-12">
-      <%= CGI.unescape(@name) %>
+      <p class="result_text">私たちのチーム名は<br />
+      <%= CGI.unescape(@name) %><br />
+      です！<h2>
   </div>
 </div>
 <div class="row">
@@ -36,8 +38,7 @@
       </span>
       </li>
     </ul>
-    上のボタンをクリックすると、このページを紹介することが出来ます<br />
-    「いいね～む」はチーム名ブレインストーミングツールです<br /><br />
+    上のボタンをクリックすると、このチーム名を紹介することが出来ます<br /><br />
     <%= link_to "トップページに戻る", root_path %>
   </div>
 </div>
