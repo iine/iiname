@@ -24,7 +24,7 @@ ul {
 }
 
 footer{
-  font-size: 150%;
+  font-size: 120%;
   height: 150px;
   background-image: image-url("footer.jpg");
   background-repeat: no-repeat;
@@ -54,6 +54,10 @@ ul.menu {
 }
 
 .suggestion{
+  text-align: center;
+}
+
+.notice_wrapper{
   text-align: center;
 }
 
@@ -104,62 +108,37 @@ ul.menu {
 
 /* sticky end */
 
+.result {
+  height:633px;
+  background-image: image-url("result.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+	vertical-align: middle;
+}
+
+.result_text{
+  padding-top: 250px;
+  font-size: 300%;
+}
+
+.result_ui {
+  text-align: center;
+  a {
+    font-size: 200%;
+    color: #000;
+    &:hover {
+    }
+  }
+}
+
 .list{
   padding: 200px, 0, 0, 0;
 }
 
 .question{
   padding: 20px;
-/*
-  height: 200px;
- */
 }
-
-/* 画像 */
-.click{
-    background: #bdbfbf;
-    /*
-    width: 100px;
-    height: 100px;
-    */
-    line-height: 100px;
-    color: #fff;
-    margin: auto;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s;
-}
-
-.click:active{
-    -webkit-box-shadow:
-    0 0 0 15px #fff,
-    0 0 0 18px #44c784;
-    -moz-box-shadow:
-    0 0 0 15px #fff,
-    0 0 0 18px #44c784;
-    box-shadow:
-    0 0 0 15px #fff,
-    0 0 0 18px #44c784;
-}
-#image{
-  max-width: 200px;
-  height: auto;
-  // -webkit-filter: blur(2px);
-  // -moz-filter: blur(2px);
-  // -o-filter: blur(2px);
-  // -ms-filter: blur(2px);
-  // filter: blur(2px);
-}
-#image:hover{
-  opacity: 0.8;
-  cursor:pointer;
-  transform: translate(0, -5px);
-  transition: transform .5s ease 0;
-  transform: scale(1.2);
-}
-/* 画像 */
 
 html.feature-toggle-disabled {
   .feature-toggle {
@@ -167,8 +146,47 @@ html.feature-toggle-disabled {
   }
 }
 
+/* 画像 */
+.interests_controller{
+  font-size: 300%;
+  text-align: center;
+  height: 400px;
+}
+
+.interests_wrapper{
+//border: thick #ff0000 solid;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.interests_image{
+  width: 300px;
+  height: 300px;
+  background: url('https://www.pakutaso.com/assets_c/2015/09/SAWA_hanbagu-thumb-1000xauto-19147.jpg');
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 50%;
+  float: left;
+}
+
+.click{
+}
+
+.click:active{
+}
+
+#image{
+}
+
+#image:hover{
+}
+/* 画像 */
+
 .social_buttons {
   overflow: hidden;
+  display: flex;
+  justify-content: center
 }
 .social_buttons li {
   // display:inline-block;
