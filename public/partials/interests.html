@@ -1,12 +1,12 @@
 <div ng-controller="InterestsController as vm">
-  <div class="question col-md-12">
-    <div class="interests_wrapper">
-      <div class="interests_image" style='background: url("{{vm.images[0].url}}") no-repeat 50% 50%;' alt="{{vm.images[0].keyword}}" ng-click="vm.ileft()"></div>
-      <div class="interests_image" style="background: url('{{vm.images[1].url}}') no-repeat 50% 50%; background-size:cover;" alt="{{vm.images[1].keyword}}" ng-click="vm.iright()"></div>
-    </div>
+  <div class="interests_wrapper">
+    <div class="interests_image" style="background: url('{{vm.images[0].url}}') no-repeat 50% 50%; background-size:cover;" alt="{{vm.images[0].keyword}}" ng-click="vm.ileft()"></div>
+    <div class="interests_image" style="background: url('{{vm.images[1].url}}') no-repeat 50% 50%; background-size:cover;" alt="{{vm.images[1].keyword}}" ng-click="vm.iright()"></div>
   </div>
-  <div class="col-md-12">
+<!--
+  <div>
     <div ng-include="'partials/shared/menu.html'" width="300"></div>
     <p><a ng-href="#/">戻る</a></p>
   </div>
+-->
 </div>
