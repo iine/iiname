@@ -140,12 +140,18 @@ html.feature-toggle-disabled {
     display: none;
   }
 }
+
 /* 画像 */
+.interests_controller{
+  font-size: 300%;
+  text-align: center;
+}
+
 .interests_wrapper{
 //border: thick #ff0000 solid;
   width: 600px;
   margin: 0 auto;
-  text-align:center;
+  text-align: center;
 }
 
 .interests_image{
