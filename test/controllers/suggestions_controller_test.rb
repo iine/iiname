@@ -4,6 +4,8 @@ class SuggestionsControllerTest < ActionController::TestCase
   setup do
     @title = "空条承太郎"
     create_search_stub(@title)
+    @names = [@title]
+    create_trend_search_stub(@names)
     @suggestion = suggestions(:one)
   end
 
@@ -33,6 +35,11 @@ class SuggestionsControllerTest < ActionController::TestCase
   end
 
   test "should expected keyword" do
+    # object = mock('object')
+    # object.expects(:fetch).returns(@names)
+    # web_search_engine = Iiname::Engine.new(keyword: @title)
+    # Iiname::Engine.expects(:new).with(mode: :trend_story).returns(object)
+    # Iiname::Engine.expects(:new).with(keyword: @title).returns(web_search_engine)
     get :show, id: "any", format: :json
     assert_equal(@title, JSON.parse(response.body)["keyword"])
   end

@@ -23,19 +23,31 @@ class Iiname::EngineTest < ActiveSupport::TestCase
     assert_equal(1, Iiname::Engine.new(keyword: "長嶋茂雄").to_a.size)
   end
 
+  test "should return expected result names" do
+    names = ["空条承太郎", "ジャン=ピエール・ポルナレフ"]
+    create_trend_search_stub(names)
+    assert_equal(names, Iiname::Engine.new(mode: :trend_story).fetch)
+  end
+
+  test "should return expected hot trend result names" do
+    name = "空条承太郎"
+    create_hot_trend_search_stub(name)
+    assert_equal([name], Iiname::Engine.new(mode: :hot_trend).fetch)
+  end
+
   test "should return one result of book title" do
     #create_search_stub
     create_google_book_search_stub
     create_rakuten_search_stub("長嶋茂雄", 1)
     #create_rakuten_search_stub("長嶋茂雄", 2)
-    #assert_kind_of(Iiname::Engine, Iiname::Engine.new(keyword: "長嶋茂雄").fetch(mode: "Book").first)
-    assert_kind_of(RakutenWebService::Book::Book, Iiname::Engine.new(keyword: "長嶋茂雄").fetch(mode: "Book").first)
+    assert_kind_of(Iiname::Engine, Iiname::Engine.new(keyword: "長嶋茂雄").fetch(mode: :book).first)
+    #assert_kind_of(RakutenWebService::Book::Book, Iiname::Engine.new(keyword: "長嶋茂雄").fetch(mode: :book).first)
   end
 
   test "should return one result of book title" do
     create_google_book_search_stub
     create_rakuten_search_stub("長嶋茂雄", 1)
     create_rakuten_search_stub("長嶋茂雄", 2)
-    assert_equal(1, Iiname::Engine.new(keyword: "長嶋茂雄").fetch(mode: "Book").size)
+    assert_equal(1, Iiname::Engine.new(keyword: "長嶋茂雄").fetch(mode: :book).size)
   end
 end

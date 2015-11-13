@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 # User web service api
 gem 'rakuten_web_service'
 gem 'google-search'
+gem "faraday"
 
 gem 'quiet_assets'
 gem 'less-rails'
@@ -54,7 +55,6 @@ gem 'newrelic_rpm'
 gem "rack-contrib", require: "rack/contrib"
 
 gem "addressable"
-gem "google-search"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -105,6 +105,7 @@ group :test do
   gem 'database_cleaner'
   gem 'turnip'
   gem "webmock"
+  gem "mocha"
 end
 
 group :production, :staging do

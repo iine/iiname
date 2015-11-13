@@ -1,4 +1,4 @@
-app.controller("InterestsController", ["$http", "$scope", function($http, $scope) {
+app.controller("InterestsController", ["$http", "$location", "$scope", function($http, $location, $scope) {
   var vm = this;
   vm.parent = $scope.$parent;
   vm.inames = [];
@@ -16,6 +16,7 @@ app.controller("InterestsController", ["$http", "$scope", function($http, $scope
   vm.get_suggestion = function() {
     $http.get("/suggestions/any.json", {params: {"interests[]": vm.inames }}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
+      $location.url("/names");
     });
   };
 }]);
