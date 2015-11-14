@@ -13,7 +13,8 @@ class SuggestionsController < ApplicationController
   def show
     if params["interests"].present?
       keyword = params["interests"]
-      render json: {keyword: keyword} and return
+      #render json: {keyword: keyword} and return
+      ignite_engine(keyword) and return
     end
 
     if params["prefecture_id"].present?
@@ -30,20 +31,28 @@ class SuggestionsController < ApplicationController
         keyword = other.sample
       end
 
-      render json: {keyword: keyword} and return
+      #render json: {keyword: keyword} and return
+      ignite_engine(keyword) and return
     end
 
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
-      search_results = Iiname::Engine.new(keyword: Suggestion.all[index].keyword).fetch
-      t = search_results.sample.title
-      puts("t = #{t}}")
-      s = t.split( /[ ,:\-\|\.\(\)｜「」『』【】（）、。：？！]+/).sample[0, 20]
-      puts("s = #{s}")
-      render json: {keyword: s}
+      origin_keyword = Suggestion.all[index].keyword
+
+      ignite_engine(origin_keyword)
     end
   end
 
+  def ignite_engine(origin_keyword)
+    search_results = Iiname::Engine.new(keyword: origin_keyword).fetch
+    searched_keyword = search_results.sample.title
+    nouns = MorphologicalAnalyser.new.extract_noun(searched_keyword)
+    nouns = nouns.sample(Random.rand(1..3))
+    puts("origin_keyword = #{origin_keyword}")
+    puts("searched_keyword = #{searched_keyword}")
+    puts("nouns = #{nouns}")
+    render json: {keyword: nouns.shuffle.join, searched: searched_keyword, origin: origin_keyword}
+  end
 
   private
     # # Use callbacks to share common setup or constraints between actions.
