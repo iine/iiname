@@ -1,6 +1,6 @@
 # いいね～む
 
-service: http://iiname.herokuapp.com/  
+service: http://www.iiname.net  
 source:  https://github.com/iine/iiname
 
 ## Description
