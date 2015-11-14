@@ -1,15 +1,29 @@
-app.controller("MainController", ["$scope", "$http", "$interval", function($scope, $http, $interval) {
+app.controller("MainController",
+              ["$scope", "$http", "$interval", "$localStorage",
+              function($scope, $http, $interval, $localStorage) {
   var vm = this;
   vm.list = [];
   vm.keyword = "";
   vm.params = {};
   vm.requestLock = false;
+  $localStorage.$default({
+    interests_keywords: []
+  });
 
   $scope.$watch(function() {
     return vm.keyword;
   }, function(newVal, oldVal) {
     vm.list.push(oldVal);
   }, true);
+
+  // localStorageをwatch
+  $scope.$watch(function() {
+    return angular.toJson($localStorage.valueOf());
+  }, function(newVal, oldVal) {
+    vm.params = {
+      interests: $localStorage.interests_keywords[($localStorage.interests_keywords.length - 1)]
+    }
+  });
 
   vm.get_suggestion = function() {
     if (!vm.requestLock) {

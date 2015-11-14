@@ -1,35 +1,44 @@
-<p class="lead">私たちのチーム名は</p>
-<div id="highest_suggestion"><%= CGI.unescape(@name) %></div>
-<p class="lead">です。</p>
-<ul class="social_buttons">
-<li>  <!-- tweetボタン -->
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://iiname.herokuapp.com/is/<%= CGI.unescape(@name) %>" data-text="チーム名を『 <%= CGI.unescape(@name) %> 』に決めました" data-count="none" data-hashtags="いいね〜む">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-</li>
-<li>  <!-- Likeボタン -->
-  <div class="fb-like" data-href="http://iiname.herokuapp.com/is/<%= CGI.unescape(@name) %>" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-</li>
-<li>  <!-- +1ボタン -->
-<script src="https://apis.google.com/js/platform.js" async defer>
-  {lang: 'ja'}
-</script>
-<div class="g-plusone" data-size="tall" data-href="http://iiname.herokuapp.com/is/<%= CGI.unescape(@name) %>" data-annotation="none"></div>
-</li>
-<li>  <!-- LINEで送る -->
-  <span>
-<script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script>
-<script type="text/javascript">
-new media_line_me.LineButton({"pc":false,"lang":"ja","type":"a","text":"いいね〜むでチーム名つくってみた","withUrl":true});
-</script>
-</span>
-</li>
-</ul>
-<%= link_to "トップページに戻る", root_path %>
+<div class="row">
+  <div class="result col-md-12">
+      <p class="result_text">私たちのチーム名は<br />
+      <%= CGI.unescape(@name) %><br />
+      です！<h2>
+  </div>
+</div>
+<div class="row">
+  <div class="result_ui col-md-12">
+    <ul class="social_buttons">
+      <li>  <!-- tweetボタン -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= root_url %>is/<%= CGI.unescape(@name) %>" data-text="いいね〜むを使ったら、チーム名『 <%= CGI.unescape(@name) %> 』が提案されました。" data-count="none" data-hashtags="いいね〜む">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </li>
+      <li>  <!-- Likeボタン -->
+        <div class="fb-like" data-href="<%= root_url %>is/<%= CGI.unescape(@name) %>" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+        <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      </li>
+      <li>  <!-- +1ボタン -->
+      <script src="https://apis.google.com/js/platform.js" async defer>
+        {lang: 'ja'}
+      </script>
+      <div class="g-plusone" data-size="tall" data-href="<%= root_url %>is/<%= CGI.unescape(@name) %>" data-annotation="none"></div>
+      </li>
+      <li>  <!-- LINEで送る -->
+        <span>
+      <script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script>
+      <script type="text/javascript">
+      new media_line_me.LineButton({"pc":false,"lang":"ja","type":"a","text":"いいね〜むでチーム名つくってみた","withUrl":true});
+      </script>
+      </span>
+      </li>
+    </ul>
+    上のボタンをクリックすると、このチーム名を紹介することが出来ます<br /><br />
+    <%= link_to "トップページに戻る", root_path %>
+  </div>
+</div>

@@ -63,7 +63,6 @@ Iiname::Engine.new(mode: :hot_trend).fetch.each do | keyword |
 	Suggestion.where(keyword: keyword).first_or_create
 end
 
-
 [
 {:url => "https://www.pakutaso.com/assets_c/2015/06/PAK85_syokutakubkaraage20150203185651-thumb-1000xauto-18083.jpg", :keyword => "唐揚げ"},
 {:url => "https://www.pakutaso.com/assets_c/2015/09/SAWA_hanbagu-thumb-1000xauto-19147.jpg", :keyword => "ハンバーグ"},
