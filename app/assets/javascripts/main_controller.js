@@ -13,7 +13,9 @@ app.controller("MainController",
   $scope.$watch(function() {
     return vm.keyword;
   }, function(newVal, oldVal) {
-    vm.list.push(oldVal);
+    if (oldVal != null && oldVal != "") {
+      vm.list.push(oldVal);
+    }
   }, true);
 
   // localStorageをwatch
