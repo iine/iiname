@@ -10,22 +10,21 @@ module Iiname
       @mode = params.delete(:mode) || :web
     end
 
-    def each_item(mode, &block)
-      self.fetch(mode).each { |item| yield item }
+    def each_item &block
+      self.fetch.each { |item| yield item }
     end
     alias :each :each_item
 
-    def fetch(mode = :web)
-      m = mode || @mode
-      puts("m = #{m}")
-      case m
+    def fetch
+      puts("@mode = #{@mode}")
+      case @mode
       when :web
         Google::Search::Web.new(query: @keyword, language: @language).to_a
       when :trend_story
         search_by_trend_story
       when :hot_trend
         search_by_hot_trend
-      when :book then
+      when :book
         search_by_webapi(@keyword)
       else
         Google::Search::Web.new(query: @keyword, language: @language).to_a

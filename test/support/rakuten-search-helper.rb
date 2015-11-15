@@ -25,7 +25,7 @@ module RakutenSearchHelper
         "publisherName": "日本図書センター",
         "size": "全集・双書",
         "isbn": "9784820542810",
-        "itemCaption": "背番号「３」ついに復活！"ミスター"唯一の自伝！１９７４年、講談社から発行されたものを底本とする。",
+        "itemCaption": "背番号「３」ついに復活！ミスター 唯一の自伝！１９７４年、講談社から発行されたものを底本とする。",
         "salesDate": "1997年06月",
         "itemPrice": 1944,
         "listPrice": 0,
@@ -49,7 +49,7 @@ module RakutenSearchHelper
   "GenreInformation": []
 }
 EOS
-    uri_template = Addressable::Template.new "https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522{?affiliateId,applicationId,author}"
+    uri_template = Addressable::Template.new "https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522{?affiliateId,applicationId,author,page}"
     stub_request(:get, uri_template).
       to_return(:status => 200, :body => response, :headers => {})
   end

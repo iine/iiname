@@ -8,10 +8,10 @@ class NamesControllerTest < ActionController::TestCase
     @params = { names: ["abc", "def"]}
   end
 
-  test "should get success response" do
-    get :suggestion, @params
-    assert_response :success
-  end
+  # test "should get success response" do
+  #   get :suggestion, @params
+  #   assert_response :success
+  # end
 
   # test "should concat params and return as keyword" do
   #   get :suggestion, @params
