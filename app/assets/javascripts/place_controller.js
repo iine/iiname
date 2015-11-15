@@ -10,7 +10,15 @@ app.controller("PlaceController", ["$http", "$location", "$scope", function($htt
     });
   }
 
-    $http.get("/prefectures.json").then(function(res) {
-      vm.prefectures = res.data;
-    });
+  var latlng = new google.maps.LatLng(35.66, 139.69);
+  var options = {
+      zoom: 15,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById('map'), options);
+
+  $http.get("/prefectures.json").then(function(res) {
+    vm.prefectures = res.data;
+  });
 }]);

@@ -1,11 +1,18 @@
 <div class="feature-toggle" ng-controller="PlaceController as vm">
-  <div class="question col-md-8 col-md-push-4">
+  <div class="question col-md-8 col-md-offset-2">
+<!--
     <p ng-cloak>
       <select ng-model="vm.prefecture_id" ng-change="vm.select()">
       <option value="{{pref.id}}" ng-repeat="pref in vm.prefectures" ng-bind="pref.prefecture"></option>
       </select>
     </p>
+ -->
+  <div>
+    <input type = "text" id="city_name" value="" />
+    <button id="search" >検索する</button>
+  </div>
 
+  <div id="map"></div>
     <!-- <div ng-include="'partials/shared/menu.html'"></div> -->
     <!-- <p><a ng-href="#/">戻る</a></p> -->
   </div>
