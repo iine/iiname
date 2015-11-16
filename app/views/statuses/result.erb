@@ -9,7 +9,7 @@
   <div class="result_ui col-md-12">
     <ul class="social_buttons">
       <li>  <!-- tweetボタン -->
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= root_url %>is/<%= CGI.unescape(@name) %>" data-text="いいね〜むを使ったら、チーム名『 <%= CGI.unescape(@name) %> 』が提案されました。" data-count="none" data-size="large" data-hashtags="iiname">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= root_url %>is/<%= CGI.escape(@name) %>" data-text="いいね〜むから、チーム名『 <%= CGI.unescape(@name) %> 』が提案されました。" data-count="none" data-size="large" data-hashtags="いいねーむ">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </li>
     </ul>
