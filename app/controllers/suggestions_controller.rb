@@ -35,6 +35,10 @@ class SuggestionsController < ApplicationController
       ignite_engine(keyword) and return
     end
 
+    if params[:places].present? && params[:places].kind_of?(Array)
+      ignite_engine(params[:places].join, true) and return
+    end
+
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
       origin_keyword = Suggestion.all[index].keyword
@@ -43,10 +47,15 @@ class SuggestionsController < ApplicationController
     end
   end
 
-  def ignite_engine(origin_keyword)
-    search_results = Iiname::Engine.new(keyword: origin_keyword).fetch
-    searched_keyword = search_results.sample.title
-    nouns = MorphologicalAnalyser.new.extract_noun(searched_keyword)
+  def ignite_engine(origin_keyword, skip_search=false)
+    morph_target = origin_keyword
+    searched_keyword = ""
+    unless skip_search
+      search_results = Iiname::Engine.new(keyword: origin_keyword).fetch
+      searched_keyword = search_results.sample.title
+      morph_target = searched_keyword
+    end
+    nouns = MorphologicalAnalyser.new.extract_noun(morph_target)
     nouns = nouns.sample(Random.rand(1..3))
     puts("origin_keyword = #{origin_keyword}")
     puts("searched_keyword = #{searched_keyword}")
