@@ -30,9 +30,9 @@
       <h2>これまでに出たチーム名のアイデア</h2>
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>
-          <div class="sticky_wrapper confirm">
+          <div class="sticky_wrapper">
             <a href="/statuses?keyword={{element}}"  class="confirm" data-method="post">
-              <div class="sticky confirm">
+              <div class="sticky">
                 <span class="name">
                   {{element}}
                 </span>
