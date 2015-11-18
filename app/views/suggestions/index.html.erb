@@ -9,7 +9,7 @@
                 <span id="highest_suggestion" ng-bind="vm.keyword" class="name"></span>
                 <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
           </div>
-        </a>
+        </a><br />&nbsp;
       </div>
     </div>
     <script>
@@ -30,9 +30,9 @@
       <h2>これまでに出たチーム名のアイデア</h2>
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>
-          <div class="sticky_wrapper">
+          <div class="sticky_wrapper confirm">
             <a href="/statuses?keyword={{element}}"  class="confirm" data-method="post">
-              <div class="sticky">
+              <div class="sticky confirm">
                 <span class="name">
                   {{element}}
                 </span>
