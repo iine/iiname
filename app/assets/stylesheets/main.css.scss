@@ -170,6 +170,11 @@ html.feature-toggle-disabled {
   border-radius: 50%;
   float: left;
   cursor:pointer;
+  &:hover {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -ms-filter: "alpha(opacity=60)";
+  }
 }
 
 .click{
