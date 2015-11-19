@@ -1,24 +1,18 @@
 <div ng-controller="MainController as vm" ng-cloak>
   <div class="row">
     <div class="suggestion col-md-12">
-      <h2>「いいね～む」はチーム名ブレインストーミングツールです</br>
-      どんどんアイデアを出しちゃうよ！</h2>
+      <p class="sticky_description">「いいね～む」はチーム名ブレインストーミングツールです</br>
+      どんどんアイデアを出しちゃうよ！</p>
       <div class="sticky_wrapper">
-        <a href="/statuses?keyword={{vm.keyword}}"  class="confirm" data-method="post">
+        <a href="/statuses?keyword={{vm.keyword}}" data-method="post">
           <div class="sticky">
                 <span id="highest_suggestion" ng-bind="vm.keyword" class="name"></span>
                 <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
           </div>
         </a>
       </div>
+      <p class="sticky_description">付箋をクリックすると、使用するチーム名を決定します</p>
     </div>
-    <script>
-    $('.confirm').click(function() {
-      if (!confirm('このチーム名を使用しますか？')) {
-        return false;
-      }
-    });
-    </script>
     <div>
       <div class="col-md-12">
         <div class="red_line"></div>
@@ -31,7 +25,7 @@
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>
           <div class="sticky_wrapper">
-            <a href="/statuses?keyword={{element}}"  class="confirm" data-method="post">
+            <a href="/statuses?keyword={{element}}" data-method="post">
               <div class="sticky">
                 <span class="name">
                   {{element}}

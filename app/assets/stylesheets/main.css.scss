@@ -6,6 +6,7 @@ header{
   background-image: image-url("header.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  text-align: right;
   h1{
     a{
       color: #fff;
@@ -77,15 +78,15 @@ ul.menu {
 	vertical-align: middle;
 	text-align: center;
     &:after {
-    width:440px;
+    width:350px;
     height:140px;
     content: "";
     position: absolute;
     top: 0px;
     right: 3px;
-    -webkit-box-shadow: 0 5px 5px #555 ;
-    -moz-box-shadow: 0 5px 5px #555 ;
-    box-shadow: 0 5px 5px #555 ;
+    -webkit-box-shadow: 0 10px 10px #555 ;
+    -moz-box-shadow: 0 10px 10px #555 ;
+    box-shadow: 0 10px 10px #555 ;
     -webkit-transform: rotate(2deg);
     -moz-transform: rotate(2deg);
     -o-transform: rotate(2deg);
@@ -107,6 +108,12 @@ ul.menu {
 }
 
 /* sticky end */
+
+.sticky_description{
+  font-size: 150%;
+  text-align: center;
+  margin-top: 10px;
+}
 
 .result {
   height:633px;
@@ -169,6 +176,11 @@ html.feature-toggle-disabled {
   border-radius: 50%;
   float: left;
   cursor:pointer;
+  &:hover {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -ms-filter: "alpha(opacity=60)";
+  }
 }
 
 .click{
