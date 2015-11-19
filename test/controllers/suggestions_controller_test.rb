@@ -36,4 +36,11 @@ class SuggestionsControllerTest < ActionController::TestCase
     get :show, id: "any", format: :json
     assert ["花京院", "典明", "典明花京院", @title].any? {| word | word == JSON.parse(response.body)["keyword"] }
   end
+
+  test "places parameter should return word to be joined" do
+    words = ["札幌", "小樽"]
+    get :show, {id: "any", places: words}, format: :json
+    response_key = JSON.parse(response.body)["keyword"]
+    assert (response_key.include?(words[0]) || response_key.include?(words[1]))
+  end
 end
