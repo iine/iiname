@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :statuses, only: [:index, :create]
   get "is/:name" => "statuses#result"
+  get "statuses/show"
 
   resources :suggestions
 
