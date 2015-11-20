@@ -6,6 +6,7 @@ header{
   background-image: image-url("header.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  text-align: right;
   h1{
     a{
       color: #fff;
@@ -24,7 +25,7 @@ ul {
 }
 
 footer{
-  font-size: 150%;
+  font-size: 120%;
   height: 150px;
   background-image: image-url("footer.jpg");
   background-repeat: no-repeat;
@@ -57,6 +58,10 @@ ul.menu {
   text-align: center;
 }
 
+.notice_wrapper{
+  text-align: center;
+}
+
 /* sticky */
 
 .sticky_wrapper {
@@ -73,15 +78,15 @@ ul.menu {
 	vertical-align: middle;
 	text-align: center;
     &:after {
-    width:440px;
+    width:350px;
     height:140px;
     content: "";
     position: absolute;
     top: 0px;
     right: 3px;
-    -webkit-box-shadow: 0 5px 5px #555 ;
-    -moz-box-shadow: 0 5px 5px #555 ;
-    box-shadow: 0 5px 5px #555 ;
+    -webkit-box-shadow: 0 10px 10px #555 ;
+    -moz-box-shadow: 0 10px 10px #555 ;
+    box-shadow: 0 10px 10px #555 ;
     -webkit-transform: rotate(2deg);
     -moz-transform: rotate(2deg);
     -o-transform: rotate(2deg);
@@ -104,69 +109,115 @@ ul.menu {
 
 /* sticky end */
 
+.sticky_description{
+  font-size: 150%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.result {
+  height:633px;
+  background-image: image-url("result.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+	vertical-align: middle;
+}
+
+.result_text{
+  padding-top: 250px;
+  font-size: 300%;
+}
+
+.result_ui {
+  text-align: center;
+  a {
+    font-size: 200%;
+    color: #000;
+    &:hover {
+    }
+  }
+}
+
+/* sticky end */
+
 .list{
   padding: 200px, 0, 0, 0;
 }
 
 .question{
   padding: 20px;
-/*
-  height: 200px;
- */
 }
-
-/* 画像 */
-.image{
-  cursor:pointer;
-}
-
-.click {
-    background: blue;
-    /*
-    width: 100px;
-    height: 100px;
-    */
-    line-height: 100px;
-    color: #fff;
-    margin: auto;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s;
-}
-
-.click:active {
-    -webkit-box-shadow:
-    0 0 0 15px #fff,
-    0 0 0 18px blue;
-    -moz-box-shadow:
-        0 0 0 15px #fff,
-    0 0 0 18px blue;
-    box-shadow:
-        0 0 0 15px #fff,
-    0 0 0 18px blue;
-}
-#imageleft{
-  max-width: 300px;
-  height: auto;
-}
-#imageleft:hover{
-  opacity: 0.8;
-}
-#imageright{
-  max-width: 300px;
-  height: auto;
-}
-#imageright:hover{
-  opacity: 0.8;
-}
-/* 画像 */
 
 html.feature-toggle-disabled {
   .feature-toggle {
     display: none;
   }
+}
+
+/* 画像 */
+.interests_controller{
+  font-size: 300%;
+  text-align: center;
+  height: 400px;
+}
+
+.interests_wrapper{
+//border: thick #ff0000 solid;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.interests_image{
+  width: 300px;
+  height: 300px;
+  background: url('https://www.pakutaso.com/assets_c/2015/09/SAWA_hanbagu-thumb-1000xauto-19147.jpg');
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 50%;
+  float: left;
+  cursor:pointer;
+  &:hover {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -ms-filter: "alpha(opacity=60)";
+  }
+}
+
+.click{
+}
+
+.click:active{
+}
+
+#image{
+}
+
+#image:hover{
+}
+/* 画像 */
+
+.social_buttons {
+  overflow: hidden;
+  display: flex;
+  justify-content: center
+}
+.social_buttons li {
+  // display:inline-block;
+  float: left;
+  margin-right: 8px;
+}
+.social_buttons iframe {
+  margin: 0 !important;
+}
+
+
+/* place */
+#map {
+  width: 85vw;
+  max-width: 700px;
+  height: 40vh;
 }
 
 .social_buttons {

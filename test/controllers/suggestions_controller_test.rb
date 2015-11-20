@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SuggestionsControllerTest < ActionController::TestCase
   setup do
-    @title = "空条承太郎"
+    @title = "花京院典明"
     create_search_stub(@title)
     @names = [@title]
     create_trend_search_stub(@names)
@@ -41,6 +41,13 @@ class SuggestionsControllerTest < ActionController::TestCase
     # Iiname::Engine.expects(:new).with(mode: :trend_story).returns(object)
     # Iiname::Engine.expects(:new).with(keyword: @title).returns(web_search_engine)
     get :show, id: "any", format: :json
-    assert_equal(@title, JSON.parse(response.body)["keyword"])
+    assert ["花京院", "典明", "典明花京院", @title].any? {| word | word == JSON.parse(response.body)["keyword"] }
+  end
+
+  test "places parameter should return word to be joined" do
+    words = ["札幌", "小樽"]
+    get :show, {id: "any", places: words}, format: :json
+    response_key = JSON.parse(response.body)["keyword"]
+    assert (response_key.include?(words[0]) || response_key.include?(words[1]))
   end
 end

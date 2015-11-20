@@ -12,23 +12,9 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1.json
   def show
     if params["interests"].present?
-      # ここに、興味の画像が選択された時の処理を書く
-      # params["interests"]に配列で選択した画像の値(現状では"left", "right"のどちらか)が入っているので適当に使う
-      left = ["Udon", "Sanuki", "Kitsune"]
-      right = ["Soba", "Wanko", "Tanuki"]
-      noodles = ["Noodles", "Japanese food", "Kakiage"]
-
-      params["interests"]
-      case params["interests"].last
-      when "left"
-        keyword = left.sample
-      when "right"
-        keyword = right.sample
-      else
-        keyword = noodles.sample
-      end
-      # あとで使う keyword = "test#{Random.rand}"
-      render json: {keyword: keyword} and return
+      keyword = params["interests"]
+      #render json: {keyword: keyword} and return
+      ignite_engine(keyword) and return
     end
 
     if params["prefecture_id"].present?
@@ -45,18 +31,36 @@ class SuggestionsController < ApplicationController
         keyword = other.sample
       end
 
-      render json: {keyword: keyword} and return
+      #render json: {keyword: keyword} and return
+      ignite_engine(keyword) and return
+    end
+
+    if params[:places].present? && params[:places].kind_of?(Array)
+      ignite_engine(params[:places].join, true) and return
     end
 
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
-      search_results = Iiname::Engine.new(keyword: Suggestion.all[index].keyword).fetch
-      t = search_results.sample.title
-      puts("t = #{t}}")
-      s = t.split( /[ ,:\-\|\.\(\)｜「」『』【】（）、。：？！]+/).sample[0, 20]
-      puts("s = #{s}")
-      render json: {keyword: s}
+      origin_keyword = Suggestion.all[index].keyword
+
+      ignite_engine(origin_keyword)
     end
+  end
+
+  def ignite_engine(origin_keyword, skip_search=false)
+    morph_target = origin_keyword
+    searched_keyword = ""
+    unless skip_search
+      search_results = Iiname::Engine.new(keyword: origin_keyword).fetch
+      searched_keyword = search_results.sample.title
+      morph_target = searched_keyword
+    end
+    nouns = MorphologicalAnalyser.new.extract_noun(morph_target)
+    nouns = nouns.sample(Random.rand(1..3))
+    puts("origin_keyword = #{origin_keyword}")
+    puts("searched_keyword = #{searched_keyword}")
+    puts("nouns = #{nouns}")
+    render json: {keyword: nouns.shuffle.join, searched: searched_keyword, origin: origin_keyword}
   end
 
 
