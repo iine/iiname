@@ -15,6 +15,7 @@
 //= require angular
 //= require angular-route
 //= require ngStorage.min
+//= require underscore-min
 //= require module
 //= require main_controller
 //= require routes
