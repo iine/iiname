@@ -8,7 +8,7 @@ app.controller("PlaceController",
 
   vm.select = function(e) {
     delete $localStorage.places_keywords;
-    $localStorage.places_keywords = vm.places;
+    $localStorage.places_keywords = _.sample(vm.places, 10);
   　$http.get("/suggestions/any.json", {params: { "places[]": vm.places}}).then(function(res) {
      vm.parent.vm.keyword = res.data.keyword;
      // $location.url("/interests");
