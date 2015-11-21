@@ -32,7 +32,9 @@ app.controller("MainController",
   vm.get_suggestion = function() {
     if (!vm.requestLock) {
       vm.requestLock = true;
-      $http.get("/suggestions/any.json", {params: vm.params}).then(function(res){
+      var params = vm.params;
+      params["places[]"] = _.sample(vm.params["places[]"], 10);
+      $http.get("/suggestions/any.json", {params: params}).then(function(res){
         vm.keyword = res.data.keyword;
       }).finally(function(){
         vm.requestLock = false;

@@ -8,9 +8,8 @@ app.controller("PlaceController",
 
   vm.select = function(e) {
     delete $localStorage.places_keywords;
-    var places = _.sample(vm.places, 10);
-    $localStorage.places_keywords = places;
-  　$http.get("/suggestions/any.json", {params: { "places[]": places}}).then(function(res) {
+    $localStorage.places_keywords = vm.places;
+  　$http.get("/suggestions/any.json", {params: { "places[]": _.sample(vm.places, 10)}}).then(function(res) {
      vm.parent.vm.keyword = res.data.keyword;
      // $location.url("/interests");
     });
