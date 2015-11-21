@@ -1,18 +1,23 @@
-app.controller("PlaceController", ["$http", "$location", "$scope", function($http, $location, $scope) {
+app.controller("PlaceController",
+              ["$http", "$location", "$scope", "$localStorage",
+              function($http, $location, $scope, $localStorage) {
   var vm = this;
   vm.parent = $scope.$parent;
-  vm.prefectures = [];
+  // vm.prefectures = [];
+  vm.places = [];
 
   vm.select = function(e) {
-  　$http.get("/suggestions/any.json", {params: { prefecture_id: vm.prefecture_id}}).then(function(res) {
+    delete $localStorage.places_keywords;
+    $localStorage.places_keywords = vm.places;
+  　$http.get("/suggestions/any.json", {params: { "places[]": vm.places}}).then(function(res) {
      vm.parent.vm.keyword = res.data.keyword;
-     $location.url("/interests");
+     // $location.url("/interests");
     });
   }
 
-  $http.get("/prefectures.json").then(function(res) {
-    vm.prefectures = res.data;
-  });
+  // $http.get("/prefectures.json").then(function(res) {
+  //   vm.prefectures = res.data;
+  // });
 
   var map;
   var infowindow;
@@ -42,45 +47,48 @@ app.controller("PlaceController", ["$http", "$location", "$scope", function($htt
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       var j = 1;
-        for (var i = 0; i < results.length; i++) {
-            var spot = results[i];
-            var types = spot.types;
-            if( array_has("school", types)
-            || array_has("train_station", types) ){
-              continue;
-            }
-//          console.log(spot);
-      if( (array_has("establishment", types) && j==1) ||
-        ((array_has("store",types) ||
-          array_has("restaurant",types) ||
-          array_has("shopping_mall",types) ||
-          array_has("food",types) ||
-          array_has("cafe",types) ||
-          array_has("meal_takeaway",types)
-         )
-         && j==2) ){
-        $(".place"+j).text(spot.name);
-        createMarker(spot);
-        j++;
-      }
-      if( j > 2 ){
-        if( $(".place"+j).text() ){
-          $(".place"+j).text(spot.name);
-          createMarker(spot);
-          j++;
+      for (var i = 0; i < results.length; i++) {
+        var spot = results[i];
+        var types = spot.types;
+        if( array_has("school", types)
+        || array_has("train_station", types) ){
+          continue;
         }
+        // console.log(spot);
+        createMarker(spot);
+        vm.places.push(spot.name);
+        // if( (array_has("establishment", types) && j==1) ||
+        //   ((array_has("store",types) ||
+        //     array_has("restaurant",types) ||
+        //     array_has("shopping_mall",types) ||
+        //     array_has("food",types) ||
+        //     array_has("cafe",types) ||
+        //     array_has("meal_takeaway",types)
+        //    )
+        //    && j==2) ){
+        //   $(".place"+j).text(spot.name);
+        //   createMarker(spot);
+        //   j++;
+        // }
+        // if( j > 2 ){
+        //   if( $(".place"+j).text() ){
+        //     $(".place"+j).text(spot.name);
+        //     createMarker(spot);
+        //     j++;
+        //   }
+        // }
       }
-    }
-    if( j==1 ){
-        $(".place1").text(results[0].name);
-        createMarker(results[0]);
-        $(".place2").text(results[1].name);
-        createMarker(results[1]);
-      }
-      if( j==2 ){
-        $(".place2").text(results[2].name);
-        createMarker(results[5]);
-      }
+      // if( j==1 ){
+      //   $(".place1").text(results[0].name);
+      //   createMarker(results[0]);
+      //   $(".place2").text(results[1].name);
+      //   createMarker(results[1]);
+      // }
+      // if( j==2 ){
+      //   $(".place2").text(results[2].name);
+      //   createMarker(results[5]);
+      // }
+      vm.select();
     }
   }
 

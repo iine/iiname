@@ -7,7 +7,8 @@ app.controller("MainController",
   vm.params = {};
   vm.requestLock = false;
   $localStorage.$default({
-    interests_keywords: []
+    interests_keywords: [],
+    places_keywords: []
   });
 
   $scope.$watch(function() {
@@ -23,7 +24,8 @@ app.controller("MainController",
     return angular.toJson($localStorage.valueOf());
   }, function(newVal, oldVal) {
     vm.params = {
-      interests: $localStorage.interests_keywords[($localStorage.interests_keywords.length - 1)]
+      interests: $localStorage.interests_keywords[($localStorage.interests_keywords.length - 1)],
+      "places[]": $localStorage.places_keywords,
     }
   });
 
