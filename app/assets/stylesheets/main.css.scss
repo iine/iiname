@@ -198,6 +198,22 @@ html.feature-toggle-disabled {
 }
 /* 画像 */
 
+.place_controller{
+  font-size: 300%;
+  text-align: center;
+  height: 400px;
+    #map{
+      width: 600px;
+      height: 200px;
+    }
+}
+
+.place_wrapper{
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .social_buttons {
   overflow: hidden;
   display: flex;
@@ -210,12 +226,4 @@ html.feature-toggle-disabled {
 }
 .social_buttons iframe {
   margin: 0 !important;
-}
-
-
-/* place */
-#map {
-  width: 85vw;
-  max-width: 700px;
-  height: 40vh;
 }
