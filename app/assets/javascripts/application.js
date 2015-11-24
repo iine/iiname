@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require modalwindow
+//= require jquery.leanModal.min
 //= require jquery_ujs
 //= require angular
 //= require angular-route

@@ -219,3 +219,23 @@ html.feature-toggle-disabled {
   max-width: 700px;
   height: 40vh;
 }
+
+/* modal-window */
+#lean_overlay  {
+	position: fixed; z-index:100;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background: #696969;
+	display: none;
+}
+
+#modal-window {
+	background-color: #ffffff;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+	display: none;
+	padding: 30px;
+	width: 800px;
+	height: 480px;
+}
