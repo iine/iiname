@@ -46,6 +46,7 @@ app.controller("PlaceController",
 
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+      vm.places = [];
       var j = 1;
       for (var i = 0; i < results.length; i++) {
         var spot = results[i];
