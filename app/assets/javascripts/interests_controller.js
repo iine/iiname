@@ -11,6 +11,7 @@ app.controller("InterestsController",
     $localStorage.interests_keywords.push(interests_keyword);
     $http.get("/suggestions/any.json", {params: {"interests":  interests_keyword}}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
+      vm.parent.vm.last_suggestion = "interests";
       // $location.url("/names");
     });
     $http.get("/images.json", {params: {count: 2}}).then(function(res) {
@@ -23,6 +24,7 @@ app.controller("InterestsController",
     $localStorage.interests_keywords.push(interests_keyword);
     $http.get("/suggestions/any.json", {params: {"interests": interests_keyword }}).then(function(res){
       vm.parent.vm.keyword = res.data.keyword;
+      vm.parent.vm.last_suggestion = "interests";
       // $location.url("/names");
     });
     $http.get("/images.json", {params: {count: 2}}).then(function(res) {

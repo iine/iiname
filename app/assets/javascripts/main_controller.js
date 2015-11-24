@@ -5,6 +5,7 @@ app.controller("MainController",
   vm.list = [];
   vm.keyword = "";
   vm.params = {};
+  vm.last_suggestion = null;
   vm.requestLock = false;
   $localStorage.$default({
     interests_keywords: [],
@@ -34,6 +35,9 @@ app.controller("MainController",
       vm.requestLock = true;
       var params = vm.params;
       params["places[]"] = _.sample(vm.params["places[]"], 10);
+      if (vm.last_suggestion != null) {
+        params = _.pick(params, vm.last_suggestion);
+      }
       $http.get("/suggestions/any.json", {params: params}).then(function(res){
         vm.keyword = res.data.keyword;
       }).finally(function(){

@@ -7,6 +7,7 @@ app.controller("NamesController", ["$http", "$location", "$scope", function($htt
     $("input[type=button]").attr("disabled", true);
     $http.get("/names/suggestion/", {params: {"names[]": vm.names}}).then(function(res) {
       vm.parent.vm.keyword = res.data.keyword;
+      vm.parent.vm.last_suggestion = "names[]";
       $location.url("/place");
     }).finally(function(){
       $("input[type=button]").attr("disabled", false);
