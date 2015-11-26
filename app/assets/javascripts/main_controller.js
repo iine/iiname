@@ -5,9 +5,11 @@ app.controller("MainController",
   vm.list = [];
   vm.keyword = "";
   vm.params = {};
+  vm.last_suggestion = null;
   vm.requestLock = false;
   $localStorage.$default({
-    interests_keywords: []
+    interests_keywords: [],
+    places_keywords: []
   });
 
   $scope.$watch(function() {
@@ -23,14 +25,20 @@ app.controller("MainController",
     return angular.toJson($localStorage.valueOf());
   }, function(newVal, oldVal) {
     vm.params = {
-      interests: $localStorage.interests_keywords[($localStorage.interests_keywords.length - 1)]
+      interests: $localStorage.interests_keywords[($localStorage.interests_keywords.length - 1)],
+      "places[]": $localStorage.places_keywords,
     }
   });
 
   vm.get_suggestion = function() {
     if (!vm.requestLock) {
       vm.requestLock = true;
-      $http.get("/suggestions/any.json", {params: vm.params}).then(function(res){
+      var params = vm.params;
+      params["places[]"] = _.sample(vm.params["places[]"], 10);
+      if (vm.last_suggestion != null) {
+        params = _.pick(params, vm.last_suggestion);
+      }
+      $http.get("/suggestions/any.json", {params: params}).then(function(res){
         vm.keyword = res.data.keyword;
       }).finally(function(){
         vm.requestLock = false;
