@@ -1,7 +1,7 @@
 <div ng-controller="InterestsController as vm" class="interests_controller">
-  <img src="/images/left.gif" />
+  <a ng-href="/#/place"><img src="/images/left.gif" /></a>
   どちらに興味がありますか？
-  <img src="/images/right.gif" />
+  <a ng-href="/#/place"><img src="/images/right.gif" /></a>
   <div class="interests_wrapper">
     <div class="interests_image" style="background: url('{{vm.images[0].url}}') no-repeat 50% 50%; background-size:cover;" alt="{{vm.images[0].keyword}}" ng-click="vm.ileft()"></div>
     <div class="interests_image" style="background: url('{{vm.images[1].url}}') no-repeat 50% 50%; background-size:cover;" alt="{{vm.images[1].keyword}}" ng-click="vm.iright()"></div>
