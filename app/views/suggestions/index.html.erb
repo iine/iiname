@@ -1,5 +1,12 @@
 <div class="question_slider">
- <div><img src="/images/mountain.jpg"></div>
+  <div ng-controller="PlaceController as vm" class="place_controller">
+    チームを結成した場所は？
+    <div class="place_wrapper">
+      <input type = "text" id="city_name" value="" />
+      <button id="search" class="btn btn-primary btn-lg">チーム名を作成する</button>
+      <div id="map"></div>
+    </div>
+  </div>
  <div><img src="/images/mountain.jpg"></div>
  <div><img src="/images/mountain.jpg"></div>
  <div><img src="/images/mountain.jpg"></div>
@@ -21,7 +28,7 @@
     <div>
       <div class="col-md-12">
         <div class="red_line"></div>
-         <div ng-view></div>
+         <!-- <div ng-view></div> -->
       </div>
     </div>
     <div class="list col-md-12">
