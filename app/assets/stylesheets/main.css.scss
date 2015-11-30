@@ -29,7 +29,9 @@ footer{
   background-repeat: no-repeat;
   background-position: center top;
   text-align: center;
-　padding-top: 20px;
+  p {
+    　margin-top: 20px;
+  }
 }
 
 ul.menu {
