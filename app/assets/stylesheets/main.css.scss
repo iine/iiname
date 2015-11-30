@@ -8,7 +8,7 @@ header{
   background-position: center bottom;
   text-align: center;
   .logo{
-    margin-right: 150px;
+    margin-right: 300px;
   }
 }
 
@@ -25,9 +25,9 @@ ul {
 footer{
   font-size: 120%;
   height: 150px;
-  background-image: image-url("footer.jpg");
+  background-image: image-url("black.gif");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
   text-align: center;
 }
 
@@ -39,15 +39,15 @@ ul.menu {
 }
 
 .blue_line {
-  height: 50px;
-  background-image: image-url("blue.jpg");
+  height: 10px;
+  background-image: image-url("blue.gif");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .red_line {
-  height: 50px;
-  background-image: image-url("red.jpg");
+  height: 10px;
+  background-image: image-url("red.gif");
   background-repeat: no-repeat;
   background-position: center;
 }
