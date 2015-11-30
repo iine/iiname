@@ -7,15 +7,37 @@
       <div id="map"></div>
     </div>
   </div>
- <div><img src="/images/mountain.jpg"></div>
- <div><img src="/images/mountain.jpg"></div>
- <div><img src="/images/mountain.jpg"></div>
- <div><img src="/images/mountain.jpg"></div>
- <div><img src="/images/mountain.jpg"></div>
+  <div ng-controller="InterestsController as vm" class="interests_controller">
+    どちらに興味がありますか？
+    <div class="interests_wrapper">
+      <div class="interests_image" style="background: url('{{vm.images[0].url}}') no-repeat 50% 50%; background-size:cover;" alt="{{vm.images[0].keyword}}" ng-click="vm.ileft()"></div>
+      <div class="interests_image" style="background: url('{{vm.images[1].url}}') no-repeat 50% 50%; background-size:cover;" alt="{{vm.images[1].keyword}}" ng-click="vm.iright()"></div>
+    </div>
+  </div>
+  <div ng-controller="NamesController as vm">
+  <table>
+    <thead>
+      <tr>
+       <th>id</th>
+       <th>名前</th>
+       <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="name in vm.names track by $index">
+        <td>{{$index}}</td>
+        <td><input type="text" name="names[{{$index}}]" ng-model="vm.names[$index]" /></td>
+        <td><input type="button" ng-click="vm.add()" value="+" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="button" name="submit" ng-click="vm.push()" value="submit" />
+  </div>
 </div>
 <div ng-controller="MainController as vm" ng-cloak>
   <div class="row">
     <div class="suggestion col-md-12">
+      <div class="red_line"></div>
       <div class="sticky_wrapper">
         <a href="/statuses?keyword={{vm.keyword}}" data-method="post">
           <div class="sticky">
@@ -27,7 +49,6 @@
     </div>
     <div>
       <div class="col-md-12">
-        <div class="red_line"></div>
          <!-- <div ng-view></div> -->
       </div>
     </div>
