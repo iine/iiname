@@ -3,14 +3,12 @@
 
 header{
   height: 50px;
-  background-image: image-url("black.jpg");
+  background-image: image-url("black.gif");
   background-repeat: no-repeat;
-  background-position: center;
-  text-align: right;
-  h1{
-    a{
-      color: #fff;
-    }
+  background-position: center bottom;
+  text-align: center;
+  .logo{
+    margin-right: 150px;
   }
 }
 
