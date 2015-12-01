@@ -25,13 +25,7 @@ ul {
 footer{
   font-size: 120%;
   height: 100px;
-  background-image: image-url("black.gif");
-  background-repeat: no-repeat;
-  background-position: center top;
   text-align: center;
-  p {
-    　margin-top: 20px;
-  }
 }
 
 ul.menu {
@@ -39,6 +33,13 @@ ul.menu {
   li {
     padding: 5px;
   }
+}
+
+.black_line {
+  height: 10px;
+  background-image: image-url("black.gif");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .blue_line {
