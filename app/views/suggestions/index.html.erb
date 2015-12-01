@@ -59,14 +59,16 @@
     <div class="list col-md-12">
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>
-          <div class="sticky_wrapper">
-            <a href="/statuses?keyword={{element}}" data-method="post">
-              <div class="sticky">
-                <span class="name">
-                  {{element}}
-                </span>
-              </div>
-            </a>
+          <div class="sticky_margin">
+            <div class="sticky_wrapper">
+              <a href="/statuses?keyword={{element}}" data-method="post">
+                <div class="sticky">
+                  <span class="name">
+                    {{element}}
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </li>
       </ul>
