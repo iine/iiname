@@ -1,7 +1,10 @@
 <div class="question_slider">
   <div><div ng-include="'partials/place.html'"></div></div>
   <div><div ng-include="'partials/interests.html'"></div></div>
+  <!-- 名前検索
   <div><div ng-include="'partials/names.html'"></div></div>
+  -->
+  <!-- ベタ打ち
   <div ng-controller="PlaceController as vm" class="place_controller">
     チームを結成した場所は？
     <div class="place_wrapper">
@@ -36,6 +39,7 @@
   </table>
   <input type="button" name="submit" ng-click="vm.push()" value="submit" />
   </div>
+  -->
 </div>
 <div ng-controller="MainController as vm" ng-cloak>
   <div class="row">
@@ -50,14 +54,8 @@
         </a>
       </div>
     </div>
-    <div>
-      <div class="col-md-12">
-         <!-- <div ng-view></div> -->
-      </div>
-    </div>
     <div class="list col-md-12">
-      <div class="blue_line"></div>
-      <h2>これまでに出たチーム名のアイデア</h2>
+      <div class="black_line"></div>
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>
           <div class="sticky_wrapper">
