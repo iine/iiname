@@ -37,6 +37,8 @@ app.controller("MainController",
       params["places[]"] = _.sample(vm.params["places[]"], 10);
       if (vm.last_suggestion != null) {
         params = _.pick(params, vm.last_suggestion);
+      } else {
+        params = {};
       }
       $http.get("/suggestions/any.json", {params: params}).then(function(res){
         vm.keyword = res.data.keyword;
