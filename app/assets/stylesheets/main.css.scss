@@ -11,6 +11,12 @@ header{
   }
 }
 
+footer{
+  font-size: 120%;
+  height: 100px;
+  text-align: center;
+}
+
 h2{
   text-align: center;
 }
@@ -19,12 +25,6 @@ ul {
   li {
     list-style: none;
   }
-}
-
-footer{
-  font-size: 120%;
-  height: 100px;
-  text-align: center;
 }
 
 ul.menu {
@@ -61,6 +61,16 @@ ul.menu {
 
 .notice_wrapper{
   text-align: center;
+}
+
+.question{
+  padding: 20px;
+}
+
+html.feature-toggle-disabled {
+  .feature-toggle {
+    display: none;
+  }
 }
 
 /* sticky */
@@ -122,7 +132,7 @@ ul.menu {
   margin-top: 10px;
 }
 
-/* sticky end */
+/* result */
 
 .result {
   height:633px;
@@ -148,17 +158,23 @@ ul.menu {
   }
 }
 
-.question{
-  padding: 20px;
+.social_buttons {
+  overflow: hidden;
+  display: flex;
+  justify-content: center
 }
 
-html.feature-toggle-disabled {
-  .feature-toggle {
-    display: none;
-  }
+.social_buttons li {
+  // display:inline-block;
+  float: left;
+  margin-right: 8px;
 }
 
-/* 画像 */
+.social_buttons iframe {
+  margin: 0 !important;
+}
+
+/* interests */
 .interests_controller{
   font-size: 150%;
   text-align: center;
@@ -199,8 +215,8 @@ html.feature-toggle-disabled {
 
 #image:hover{
 }
-/* 画像 */
 
+/* place */
 .place_controller{
   font-size: 150%;
   text-align: center;
@@ -217,21 +233,6 @@ html.feature-toggle-disabled {
   text-align: center;
 }
 
-.social_buttons {
-  overflow: hidden;
-  display: flex;
-  justify-content: center
-}
-.social_buttons li {
-  // display:inline-block;
-  float: left;
-  margin-right: 8px;
-}
-.social_buttons iframe {
-  margin: 0 !important;
-}
-
-/* place */
 #map {
   width: 85vw;
   max-width: 700px;
