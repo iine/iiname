@@ -12,35 +12,45 @@ app.controller("PlaceController",
   　$http.get("/suggestions/any.json", {params: { "places[]": _.sample(vm.places, 10)}}).then(function(res) {
       vm.parent.vm.keyword = res.data.keyword;
       vm.parent.vm.last_suggestion = "places[]";
-      // $location.url("/interests");
     });
   }
 
-  // $http.get("/prefectures.json").then(function(res) {
-  //   vm.prefectures = res.data;
-  // });
-
   var map;
   var infowindow;
+  var markers = [];
 
-  function initialize(lat,lng,create_only) {
+  function initialize(lat,lng,create_only, name) {
     var city = new google.maps.LatLng(lat,lng);
 
     map = new google.maps.Map(document.getElementById('map'), {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         center: city,
-        zoom: 14
+        zoom: 14,
+        disableDoubleClickZoom: true
     });
 
+    google.maps.event.addListener(map, "dblclick", function(e) {
+      markers.forEach(function(marker) {
+        marker.setMap(null);
+      })
+      createMarker(e.latLng, e.latLng.toString());
+      nearbySearch(map, e.latLng);
+    });
+
+    infowindow = new google.maps.InfoWindow();
+    createMarker(city, name);
     if( create_only ){
       return;
     }
 
+    nearbySearch(map, city);
+  }
+
+  function nearbySearch(map, location){
     var request = {
-        location: city,
+        location: location,
         radius: 1000  /* 指定した座標から半径1000m以内 */
     };
-    infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
   }
@@ -57,7 +67,7 @@ app.controller("PlaceController",
           continue;
         }
         // console.log(spot);
-        createMarker(spot);
+        // createMarker(spot.geometry.location, spot.name);
         vm.places.push(spot.name);
         // if( (array_has("establishment", types) && j==1) ||
         //   ((array_has("store",types) ||
@@ -94,26 +104,29 @@ app.controller("PlaceController",
     }
   }
 
-  function createMarker(place) {
-    var placeLoc = place.geometry.location;
+  function createMarker(location, name) {
     var marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location
+        position: location,
+        draggable: true
     });
-//  マーカーをクリックすると場所の名前を表示
+    // マーカーをクリックすると場所の名前を表示
     google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
+        infowindow.setContent(name);
         infowindow.open(map, this);
     });
+    google.maps.event.addListener(marker, 'dragend', function(e) {
+      nearbySearch(map, e.latLng);
+    });
+    markers.push(marker);
+    return marker;
   }
-
-//google.maps.event.addDomListener(window, 'load', initialize);
 
   $(document).ready(function(){
     $("#search").click(findPlaces);
     $("#city_name").change(findPlaces);
 
-    initialize(35.606938, 139.7489739, true);
+    initialize(35.606938, 139.7489739, true, "AIIT");
   });
 
   function findPlaces(){
@@ -129,7 +142,7 @@ app.controller("PlaceController",
         if (status == google.maps.GeocoderStatus.OK) {
           var loc = results[0].geometry.location;
           $(".place_name").text(address);
-          initialize(loc.lat(), loc.lng());
+          initialize(loc.lat(), loc.lng(), false, address);
           // map.setCenter(results[0].geometry.location);  //入力された地域をmapの中心に表示
         }else {
           // 都市が見つからなければ、エラーのダイアログを出す
