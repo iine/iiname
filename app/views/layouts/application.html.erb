@@ -30,14 +30,17 @@
     <div class="container">
       <header>
         <div class="row">
-          <div class="col-md-12">
-            <img src="<%= asset_path "logo.gif" %>" class="logo">
+          <div class="col-md-6" class="logo">
+            <img src="<%= asset_path "logo.gif" %>">
+          </div>
+          <div class="col-md-6" class="icon">
             <a rel="leanModal" href="#modal-window"><img src="<%= asset_path "question.gif" %>"></a>
           </div>
         </div>
       </header>
       <div class="row">
         <div class="col-md-12 notice_wrapper">
+          <div class="black_line"></div>
           <p id="notice"><%= notice %></p>
         </div>
       </div>

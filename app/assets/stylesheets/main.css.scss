@@ -3,12 +3,12 @@
 
 header{
   height: 50px;
-  background-image: image-url("black.gif");
-  background-repeat: no-repeat;
-  background-position: center bottom;
   text-align: center;
   .logo{
-    margin-right: 300px;
+    text-align: left;
+  }
+  .icon{
+    text-align: right;
   }
 }
 
@@ -109,13 +109,13 @@ ul.menu {
    }
 }
 
-/* sticky end */
-
 .sticky_description{
   font-size: 150%;
   text-align: center;
   margin-top: 10px;
 }
+
+/* sticky end */
 
 .result {
   height:633px;
@@ -140,8 +140,6 @@ ul.menu {
     }
   }
 }
-
-/* sticky end */
 
 .list{
   padding: 200px, 0, 0, 0;
