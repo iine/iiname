@@ -1,34 +1,35 @@
 <div ng-controller="MainController as vm" ng-cloak>
+  <div class="question_slider">
+    <div><div ng-include="'partials/place.html'"></div></div>
+    <div><div ng-include="'partials/interests.html'"></div></div>
+  </div>
   <div class="row">
     <div class="suggestion col-md-12">
-      <div class="sticky_wrapper">
-        <a href="/statuses?keyword={{vm.keyword}}" data-method="post">
-          <div class="sticky">
-                <span id="highest_suggestion" ng-bind="vm.keyword" class="name"></span>
-                <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div>
-      <div class="col-md-12">
-        <div class="red_line"></div>
-         <div ng-view></div>
+      <div class="black_line"></div>
+      <div class="sticky_margin">
+        <div class="sticky_wrapper">
+          <a href="/statuses?keyword={{vm.keyword}}" data-method="post">
+            <div class="sticky new_sticky">
+                  <span id="highest_suggestion" ng-bind="vm.keyword" class="name"></span>
+                  <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
     <div class="list col-md-12">
-      <div class="blue_line"></div>
-      <h2>これまでに出たチーム名のアイデア</h2>
       <ul id="list" class="list-unstyled" ng-repeat="element in vm.list | orderBy:'$index':true track by $index">
         <li>
-          <div class="sticky_wrapper">
-            <a href="/statuses?keyword={{element}}" data-method="post">
-              <div class="sticky">
-                <span class="name">
-                  {{element}}
-                </span>
-              </div>
-            </a>
+          <div class="sticky_margin">
+            <div class="sticky_wrapper">
+              <a href="/statuses?keyword={{element}}" data-method="post">
+                <div class="sticky">
+                  <span class="name">
+                    {{element}}
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </li>
       </ul>

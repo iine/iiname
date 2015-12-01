@@ -2,16 +2,19 @@
 @import "bootstrap";
 
 header{
-  height: 150px;
-  background-image: image-url("header.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: right;
-  h1{
-    a{
-      color: #fff;
-    }
+  height: 50px;
+  .logo{
+    text-align: left;
   }
+  .icon{
+    text-align: right;
+  }
+}
+
+footer{
+  font-size: 120%;
+  height: 100px;
+  text-align: center;
 }
 
 h2{
@@ -24,15 +27,6 @@ ul {
   }
 }
 
-footer{
-  font-size: 120%;
-  height: 150px;
-  background-image: image-url("footer.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: center;
-}
-
 ul.menu {
   margin: 10px;
   li {
@@ -40,16 +34,23 @@ ul.menu {
   }
 }
 
+.black_line {
+  height: 10px;
+  background-image: image-url("black.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .blue_line {
-  height: 50px;
-  background-image: image-url("blue.jpg");
+  height: 10px;
+  background-image: image-url("blue.gif");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .red_line {
-  height: 50px;
-  background-image: image-url("red.jpg");
+  height: 10px;
+  background-image: image-url("red.gif");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -62,7 +63,21 @@ ul.menu {
   text-align: center;
 }
 
+.question{
+  padding: 20px;
+}
+
+html.feature-toggle-disabled {
+  .feature-toggle {
+    display: none;
+  }
+}
+
 /* sticky */
+.sticky_margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .sticky_wrapper {
   margin: 0 auto;
@@ -72,7 +87,7 @@ ul.menu {
 .sticky {
   width:450px;
   height:150px;
-  background-color:#e0fefe;
+  background-color:#efefef;
   position: relative;
   display: table-cell;
 	vertical-align: middle;
@@ -96,6 +111,10 @@ ul.menu {
   }
 }
 
+.new_sticky{
+  background-color:#e0fefe;
+}
+
 .name{
   font-size: 300%;
   color: #000;
@@ -107,14 +126,13 @@ ul.menu {
    }
 }
 
-/* sticky end */
-
 .sticky_description{
   font-size: 150%;
   text-align: center;
   margin-top: 10px;
 }
 
+/* result */
 .result {
   height:633px;
   background-image: image-url("result.jpg");
@@ -139,31 +157,29 @@ ul.menu {
   }
 }
 
-/* sticky end */
-
-.list{
-  padding: 200px, 0, 0, 0;
+.social_buttons {
+  overflow: hidden;
+  display: flex;
+  justify-content: center
 }
 
-.question{
-  padding: 20px;
+.social_buttons li {
+  // display:inline-block;
+  float: left;
+  margin-right: 8px;
 }
 
-html.feature-toggle-disabled {
-  .feature-toggle {
-    display: none;
-  }
+.social_buttons iframe {
+  margin: 0 !important;
 }
 
-/* 画像 */
+/* interests */
 .interests_controller{
-  font-size: 300%;
+  font-size: 150%;
   text-align: center;
-  height: 400px;
 }
 
 .interests_wrapper{
-//border: thick #ff0000 solid;
   width: 600px;
   margin: 0 auto;
   text-align: center;
@@ -196,12 +212,11 @@ html.feature-toggle-disabled {
 
 #image:hover{
 }
-/* 画像 */
 
+/* place */
 .place_controller{
-  font-size: 300%;
+  font-size: 150%;
   text-align: center;
-  height: 400px;
     #map{
       width: 600px;
       height: 200px;
@@ -214,21 +229,6 @@ html.feature-toggle-disabled {
   text-align: center;
 }
 
-.social_buttons {
-  overflow: hidden;
-  display: flex;
-  justify-content: center
-}
-.social_buttons li {
-  // display:inline-block;
-  float: left;
-  margin-right: 8px;
-}
-.social_buttons iframe {
-  margin: 0 !important;
-}
-
-/* place */
 #map {
   width: 85vw;
   max-width: 700px;
