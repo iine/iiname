@@ -65,6 +65,10 @@ ul.menu {
 }
 
 /* sticky */
+.sticky_margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .sticky_wrapper {
   margin: 0 auto;
@@ -74,7 +78,7 @@ ul.menu {
 .sticky {
   width:450px;
   height:150px;
-  background-color:#e0fefe;
+  background-color:#cccccc;
   position: relative;
   display: table-cell;
 	vertical-align: middle;
@@ -96,6 +100,10 @@ ul.menu {
     transform: rotate(2deg);
     z-index: -1;
   }
+}
+
+.new_sticky{
+  background-color:#e0fefe;
 }
 
 .name{
@@ -139,10 +147,6 @@ ul.menu {
     &:hover {
     }
   }
-}
-
-.list{
-  padding: 200px, 0, 0, 0;
 }
 
 .question{
