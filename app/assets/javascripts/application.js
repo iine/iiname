@@ -24,3 +24,4 @@
 //= require_tree .
 
 //= require bootstrap-sprockets
+//= slick.min
