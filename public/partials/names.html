@@ -1,6 +1,6 @@
-<div ng-controller="NamesController as vm" class="name_controller">
+<div ng-controller="NamesController as vm" class="names_controller">
   チームを結成した場所は？
-  <div class="name_wrapper">
+  <div class="names_wrapper">
     <div ng-repeat="name in vm.names track by $index">
     <input type="text" name="names[{{$index}}]" ng-model="vm.names[$index]" />
     </div>
