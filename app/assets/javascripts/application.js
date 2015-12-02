@@ -20,7 +20,7 @@
 //= require underscore-min
 //= require module
 //= require main_controller
+//= require bootstrap-sprockets
+//= require slick.min
 //= require routes
 //= require_tree .
-
-//= require bootstrap-sprockets
