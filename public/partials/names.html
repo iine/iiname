@@ -1,21 +1,9 @@
-<div ng-controller="NamesController as vm">
-  <div class="question col-md-8 col-md-offset-2">
-    <table>
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>名前</th>
-          <th>&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="name in vm.names track by $index">
-          <td>{{$index}}</td>
-          <td><input type="text" name="names[{{$index}}]" ng-model="vm.names[$index]" /></td>
-          <td><input type="button" ng-click="vm.add()" value="+" /></td>
-        </tr>
-      </tbody>
-    </table>
-    <input type="button" name="submit" ng-click="vm.push()" value="submit" />
+<div ng-controller="NamesController as vm" class="name_controller">
+  チームを結成した場所は？
+  <div class="name_wrapper">
+    <div ng-repeat="name in vm.names track by $index">
+    <input type="text" name="names[{{$index}}]" ng-model="vm.names[$index]" />
+    </div>
+    <input type="button" name="submit" ng-click="vm.push()" value="決定" class="btn btn-primary btn-lg"/>
   </div>
 </div>
