@@ -235,6 +235,18 @@ html.feature-toggle-disabled {
   height: 40vh;
 }
 
+/* names */
+.names_controller{
+  font-size: 150%;
+  text-align: center;
+}
+
+.names_wrapper{
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* modal-window */
 #lean_overlay  {
 	position: fixed; z-index:100;
