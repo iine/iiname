@@ -1,5 +1,5 @@
 <div ng-controller="NamesController as vm" class="names_controller">
-  チームを結成した場所は？
+  チームのリーダーの名前は？
   <div class="names_wrapper">
     <div ng-repeat="name in vm.names track by $index">
     <input type="text" name="names[{{$index}}]" ng-model="vm.names[$index]" />
