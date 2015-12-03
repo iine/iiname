@@ -20,6 +20,17 @@
         draggable: false,
         });
       });
+      $(window).scroll(function(){
+        var now = $(window).scrollTop();
+        if( now > 500 ){
+          $('#page-top').fadeIn('slow') ;
+        }else {
+          $('#page-top').fadeOut('slow');
+        }
+      });
+      function movepagetop() {
+        window.scrollTo(0,0);
+      }
     </script>
   </head>
   <body>
@@ -51,7 +62,7 @@
       </footer>
     </div>
     <div id="page-top" class="page-top">
-      <p><a id="move-page-top" class="move-page-top">▲</a></p>
+      <p><a id="move-page-top" class="move-page-top" onclick="movepagetop(); return false">▲</a></p>
     </div>
     <div id="modal-window" style="display:none;">
       <center><strong>チーム名ブレインストーミングツール　いいねーむ</strong></center>
