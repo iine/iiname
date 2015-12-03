@@ -4,6 +4,6 @@
     <div ng-repeat="name in vm.names track by $index">
     <input type="text" name="names[{{$index}}]" ng-model="vm.names[$index]" />
     </div>
-    <input type="button" name="submit" ng-click="vm.push()" value="決定" class="btn btn-primary btn-lg"/>
+    <input type="button" name="submit" ng-click="vm.push()" value="決定" class="btn btn-default"/>
   </div>
 </div>
