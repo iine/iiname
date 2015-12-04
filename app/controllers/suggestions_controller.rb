@@ -39,6 +39,12 @@ class SuggestionsController < ApplicationController
       ignite_engine(params[:places].join, true) and return
     end
 
+    if params[:names].present? and params[:names].kind_of?(Array)
+      origin_keyword = params[:names].join(" ")
+      str = Iiname::Engine.new(:keyword => origin_keyword, mode: :book).fetch()
+      render json: {keyword: str, origin: origin_keyword} and return
+    end
+
     unless @suggestion.present?
       index = Random.rand(0..Suggestion.all.length - 1)
       origin_keyword = Suggestion.all[index].keyword

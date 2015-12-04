@@ -67,7 +67,7 @@ module Iiname
     end
 
     # get names through web api
-    def search_by_webapi(keyword) 
+    def search_by_webapi(keyword)
       puts("start search_by_webapi(", keyword, ")");
 
       team_name = "No name"
@@ -75,10 +75,10 @@ module Iiname
       # get team name through rakuten api
       items = search_by_rakuten(keyword)
       if (items.count != 0) then
-        item = items.first
+        item = items.sample
       else
         # get team name through google api
-        item = search_by_google(keyword).first
+        item = search_by_google(keyword).sample
       end
 
       puts("class = ",item.class)
@@ -104,7 +104,7 @@ module Iiname
       r_items = RakutenWebService::Books::Book.search(:author => keyword, :page => 1)
 
       items = r_items.to_a
-      
+
       puts("rakuten_web_service hit #{items.count} items.")
       #items.each_with_index do |item, i| puts "#{i}: #{item.class} title=#{item.title}" end
       puts("return is #{items.class}")
