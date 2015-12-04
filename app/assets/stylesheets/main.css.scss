@@ -262,3 +262,41 @@ html.feature-toggle-disabled {
 	width: 800px;
 	height: 480px;
 }
+
+/* move-page-top */
+.page-top
+{
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.page-top p
+{
+  margin: 0;
+  padding: 0;
+
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+.move-page-top
+{
+  display: block;
+  background: #343434;
+  width: 50px;
+  height: 50px;
+
+  color: #fff;
+  line-height: 50px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.move-page-top:hover
+{
+  opacity: 0.75;
+  color: #fff;
+  cursor: pointer;
+}
