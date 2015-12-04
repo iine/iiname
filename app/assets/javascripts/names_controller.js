@@ -1,10 +1,13 @@
-app.controller("NamesController", ["$http", "$location", "$scope", function($http, $location, $scope) {
+app.controller("NamesController",
+              ["$http", "$location", "$scope", "$localStorage",
+              function($http, $location, $scope, $localStorage) {
   var vm = this;
   vm.parent = $scope.$parent;
   vm.names = [""];
 
   vm.push = function(e) {
     $("input[type=button]").attr("disabled", true);
+    $localStorage.names_keywords = vm.names;
     $http.get("/names/suggestion/", {params: {"names[]": vm.names}}).then(function(res) {
       vm.parent.vm.keyword = res.data.keyword;
       vm.parent.vm.last_suggestion = "names[]";
