@@ -9,9 +9,9 @@
       <div class="black_line"></div>
       <div class="sticky_margin">
         <div class="sticky_wrapper">
-          <a href="/statuses?keyword={{vm.keyword}}" data-method="post">
+          <a href="/statuses?keyword={{vm.keyword.word}}" data-method="post">
             <div class="sticky new_sticky">
-                  <span id="highest_suggestion" ng-bind="vm.keyword" class="name"></span>
+                  <span id="highest_suggestion" ng-bind="vm.keyword.word" class="name"></span>
                   <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
             </div>
           </a>
@@ -23,10 +23,10 @@
         <li>
           <div class="sticky_margin">
             <div class="sticky_wrapper">
-              <a href="/statuses?keyword={{element}}" data-method="post">
+              <a href="/statuses?keyword={{element.word}}" data-method="post">
                 <div class="sticky">
                   <span class="name">
-                    {{element}}
+                    {{element.word}}
                   </span>
                 </div>
               </a>

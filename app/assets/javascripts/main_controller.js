@@ -3,7 +3,7 @@ app.controller("MainController",
               function($scope, $http, $interval, $localStorage) {
   var vm = this;
   vm.list = [];
-  vm.keyword = "";
+  vm.keyword = {word: ""};
   vm.params = {};
   vm.last_suggestion = null;
   vm.requestLock = false;
@@ -16,7 +16,7 @@ app.controller("MainController",
   $scope.$watch(function() {
     return vm.keyword;
   }, function(newVal, oldVal) {
-    if (oldVal != null && oldVal != "") {
+    if (oldVal != null && oldVal.word != "") {
       vm.list.push(oldVal);
     }
   }, true);
@@ -43,7 +43,7 @@ app.controller("MainController",
         params = {};
       }
       $http.get("/suggestions/any.json", {params: params}).then(function(res){
-        vm.keyword = res.data.keyword;
+        vm.keyword = {word: res.data.keyword};
       }).finally(function(){
         vm.requestLock = false;
       });
