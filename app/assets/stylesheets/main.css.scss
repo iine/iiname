@@ -119,6 +119,19 @@ html.feature-toggle-disabled {
   div.interests {
     @include label($magenta)
   }
+  span.origin {
+    display: block;
+    margin: 0px;
+    text-align: right;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.3rem;
+    img {
+      width: 15%;
+      height: 15%;
+    }
+  }
 }
 
 .sticky {

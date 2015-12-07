@@ -3,7 +3,7 @@ app.controller("MainController",
               function($scope, $http, $interval, $localStorage) {
   var vm = this;
   vm.list = [];
-  vm.keyword = {word: "", origin: ""};
+  vm.keyword = {word: "", origin: null};
   vm.params = {};
   vm.last_suggestion = "";
   vm.requestLock = false;
@@ -37,7 +37,7 @@ app.controller("MainController",
       vm.requestLock = true;
       var params = {};
       $.extend(true, params, vm.params); // deep copy
-      var origin = "";
+      var origin = null;
       if (vm.params["places[]"] != null) {
         params["places[]"] = _.sample(vm.params["places[]"]["places"], 10);
       }
@@ -45,7 +45,10 @@ app.controller("MainController",
         params = _.pick(params, vm.last_suggestion);
         if (vm.last_suggestion == "places[]") {
           origin = vm.params["places[]"]["origin"];
-        } else if (!_.isEmpty(params)){
+        } else if (vm.last_suggestion == "interests"){
+          origin = params["interests"]["url"];
+          params["interests"] = params["interests"]["keyword"];
+        } else {
           origin = _.flatten(_.values(params))[0];
         }
       } else {
