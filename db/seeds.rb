@@ -94,22 +94,24 @@ end
 {:url => "https://farm1.staticflickr.com/174/382489491_8c70ca346b_m.jpg", :keyword => "フルーツ"},
 {:url => "https://farm3.staticflickr.com/2722/4159101220_527e168cb2_m.jpg", :keyword => "ライブ"},
 {:url => "http://3.bp.blogspot.com/-B6jCuurWcCM/VGX8dRq3ysI/AAAAAAAApHI/RkYk6WBqeHI/s800/curry_indian_man.png", :keyword => "インドの"},
-{:url => "http://3.bp.blogspot.com/-1E_oghJXSG8/VcMlSPiZ8XI/AAAAAAAAwYs/z5M1depYh2E/s800/fujoshi_otaku.png", :keyword => "腐女子"},
+{:url => "http://3.bp.blogspot.com/-1E_oghJXSG8/VcMlSPiZ8XI/AAAAAAAAwYs/z5M1depYh2E/s800/fujoshi_otaku.png", :keyword => "オタ"},
 {:url => "http://3.bp.blogspot.com/-3enEXKDTuPA/Vffs6YrKjnI/AAAAAAAAx-0/zfIJZVrA6LM/s800/otaku_otagei.png", :keyword => "ライブ"},
 {:url => "http://3.bp.blogspot.com/-SQs0ID0nGMg/U-8GiQYRrSI/AAAAAAAAk6c/eVsqqrP9Czo/s800/salaryman_money.png", :keyword => "社畜"},
 {:url => "http://3.bp.blogspot.com/-ZWe9UUGMqDI/UylAX8vHpzI/AAAAAAAAeTE/ibSmOYMBp2A/s800/homeless_furousya.png", :keyword => "貧乏"},
 {:url => "http://1.bp.blogspot.com/-t9nxrXcbNh8/UWvSyZ89rXI/AAAAAAAAQdo/ECkWs_9jKAY/s1600/rakugoka.png", :keyword => "師匠"},
 {:url => "http://1.bp.blogspot.com/-yjkNaka5JAA/Vkcad8bYXyI/AAAAAAAA0cI/TKaFQvDXAVs/s800/doctor_run2.png", :keyword => "ジャンプ"},
 {:url => "http://1.bp.blogspot.com/-ESgM6R9zv3c/U82z5IllMmI/AAAAAAAAjOI/ZjnZEdbJc4M/s800/job_keiji.png", :keyword => "逮捕"},
-{:url => "http://2.bp.blogspot.com/-JPa0Nzk_E8M/Vf-aIH2jsyI/AAAAAAAAyDc/2FG8dSNSk-k/s800/computer_girl.png", :keyword => "ハッカー"},
-{:url => "http://1.bp.blogspot.com/-T_ETm8C-jFc/VfS6Xrt7BdI/AAAAAAAAxPk/U6owJSWUGYo/s800/job_syokugyou_taiken_girl.png", :keyword => "ナース"},
+{:url => "http://2.bp.blogspot.com/-JPa0Nzk_E8M/Vf-aIH2jsyI/AAAAAAAAyDc/2FG8dSNSk-k/s800/computer_girl.png", :keyword => "脅威"},
+{:url => "http://1.bp.blogspot.com/-T_ETm8C-jFc/VfS6Xrt7BdI/AAAAAAAAxPk/U6owJSWUGYo/s800/job_syokugyou_taiken_girl.png", :keyword => "ナースの"},
 {:url => "http://2.bp.blogspot.com/-43uBGw3S6Rw/VRUS1UZoXuI/AAAAAAAAswo/72c1W5hvMzo/s800/movie_students.png", :keyword => "デート"},
 {:url => "http://4.bp.blogspot.com/-SmXTKx3nBcA/UrlnHYwXxoI/AAAAAAAAcOA/erB3n3GC80E/s800/ramen_syouyu.png", :keyword => "ラーメン"},
 {:url => "http://1.bp.blogspot.com/-JFpCpyCuI4E/VVGVY12lRqI/AAAAAAAAtk4/T0Nlkdo97FY/s800/food_hoshi_hijiki.png", :keyword => "ひじき"},
-{:url => "http://4.bp.blogspot.com/-Fmtpw9cj4ko/VCka7qVXvjI/AAAAAAAAm-A/D3TaWsA6uN8/s800/food_hoikoro.png", :keyword => "中華"},
+{:url => "http://2.bp.blogspot.com/-ReVIkFI9oiA/UnyFyC3eroI/AAAAAAAAaUI/O-xMMX0qnbA/s800/food_fukahire.png", :keyword => "中華"},
 {:url => "http://4.bp.blogspot.com/-19-WZbihq14/VixB4sjiFjI/AAAAAAAA0GQ/v-5Iu2_sEqU/s800/food_pizza_takuhai.png", :keyword => "ピザ"},
-{:url => "http://2.bp.blogspot.com/-Ioj6Qjlhx5o/VfS6PlEsfGI/AAAAAAAAxOo/LSZ849aIMXw/s800/food_yakibuta_cha-syu-.png", :keyword => "焼き豚"}
-# {:url => "", :keyword => ""},
+{:url => "http://2.bp.blogspot.com/-Ioj6Qjlhx5o/VfS6PlEsfGI/AAAAAAAAxOo/LSZ849aIMXw/s800/food_yakibuta_cha-syu-.png", :keyword => "焼き豚"},
+{:url => "http://1.bp.blogspot.com/-jvlnwXGDccQ/Ul5qT2yZePI/AAAAAAAAZDA/eQBc1jlCPo8/s800/nawatobi_girl.png", :keyword => "運動"},
+{:url => "http://4.bp.blogspot.com/-xtKVi1ixiww/VEn-IaNl9qI/AAAAAAAAoo8/UufbC1hqW60/s800/sports_man.png", :keyword => "アスリートの"},
+{:url => "http://4.bp.blogspot.com/-mtkfMVl0LtQ/UchCCS-swhI/AAAAAAAAVI4/OOhYOvFuTSQ/s800/food_tsukemen.png", :keyword => "つけ麺"}
 ].each do |keyword|
   Image.where(keyword).first_or_create
 end
