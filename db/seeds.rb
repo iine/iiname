@@ -64,10 +64,9 @@ Iiname::Engine.new(mode: :hot_trend).fetch.each do | keyword |
 end
 
 [
-{:url => "https://www.pakutaso.com/assets_c/2015/06/PAK85_syokutakubkaraage20150203185651-thumb-1000xauto-18083.jpg", :keyword => "唐揚げ"},
+{:url => "https://www.pakutaso.com/assets_c/2015/06/PAK85_syokutakubkaraage20150203185651-thumb-1000xauto-18083.jpg", :keyword => "から揚げ"},
 {:url => "https://www.pakutaso.com/assets_c/2015/09/SAWA_hanbagu-thumb-1000xauto-19147.jpg", :keyword => "ハンバーグ"},
 {:url => "https://www.pakutaso.com/assets_c/2015/09/0I9A148215080803moyai-thumb-1000xauto-19293.jpg", :keyword => "モヤイ"},
-{:url => "https://www.pakutaso.com/assets_c/2015/06/OOK3S0420140125180412-thumb-1000xauto-18264.jpg", :keyword => "社畜"},
 {:url => "https://www.pakutaso.com/assets_c/2015/09/PAK85_zaru15190938-thumb-1000xauto-19175.jpg", :keyword => "ざる"},
 {:url => "https://farm6.staticflickr.com/5592/15028333166_5f7b680676_m.jpg", :keyword => "金"},
 {:url => "https://farm4.staticflickr.com/3881/15178390720_3cba74dc80_m.jpg", :keyword => "水泳"},
@@ -93,7 +92,24 @@ end
 {:url => "https://farm3.staticflickr.com/2841/10678579184_62aff32a44_m.jpg", :keyword => "車"},
 {:url => "https://farm6.staticflickr.com/5142/5613410129_50bd4de94b_m.jpg", :keyword => "実験"},
 {:url => "https://farm1.staticflickr.com/174/382489491_8c70ca346b_m.jpg", :keyword => "フルーツ"},
-{:url => "https://farm3.staticflickr.com/2722/4159101220_527e168cb2_m.jpg", :keyword => "ライブ"}
+{:url => "https://farm3.staticflickr.com/2722/4159101220_527e168cb2_m.jpg", :keyword => "ライブ"},
+{:url => "http://3.bp.blogspot.com/-B6jCuurWcCM/VGX8dRq3ysI/AAAAAAAApHI/RkYk6WBqeHI/s800/curry_indian_man.png", :keyword => "インドの"},
+{:url => "http://3.bp.blogspot.com/-1E_oghJXSG8/VcMlSPiZ8XI/AAAAAAAAwYs/z5M1depYh2E/s800/fujoshi_otaku.png", :keyword => "腐女子"},
+{:url => "http://3.bp.blogspot.com/-3enEXKDTuPA/Vffs6YrKjnI/AAAAAAAAx-0/zfIJZVrA6LM/s800/otaku_otagei.png", :keyword => "ライブ"},
+{:url => "http://3.bp.blogspot.com/-SQs0ID0nGMg/U-8GiQYRrSI/AAAAAAAAk6c/eVsqqrP9Czo/s800/salaryman_money.png", :keyword => "社畜"},
+{:url => "http://3.bp.blogspot.com/-ZWe9UUGMqDI/UylAX8vHpzI/AAAAAAAAeTE/ibSmOYMBp2A/s800/homeless_furousya.png", :keyword => "貧乏"},
+{:url => "http://1.bp.blogspot.com/-t9nxrXcbNh8/UWvSyZ89rXI/AAAAAAAAQdo/ECkWs_9jKAY/s1600/rakugoka.png", :keyword => "師匠"},
+{:url => "http://1.bp.blogspot.com/-yjkNaka5JAA/Vkcad8bYXyI/AAAAAAAA0cI/TKaFQvDXAVs/s800/doctor_run2.png", :keyword => "ジャンプ"},
+{:url => "http://1.bp.blogspot.com/-ESgM6R9zv3c/U82z5IllMmI/AAAAAAAAjOI/ZjnZEdbJc4M/s800/job_keiji.png", :keyword => "逮捕"},
+{:url => "http://2.bp.blogspot.com/-JPa0Nzk_E8M/Vf-aIH2jsyI/AAAAAAAAyDc/2FG8dSNSk-k/s800/computer_girl.png", :keyword => "ハッカー"},
+{:url => "http://1.bp.blogspot.com/-T_ETm8C-jFc/VfS6Xrt7BdI/AAAAAAAAxPk/U6owJSWUGYo/s800/job_syokugyou_taiken_girl.png", :keyword => "ナース"},
+{:url => "http://2.bp.blogspot.com/-43uBGw3S6Rw/VRUS1UZoXuI/AAAAAAAAswo/72c1W5hvMzo/s800/movie_students.png", :keyword => "デート"},
+{:url => "http://4.bp.blogspot.com/-SmXTKx3nBcA/UrlnHYwXxoI/AAAAAAAAcOA/erB3n3GC80E/s800/ramen_syouyu.png", :keyword => "ラーメン"},
+{:url => "http://1.bp.blogspot.com/-JFpCpyCuI4E/VVGVY12lRqI/AAAAAAAAtk4/T0Nlkdo97FY/s800/food_hoshi_hijiki.png", :keyword => "ひじき"},
+{:url => "http://4.bp.blogspot.com/-Fmtpw9cj4ko/VCka7qVXvjI/AAAAAAAAm-A/D3TaWsA6uN8/s800/food_hoikoro.png", :keyword => "中華"},
+{:url => "http://4.bp.blogspot.com/-19-WZbihq14/VixB4sjiFjI/AAAAAAAA0GQ/v-5Iu2_sEqU/s800/food_pizza_takuhai.png", :keyword => "ピザ"},
+{:url => "http://2.bp.blogspot.com/-Ioj6Qjlhx5o/VfS6PlEsfGI/AAAAAAAAxOo/LSZ849aIMXw/s800/food_yakibuta_cha-syu-.png", :keyword => "焼き豚"}
+# {:url => "", :keyword => ""},
 ].each do |keyword|
   Image.where(keyword).first_or_create
 end
