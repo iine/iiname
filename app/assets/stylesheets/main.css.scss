@@ -18,6 +18,15 @@ $purple: #7D80CF;
   }
 }
 
+@mixin question($color) {
+  p.question {
+    color: $color;
+    margin: 0px;
+    padding: 5px;
+    text-decoration: underline;
+  }
+}
+
 header{
   height: 50px;
   margin-top:10px;
@@ -205,6 +214,7 @@ html.feature-toggle-disabled {
 .interests_controller{
   font-size: 150%;
   text-align: center;
+  @include question($magenta)
 }
 
 .interests_wrapper{
@@ -245,10 +255,12 @@ html.feature-toggle-disabled {
 .place_controller{
   font-size: 150%;
   text-align: center;
-    #map{
-      width: 600px;
-      height: 250px;
-    }
+  #map{
+    width: 600px;
+    height: 250px;
+    margin-top: 10px;
+  }
+  @include question($green)
 }
 
 .place_wrapper{
@@ -261,6 +273,7 @@ html.feature-toggle-disabled {
 .names_controller{
   font-size: 150%;
   text-align: center;
+  @include question($purple)
 }
 
 .names_wrapper{
