@@ -101,7 +101,7 @@ end
 {:url => "http://1.bp.blogspot.com/-t9nxrXcbNh8/UWvSyZ89rXI/AAAAAAAAQdo/ECkWs_9jKAY/s1600/rakugoka.png", :keyword => "師匠"},
 {:url => "http://1.bp.blogspot.com/-yjkNaka5JAA/Vkcad8bYXyI/AAAAAAAA0cI/TKaFQvDXAVs/s800/doctor_run2.png", :keyword => "ジャンプ"},
 {:url => "http://1.bp.blogspot.com/-ESgM6R9zv3c/U82z5IllMmI/AAAAAAAAjOI/ZjnZEdbJc4M/s800/job_keiji.png", :keyword => "逮捕"},
-{:url => "http://2.bp.blogspot.com/-JPa0Nzk_E8M/Vf-aIH2jsyI/AAAAAAAAyDc/2FG8dSNSk-k/s800/computer_girl.png", :keyword => "脅威"},
+{:url => "http://2.bp.blogspot.com/-JPa0Nzk_E8M/Vf-aIH2jsyI/AAAAAAAAyDc/2FG8dSNSk-k/s800/computer_girl.png", :keyword => "プログラマー"},
 {:url => "http://1.bp.blogspot.com/-T_ETm8C-jFc/VfS6Xrt7BdI/AAAAAAAAxPk/U6owJSWUGYo/s800/job_syokugyou_taiken_girl.png", :keyword => "ナースの"},
 {:url => "http://2.bp.blogspot.com/-43uBGw3S6Rw/VRUS1UZoXuI/AAAAAAAAswo/72c1W5hvMzo/s800/movie_students.png", :keyword => "デート"},
 {:url => "http://4.bp.blogspot.com/-SmXTKx3nBcA/UrlnHYwXxoI/AAAAAAAAcOA/erB3n3GC80E/s800/ramen_syouyu.png", :keyword => "ラーメン"},
