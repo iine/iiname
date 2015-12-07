@@ -73,13 +73,15 @@ module Iiname
       team_name = "No name"
 
       # get team name through rakuten api
-      items = search_by_rakuten(keyword)
-      if (items.count != 0) then
-        item = items.sample
-      else
-        # get team name through google api
-        item = search_by_google(keyword).sample
-      end
+      # items = search_by_rakuten(keyword)
+      # if (items.count != 0) then
+      #   item = items.sample
+      # else
+      #   # get team name through google api
+      #   item = search_by_google(keyword).sample
+      # end
+
+      item = search_by_google(keyword).sample
 
       puts("class = ",item.class)
       puts("#{item.title} by #{item.author}")
