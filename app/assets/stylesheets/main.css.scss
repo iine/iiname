@@ -1,6 +1,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$label_categorize_width: 20px;
+$magenta: #C45E97;
+$green: #43B2AA;
+$purple: #7D80CF;
+
+@mixin label($color: #666) {
+  border-right: $label_categorize_width solid $color;
+  &:after {
+    right: -17px;
+    -webkit-transform: rotate(2.5deg);
+    -moz-transform: rotate(2.5deg);
+    -o-transform: rotate(2.5deg);
+    -ms-transform: rotate(2.5deg);
+    transform: rotate(2.5deg);
+  }
+}
+
 header{
   height: 50px;
   margin-top:10px;
@@ -84,6 +101,15 @@ html.feature-toggle-disabled {
 .sticky_wrapper {
   margin: 0 auto;
   width: 450px;
+  div.places {
+    @include label($green)
+  }
+  div.names {
+    @include label($purple)
+  }
+  div.interests {
+    @include label($magenta)
+  }
 }
 
 .sticky {
@@ -118,7 +144,7 @@ html.feature-toggle-disabled {
 }
 
 .name{
-  font-size: 300%;
+  font-size: 250%;
   color: #000;
    a {
      text-decoration: none;

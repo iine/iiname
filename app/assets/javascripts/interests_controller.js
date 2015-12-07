@@ -10,7 +10,7 @@ app.controller("InterestsController",
     var interests_keyword = vm.images[0].keyword;
     $localStorage.interests_keywords.push(interests_keyword);
     $http.get("/suggestions/any.json", {params: {"interests":  interests_keyword}}).then(function(res){
-      vm.parent.vm.keyword = {word: res.data.keyword};
+      vm.parent.vm.keyword = {word: res.data.keyword, className: "interests"};
       vm.parent.vm.last_suggestion = "interests";
       // $location.url("/names");
     });
@@ -23,7 +23,7 @@ app.controller("InterestsController",
     var interests_keyword = vm.images[1].keyword;
     $localStorage.interests_keywords.push(interests_keyword);
     $http.get("/suggestions/any.json", {params: {"interests": interests_keyword }}).then(function(res){
-      vm.parent.vm.keyword = {word: res.data.keyword};
+      vm.parent.vm.keyword = {word: res.data.keyword, className: "interests"};
       vm.parent.vm.last_suggestion = "interests";
       // $location.url("/names");
     });

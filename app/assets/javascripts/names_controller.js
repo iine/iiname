@@ -9,7 +9,7 @@ app.controller("NamesController",
     $("input[type=button]").attr("disabled", true);
     $localStorage.names_keywords = vm.names;
     $http.get("/suggestions/any.json", {params: {"names[]": vm.names}}).then(function(res) {
-      vm.parent.vm.keyword = {word: res.data.keyword};
+      vm.parent.vm.keyword = {word: res.data.keyword, className: "names"};
       vm.parent.vm.last_suggestion = "names[]";
       $location.url("/place");
     }).finally(function(){
