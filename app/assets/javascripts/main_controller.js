@@ -3,7 +3,7 @@ app.controller("MainController",
               function($scope, $http, $interval, $localStorage) {
   var vm = this;
   vm.list = [];
-  vm.keyword = {word: ""};
+  vm.keyword = {word: "", origin: ""};
   vm.params = {};
   vm.last_suggestion = "";
   vm.requestLock = false;
@@ -35,15 +35,24 @@ app.controller("MainController",
   vm.get_suggestion = function() {
     if (!vm.requestLock) {
       vm.requestLock = true;
-      var params = vm.params;
-      params["places[]"] = _.sample(vm.params["places[]"], 10);
+      var params = {};
+      $.extend(true, params, vm.params); // deep copy
+      var origin = "";
+      if (vm.params["places[]"] != null) {
+        params["places[]"] = _.sample(vm.params["places[]"]["places"], 10);
+      }
       if (vm.last_suggestion != null) {
         params = _.pick(params, vm.last_suggestion);
+        if (vm.last_suggestion == "places[]") {
+          origin = vm.params["places[]"]["origin"];
+        } else if (!_.isEmpty(params)){
+          origin = _.flatten(_.values(params))[0];
+        }
       } else {
         params = {};
       }
       $http.get("/suggestions/any.json", {params: params}).then(function(res){
-        vm.keyword = {word: res.data.keyword, className: vm.last_suggestion.replace("[]", "")};
+        vm.keyword = {word: res.data.keyword, className: vm.last_suggestion.replace("[]", ""), origin: origin};
       }).finally(function(){
         vm.requestLock = false;
       });

@@ -13,6 +13,7 @@
             <div class="sticky new_sticky {{vm.keyword.className}}">
                   <span id="highest_suggestion" ng-bind="vm.keyword.word" class="name"></span>
                   <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
+                  <span class="origin" ng-bind="vm.keyword.origin"></span>
             </div>
           </a>
         </div>
@@ -25,9 +26,8 @@
             <div class="sticky_wrapper">
               <a href="/statuses?keyword={{element.word}}" data-method="post">
                 <div class="sticky {{element.className}}">
-                  <span class="name">
-                    {{element.word}}
-                  </span>
+                  <span class="name" ng-bind="element.word"></span>
+                  <span class="origin" ng-bind="element.origin"></span>
                 </div>
               </a>
             </div>
