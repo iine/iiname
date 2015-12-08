@@ -2,20 +2,23 @@
 @import "bootstrap";
 
 $label_categorize_width: 20px;
-$magenta: #C45E97;
+$magenta: #fee0fe;
 $green: #43B2AA;
+$yellow: #fefeaa;
 $purple: #7D80CF;
+$blue: #e0fefe;
 
 @mixin label($color: #666) {
-  border-right: $label_categorize_width solid $color;
-  &:after {
-    right: -17px;
-    -webkit-transform: rotate(2.5deg);
-    -moz-transform: rotate(2.5deg);
-    -o-transform: rotate(2.5deg);
-    -ms-transform: rotate(2.5deg);
-    transform: rotate(2.5deg);
-  }
+  //border-right: $label_categorize_width solid $color;
+  background-color: $color;
+  // &:after {
+  //   right: -17px;
+  //   -webkit-transform: rotate(2.5deg);
+  //   -moz-transform: rotate(2.5deg);
+  //   -o-transform: rotate(2.5deg);
+  //   -ms-transform: rotate(2.5deg);
+  //   transform: rotate(2.5deg);
+  // }
 }
 
 @mixin question($color) {
@@ -23,7 +26,6 @@ $purple: #7D80CF;
     color: $color;
     margin: 0px;
     padding: 5px;
-    text-decoration: underline;
   }
 }
 
@@ -111,10 +113,10 @@ html.feature-toggle-disabled {
   margin: 0 auto;
   width: 450px;
   div.places {
-    @include label($green)
+    @include label($yellow)
   }
   div.names {
-    @include label($purple)
+    @include label($blue)
   }
   div.interests {
     @include label($magenta)
@@ -162,7 +164,7 @@ html.feature-toggle-disabled {
 }
 
 .new_sticky{
-  background-color:#e0fefe;
+  // background-color:#e0fefe;
 }
 
 .name{
@@ -227,7 +229,7 @@ html.feature-toggle-disabled {
 .interests_controller{
   font-size: 150%;
   text-align: center;
-  @include question($magenta)
+  @include question(darken($magenta, 37%))
 }
 
 .interests_wrapper{
@@ -273,7 +275,7 @@ html.feature-toggle-disabled {
     height: 250px;
     margin-top: 10px;
   }
-  @include question($green)
+  @include question(darken($yellow, 37%))
 }
 
 .place_wrapper{
@@ -286,7 +288,7 @@ html.feature-toggle-disabled {
 .names_controller{
   font-size: 150%;
   text-align: center;
-  @include question($purple)
+  @include question(darken($blue, 37%))
 }
 
 .names_wrapper{
