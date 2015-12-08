@@ -11,7 +11,7 @@ app.controller("NamesController",
     $http.get("/suggestions/any.json", {params: {"names[]": vm.names}}).then(function(res) {
       vm.parent.vm.keyword = {word: res.data.keyword, className: "names", origin: vm.names[0]};
       vm.parent.vm.last_suggestion = "names[]";
-      $location.url("/place");
+      // $location.url("/place");
     }).finally(function(){
       $("input[type=button]").attr("disabled", false);
     });
