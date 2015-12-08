@@ -9,10 +9,16 @@
       <div class="black_line"></div>
       <div class="sticky_margin">
         <div class="sticky_wrapper">
-          <a href="/statuses?keyword={{vm.keyword}}" data-method="post">
-            <div class="sticky new_sticky">
-                  <span id="highest_suggestion" ng-bind="vm.keyword" class="name"></span>
+          <a href="/statuses?keyword={{vm.keyword.word}}" data-method="post">
+            <div class="sticky new_sticky {{vm.keyword.className}}">
+                  <span id="highest_suggestion" ng-bind="vm.keyword.word" class="name"></span>
                   <span id="highest_suggestion_uniqueness" ng-bind="vm.uniqueness"></span>
+                  <span class="origin">
+                    <span ng-if="vm.keyword.origin != null">元となった解答 : "</span>
+                    <img ng-if="vm.keyword.className == 'interests'" ng-src="{{vm.keyword.origin}}" />
+                    <span ng-if="vm.keyword.className != 'interests'" ng-bind="vm.keyword.origin"></span>
+                    <span ng-if="vm.keyword.origin != null">"</span>
+                  </span>
             </div>
           </a>
         </div>
@@ -23,10 +29,14 @@
         <li>
           <div class="sticky_margin">
             <div class="sticky_wrapper">
-              <a href="/statuses?keyword={{element}}" data-method="post">
-                <div class="sticky">
-                  <span class="name">
-                    {{element}}
+              <a href="/statuses?keyword={{element.word}}" data-method="post">
+                <div class="sticky {{element.className}}">
+                  <span class="name" ng-bind="element.word"></span>
+                  <span class="origin">
+                    <span ng-if="element.origin != null">元となった解答 : "</span>
+                    <img ng-if="element.className == 'interests'" ng-src="{{element.origin}}" />
+                    <span ng-if="element.className != 'interests'" ng-bind="element.origin"></span>
+                    <span ng-if="element.origin != null">"</span>
                   </span>
                 </div>
               </a>

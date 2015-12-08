@@ -8,9 +8,9 @@ app.controller("InterestsController",
 
   vm.ileft = function() {
     var interests_keyword = vm.images[0].keyword;
-    $localStorage.interests_keywords.push(interests_keyword);
+    $localStorage.interests_keywords.push({keyword: interests_keyword, url: vm.images[0].url});
     $http.get("/suggestions/any.json", {params: {"interests":  interests_keyword}}).then(function(res){
-      vm.parent.vm.keyword = res.data.keyword;
+      vm.parent.vm.keyword = {word: res.data.keyword, className: "interests", origin: vm.images[0].url};
       vm.parent.vm.last_suggestion = "interests";
       // $location.url("/names");
     });
@@ -21,9 +21,9 @@ app.controller("InterestsController",
 
   vm.iright = function() {
     var interests_keyword = vm.images[1].keyword;
-    $localStorage.interests_keywords.push(interests_keyword);
+    $localStorage.interests_keywords.push({keyword: interests_keyword, url: vm.images[1].url});
     $http.get("/suggestions/any.json", {params: {"interests": interests_keyword }}).then(function(res){
-      vm.parent.vm.keyword = res.data.keyword;
+      vm.parent.vm.keyword = {word: res.data.keyword, className: "interests", origin: vm.images[1].url};
       vm.parent.vm.last_suggestion = "interests";
       // $location.url("/names");
     });

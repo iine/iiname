@@ -1,6 +1,34 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$label_categorize_width: 20px;
+$magenta: #fee0fe;
+$green: #43B2AA;
+$yellow: #fefeaa;
+$purple: #7D80CF;
+$blue: #e0fefe;
+
+@mixin label($color: #666) {
+  //border-right: $label_categorize_width solid $color;
+  background-color: $color;
+  // &:after {
+  //   right: -17px;
+  //   -webkit-transform: rotate(2.5deg);
+  //   -moz-transform: rotate(2.5deg);
+  //   -o-transform: rotate(2.5deg);
+  //   -ms-transform: rotate(2.5deg);
+  //   transform: rotate(2.5deg);
+  // }
+}
+
+@mixin question($color) {
+  p.question {
+    color: $color;
+    margin: 0px;
+    padding: 5px;
+  }
+}
+
 header{
   height: 50px;
   margin-top:10px;
@@ -84,6 +112,28 @@ html.feature-toggle-disabled {
 .sticky_wrapper {
   margin: 0 auto;
   width: 450px;
+  div.places {
+    @include label($yellow)
+  }
+  div.names {
+    @include label($blue)
+  }
+  div.interests {
+    @include label($magenta)
+  }
+  span.origin {
+    display: block;
+    margin: 0px;
+    text-align: right;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.3rem;
+    img {
+      width: 15%;
+      height: 15%;
+    }
+  }
 }
 
 .sticky {
@@ -114,11 +164,11 @@ html.feature-toggle-disabled {
 }
 
 .new_sticky{
-  background-color:#e0fefe;
+  // background-color:#e0fefe;
 }
 
 .name{
-  font-size: 300%;
+  font-size: 250%;
   color: #000;
    a {
      text-decoration: none;
@@ -179,6 +229,7 @@ html.feature-toggle-disabled {
 .interests_controller{
   font-size: 150%;
   text-align: center;
+  @include question(darken($magenta, 37%))
 }
 
 .interests_wrapper{
@@ -219,10 +270,12 @@ html.feature-toggle-disabled {
 .place_controller{
   font-size: 150%;
   text-align: center;
-    #map{
-      width: 600px;
-      height: 250px;
-    }
+  #map{
+    width: 600px;
+    height: 250px;
+    margin-top: 10px;
+  }
+  @include question(darken($yellow, 37%))
 }
 
 .place_wrapper{
@@ -235,6 +288,7 @@ html.feature-toggle-disabled {
 .names_controller{
   font-size: 150%;
   text-align: center;
+  @include question(darken($blue, 37%))
 }
 
 .names_wrapper{

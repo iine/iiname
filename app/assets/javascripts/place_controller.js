@@ -6,11 +6,11 @@ app.controller("PlaceController",
   // vm.prefectures = [];
   vm.places = [];
 
-  vm.select = function(e) {
+  vm.select = function(origin_adress) {
     delete $localStorage.places_keywords;
-    $localStorage.places_keywords = vm.places;
+    $localStorage.places_keywords = {origin: origin_adress, places: vm.places};
   　$http.get("/suggestions/any.json", {params: { "places[]": _.sample(vm.places, 10)}}).then(function(res) {
-      vm.parent.vm.keyword = res.data.keyword;
+      vm.parent.vm.keyword = {word: res.data.keyword, className: "places", origin: origin_adress};
       vm.parent.vm.last_suggestion = "places[]";
     });
   }
@@ -34,7 +34,7 @@ app.controller("PlaceController",
         marker.setMap(null);
       })
       createMarker(e.latLng, e.latLng.toString());
-      nearbySearch(map, e.latLng);
+      nearbySearch(map, e.latLng, e.latLng.lat() + "," + e.latLng.lng());
     });
 
     infowindow = new google.maps.InfoWindow();
@@ -43,19 +43,19 @@ app.controller("PlaceController",
       return;
     }
 
-    nearbySearch(map, city);
+    nearbySearch(map, city, name);
   }
 
-  function nearbySearch(map, location){
+  function nearbySearch(map, location, origin_adress){
     var request = {
         location: location,
         radius: 1000  /* 指定した座標から半径1000m以内 */
     };
     var service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, callback);
+    service.nearbySearch(request, callback.bind(this, origin_adress));
   }
 
-  function callback(results, status) {
+  function callback(origin_adress, results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       vm.places = [];
       var j = 1;
@@ -100,7 +100,7 @@ app.controller("PlaceController",
       //   $(".place2").text(results[2].name);
       //   createMarker(results[5]);
       // }
-      vm.select();
+      vm.select(origin_adress);
     }
   }
 
@@ -116,7 +116,7 @@ app.controller("PlaceController",
         infowindow.open(map, this);
     });
     google.maps.event.addListener(marker, 'dragend', function(e) {
-      nearbySearch(map, e.latLng);
+      nearbySearch(map, e.latLng, e.latLng.lat() + "," + e.latLng.lng());
     });
     markers.push(marker);
     return marker;

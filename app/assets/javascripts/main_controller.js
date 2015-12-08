@@ -3,9 +3,9 @@ app.controller("MainController",
               function($scope, $http, $interval, $localStorage) {
   var vm = this;
   vm.list = [];
-  vm.keyword = "";
+  vm.keyword = {word: "", origin: null};
   vm.params = {};
-  vm.last_suggestion = null;
+  vm.last_suggestion = "";
   vm.requestLock = false;
   $localStorage.$default({
     interests_keywords: [],
@@ -16,7 +16,7 @@ app.controller("MainController",
   $scope.$watch(function() {
     return vm.keyword;
   }, function(newVal, oldVal) {
-    if (oldVal != null && oldVal != "") {
+    if (oldVal != null && oldVal.word != "") {
       vm.list.push(oldVal);
     }
   }, true);
@@ -35,15 +35,27 @@ app.controller("MainController",
   vm.get_suggestion = function() {
     if (!vm.requestLock) {
       vm.requestLock = true;
-      var params = vm.params;
-      params["places[]"] = _.sample(vm.params["places[]"], 10);
+      var params = {};
+      $.extend(true, params, vm.params); // deep copy
+      var origin = null;
+      if (vm.params["places[]"] != null) {
+        params["places[]"] = _.sample(vm.params["places[]"]["places"], 10);
+      }
       if (vm.last_suggestion != null) {
         params = _.pick(params, vm.last_suggestion);
+        if (vm.last_suggestion == "places[]") {
+          origin = vm.params["places[]"]["origin"];
+        } else if (vm.last_suggestion == "interests"){
+          origin = params["interests"]["url"];
+          params["interests"] = params["interests"]["keyword"];
+        } else {
+          origin = _.flatten(_.values(params))[0];
+        }
       } else {
         params = {};
       }
       $http.get("/suggestions/any.json", {params: params}).then(function(res){
-        vm.keyword = res.data.keyword;
+        vm.keyword = {word: res.data.keyword, className: vm.last_suggestion.replace("[]", ""), origin: origin};
       }).finally(function(){
         vm.requestLock = false;
       });
