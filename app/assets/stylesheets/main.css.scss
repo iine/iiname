@@ -113,10 +113,10 @@ html.feature-toggle-disabled {
   margin: 0 auto;
   width: 450px;
   div.places {
-    @include label($yellow)
+    @include label($blue)
   }
   div.names {
-    @include label($blue)
+    @include label($yellow)
   }
   div.interests {
     @include label($magenta)
@@ -270,7 +270,7 @@ html.feature-toggle-disabled {
     height: 250px;
     margin-top: 10px;
   }
-  @include question(darken($yellow, 37%))
+  @include question(darken($blue, 37%))
 }
 
 .place_wrapper{
@@ -283,7 +283,7 @@ html.feature-toggle-disabled {
 .names_controller{
   font-size: 150%;
   text-align: center;
-  @include question(darken($blue, 37%))
+  @include question(darken($yellow, 37%))
 }
 
 .names_wrapper{
