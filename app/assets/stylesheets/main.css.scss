@@ -23,9 +23,11 @@ $blue: #e0fefe;
 
 @mixin question($color) {
   p.question {
-    color: $color;
     margin: 0px;
     padding: 5px;
+    span{
+      background-color: $color;
+    }
   }
 }
 
@@ -93,9 +95,9 @@ ul.menu {
   text-align: center;
 }
 
-.question{
+/* .question{
   padding: 20px;
-}
+}*/
 
 html.feature-toggle-disabled {
   .feature-toggle {
@@ -224,7 +226,7 @@ html.feature-toggle-disabled {
 .interests_controller{
   font-size: 150%;
   text-align: center;
-  @include question(darken($magenta, 37%))
+  @include question($magenta)
 }
 
 .interests_wrapper{
@@ -270,7 +272,7 @@ html.feature-toggle-disabled {
     height: 250px;
     margin-top: 10px;
   }
-  @include question(darken($blue, 37%))
+  @include question($blue)
 }
 
 .place_wrapper{
@@ -283,7 +285,7 @@ html.feature-toggle-disabled {
 .names_controller{
   font-size: 150%;
   text-align: center;
-  @include question(darken($yellow, 37%))
+  @include question($yellow)
 }
 
 .names_wrapper{
