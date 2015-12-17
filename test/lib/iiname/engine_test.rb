@@ -30,19 +30,10 @@ class Iiname::EngineTest < ActiveSupport::TestCase
     assert_equal([name], Iiname::Engine.new(mode: :hot_trend).fetch)
   end
 
-  test "should return one result of book title" do
-    #create_search_stub
+  test "should return some results of book titles" do
     create_google_book_search_stub
-    create_rakuten_search_stub("長嶋茂雄", 1)
-    #create_rakuten_search_stub("長嶋茂雄", 2)
-    assert_kind_of(String, Iiname::Engine.new(keyword: "長嶋茂雄", mode: :book).fetch.first)
-    #assert_kind_of(RakutenWebService::Book::Book, Iiname::Engine.new(keyword: "長嶋茂雄").fetch(mode: :book).first)
-  end
-
-  test "should return one result of book title" do
-    create_google_book_search_stub
-    create_rakuten_search_stub("長嶋茂雄", 1)
-    #create_rakuten_search_stub("長嶋茂雄", 2)
-    assert_equal(4, Iiname::Engine.new(keyword: "長嶋茂雄", mode: :book).fetch.size)
+    key = "長嶋茂雄"
+    title = "［完全版］長嶋茂雄大事典"
+    assert_equal(title, Iiname::Engine.new(keyword: key, mode: :book).first.title)
   end
 end
