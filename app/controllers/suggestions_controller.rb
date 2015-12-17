@@ -57,7 +57,7 @@ class SuggestionsController < ApplicationController
     searched_keyword = ""
     unless skip_search
       search_results = Iiname::Engine.new(keyword: origin_keyword, mode: m).fetch
-      searched_keyword = search_results.sample.title
+      searched_keyword = search_results.sample.title.slice(0..19)
       morph_target = searched_keyword
     end
     nouns = MorphologicalAnalyser.new.extract_noun(morph_target)
