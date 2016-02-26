@@ -25,7 +25,7 @@ module Iiname
       when :hot_trend
         search_by_hot_trend
       when :book
-        search_by_webapi(@keyword)
+        search_by_google(@keyword)
       else
         Google::Search::Web.new(query: @keyword, language: @language).to_a
       end
@@ -70,55 +70,23 @@ module Iiname
     def search_by_webapi(keyword)
       puts("start search_by_webapi(", keyword, ")");
 
-      team_name = "No name"
+      team_name = search_by_google(keyword).sample || "No name"
 
-      # get team name through rakuten api
-      items = search_by_rakuten(keyword)
-      if (items.count != 0) then
-        item = items.sample
-      else
-        # get team name through google api
-        item = search_by_google(keyword).sample
-      end
-
-      puts("class = ",item.class)
-      puts("#{item.title} by #{item.author}")
-      team_name = item.title
       return team_name
-    end
-
-    # rakten search
-    def search_by_rakuten(keyword)
-      puts("start search_by_rakuten(", keyword, ")");
-
-      # configure environmental variables
-      RakutenWebService.configuration do |c|
-        c.application_id = ENV["APPID"]
-        c.affiliate_id = ENV["AFID"]
-      end
-
-      #r_items = RakutenWebService::Ichiba::Item.ranking(:age => 30, :sex => 0)
-      #r_items = RakutenWebService::Books::CD.search(:title => keyword)
-      #r_items = RakutenWebService::Books::CD.search(:artistName => keyword)
-      #r_items = RakutenWebService::Books::Book.search(:title => keyword)
-      r_items = RakutenWebService::Books::Book.search(:author => keyword, :page => 1)
-
-      items = r_items.to_a
-
-      puts("rakuten_web_service hit #{items.count} items.")
-      #items.each_with_index do |item, i| puts "#{i}: #{item.class} title=#{item.title}" end
-      puts("return is #{items.class}")
-      return items
     end
 
     # google search
     def search_by_google(keyword)
       puts("start search_by_google(" << keyword << ")");
-      items = Google::Search::Book.new(:query => keyword).to_a
-      puts("google_web_service hit #{items.count} items.");
-      # items.each_with_index do |item, i| puts "#{i}: #{item.class} title=#{item.title}" end
-      puts("return is #{items.class}")
-      return items
+
+      ret = Array.new()
+      Google::Search::Book.new(:query => keyword).each do |item|
+        #puts "title=#{item.title}"
+        ret << item
+      end
+      puts("return #{ret.length} items")
+      #puts("#{ret}")
+      return ret
     end
   end
 end

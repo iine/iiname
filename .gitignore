@@ -28,3 +28,4 @@ doc/
 .secret
 /*.iml
 /vendor/bundle
+/TAGS

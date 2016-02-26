@@ -41,8 +41,7 @@ class SuggestionsController < ApplicationController
 
     if params[:names].present? and params[:names].kind_of?(Array)
       origin_keyword = params[:names].join(" ")
-      str = Iiname::Engine.new(:keyword => origin_keyword, mode: :book).fetch()
-      render json: {keyword: str, origin: origin_keyword} and return
+      ignite_engine(params[:names].join, false, :book) and return
     end
 
     unless @suggestion.present?
@@ -53,12 +52,12 @@ class SuggestionsController < ApplicationController
     end
   end
 
-  def ignite_engine(origin_keyword, skip_search=false)
+  def ignite_engine(origin_keyword, skip_search=false, m = :web)
     morph_target = origin_keyword
     searched_keyword = ""
     unless skip_search
-      search_results = Iiname::Engine.new(keyword: origin_keyword).fetch
-      searched_keyword = search_results.sample.title
+      search_results = Iiname::Engine.new(keyword: origin_keyword, mode: m).fetch
+      searched_keyword = search_results.sample.title.slice(0..19)
       morph_target = searched_keyword
     end
     nouns = MorphologicalAnalyser.new.extract_noun(morph_target)

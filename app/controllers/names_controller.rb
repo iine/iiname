@@ -12,8 +12,7 @@ class NamesController < ApplicationController
     #str = Iiname::Engine.new(params).fetch(mode: "Book", suggestion_params.join(" "))
     #str = Iiname::Engine.new.search_by_webapi(suggestion_params.join(" "))
     #str = Iiname::Engine.new(:keyword => suggestion_params.join(" ")).fetch(mode: "Book")
-    str = Iiname::Engine.new(:keyword => suggestion_params.join(" "), mode: :Web).fetch()
-    puts("str is #{str.class}")
+    str = Iiname::Engine.new(:keyword => suggestion_params.join(" "), mode: :book).fetch.first
     render json: {keyword: str}
   end
 
