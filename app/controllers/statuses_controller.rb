@@ -16,6 +16,14 @@ class StatusesController < ApplicationController
       end
   end
 
+  def exist
+    if @status.exist?(:keyword_id => "#{params[:keyword]}")
+ 　   puts("このチーム名は既に登録済みです。")
+    else
+      puts("このチーム名はまだ未登録です。")
+    end
+  end
+
   def result
     @name = params[:name]
   end
